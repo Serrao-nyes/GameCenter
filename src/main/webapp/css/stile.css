@@ -6,10 +6,19 @@
 }
 
 body {
-  background-image:url("../images/background.jpg");
+  /*background-image: url("../images/background.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;*/
+}
+
+#sfondo {
+  background-image: url("../images/background.jpg");
   background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  width: 100%;
+  position: absolute;
 }
 
 /*------------NAV SECTION----------*/
@@ -211,7 +220,7 @@ body {
   justify-content: center;
   align-items: center;
 }
-.badge{
+.badge {
   width: 30px;
   height: 30px;
   background-color: white;
@@ -290,6 +299,21 @@ body {
   height: 35px;
   border-radius: 20px;
   background: #e9872b;
+  color: #fff;
+  margin: 4px;
+  font-size: small;
+  text-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+  display: inline-block;
+  border: none;
+  margin-bottom: 5px;
+}
+
+.badge {
+  width: 35px;
+  height: 35px;
+  border-radius: 20px;
   color: #fff;
   margin: 4px;
   font-size: small;

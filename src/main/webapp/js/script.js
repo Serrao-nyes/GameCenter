@@ -131,22 +131,6 @@ function createStoreBadge()
                 fetchGames(PageNumber, PageSize, Store)
             }
         })
-        var reset = document.createElement("button")
-        reset.textContent="Tutti i giochi"
-        reset.setAttribute("id", "reset")
-        PlatformContainer.append(reset)
-        reset.addEventListener('click', function () {
-           if(Store!=null){
-            Filtred = false
-            Store=null
-            cleanGameContainer()
-            cleanPosizione()
-            fetchGames(PageNumber, PageSize, Store)}
-        })
-        /* var microsoftstore
-         var playstore
-         var applestore
-         var ithci*/
     }
 function creatGame(name,image) {
     var Reference= document.createElement("a")
