@@ -7,9 +7,9 @@
 
 body {
   /*background-image: url("../images/background.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;*/
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;*/
 }
 
 #sfondo {
@@ -214,38 +214,26 @@ body {
   }
 }
 
-/*---------Main Section----------*/
-
-.main {
-  justify-content: center;
-  align-items: center;
-}
 .badge {
-  width: 30px;
-  height: 30px;
-  background-color: white;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
   background-size: cover;
   border-radius: 100%;
   margin-left: 0px;
-  text-align: right;
+  text-align: left;
   text-decoration: none;
 }
+
 /*------------Piattaforme----------*/
+
 #Platforms {
-  height: 50px;
-  background: #80d893;
+  background-color: #141414;
+  background-image: linear-gradient(to bottom, #161312 0%, #1b1a1a 100%);
+  text-align: left;
+  padding-left: 95px;
+  padding: auto;
 }
-
-/*--------Image Section-----------*/
-.img_container {
-  background: #141411;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/*----------Game Section-------------*/
 
 .game_container {
   width: 100%;
@@ -257,39 +245,6 @@ body {
   color: #fff;
   margin: auto;
   padding-top: 5px;
-}
-
-#games {
-  padding-top: 10px;
-}
-
-.GameSpace {
-  border-radius: 8px;
-  background-color: black;
-  width: 250px;
-  height: 200px;
-  display: inline-block;
-  vertical-align: top;
-  margin: 5px 15px 15px;
-}
-
-.GameSpace:hover {
-  transform: scale(1.1);
-  transition: all 0.4s ease-in-out;
-  transition-delay: 50ms;
-}
-
-.GameImage {
-  width: 250px;
-  height: 150px;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
-}
-.GameName {
-  background-color: black;
-  color: antiquewhite;
 }
 
 /*----------bottoni------------*/
@@ -311,16 +266,18 @@ body {
 }
 
 .badge {
-  width: 35px;
-  height: 35px;
-  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
   color: #fff;
-  margin: 4px;
+  margin: 15px;
   font-size: small;
-  text-align: center;
-  align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
   display: inline-block;
   border: none;
   margin-bottom: 5px;
+}
+
+#gog {
+  background-color: aliceblue;
 }

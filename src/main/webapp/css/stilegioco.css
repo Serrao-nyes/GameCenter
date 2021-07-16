@@ -1,0 +1,114 @@
+.container {
+  width: 100%;
+  max-width: 1300px;
+  position: relative;
+  text-align: center;
+  height: auto;
+  background: #141414;
+  color: #fff;
+  margin: auto;
+  padding-top: 5px;
+}
+
+#sezione_principale {
+  display: flex;
+}
+
+#foto {
+  height: 400px;
+  width: 250px;
+  background-color: pink;
+  margin-bottom: 5px;
+}
+
+#info {
+  width: 800px;
+  height: 400px;
+  background-color: pink;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-left: 20px;
+  overflow: hidden;
+}
+
+.product .infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-left: 20px;
+  background: #fff;
+  overflow: hidden;
+}
+
+#sub_info {
+  border: 1px solid rgba(62, 62, 62, 0.2);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0;
+  background: rgba(0, 0, 0, 0.04);
+  flex-wrap: wrap;
+  padding: 5px;
+}
+#Titolo_gioco {
+  border: 1px solid rgba(62, 62, 62, 0.2);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 10px 0;
+  background: rgba(0, 0, 0, 0.04);
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+#logo_piattaforma {
+  width: 35px;
+  height: 35px;
+  background-color: transparent;
+  background-size: cover;
+  background-image: url("../images/steam-logo-transparent.png");
+  border-radius: 100%;
+  margin-left: 0px;
+  text-align: right;
+  text-decoration: none;
+}
+
+#link_acquisto {
+  display: flex;
+  text-align: center;
+  height: 80px;
+  width: 100%;
+  padding: 0px;
+  padding-bottom: 10px;
+  background: pink;
+}
+
+#acquisto {
+  width: 50%;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+#player {
+  width: 728px;
+  height: 410px;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+}
+
+#sezione_secondaria {
+  padding-top: 80px;
+}

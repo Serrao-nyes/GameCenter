@@ -1,0 +1,48 @@
+.main {
+  justify-content: center;
+  align-items: center;
+}
+
+/*--------Image Section-----------*/
+.img_container {
+  background: #141411;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*----------Game Section-------------*/
+
+#games {
+  padding-top: 10px;
+}
+
+.GameSpace {
+  border-radius: 8px;
+  background-color: black;
+  width: 250px;
+  height: 200px;
+  display: inline-block;
+  vertical-align: top;
+  margin: 5px 15px 15px;
+}
+
+.GameSpace:hover {
+  transform: scale(1.1);
+  transition: all 0.4s ease-in-out;
+  transition-delay: 50ms;
+}
+
+.GameImage {
+  width: 250px;
+  height: 150px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.GameName {
+  background-color: black;
+  color: antiquewhite;
+}

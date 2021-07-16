@@ -4,12 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Center</title>
+    <title>Nome Gioco</title>
 
     <!-- Bootstrap CSS -->
     <link href="../css/stilecomune.css" rel="stylesheet" type="text/css">
-    <link href="../css/stilehome.css" rel="stylesheet" type="text/css">
-
+    <link href="../css/stilegioco.css" rel="stylesheet" type="text/css">
     
     <!-- Optional JavaScript -->
     <script defer src="../js/script.js"></script>
@@ -42,26 +41,38 @@
         </div>
     </nav> 
     
-    <!--Main Section-->
+   <!--Main Section-->
     <div class="main">
-        <!--Image Section-->
+        <!--Image Section
         <div class="img_container">
             <img src="../images/logo_centergame.png" alt="pic" id="immagine">
-        </div>
+        </div>-->
 
         <div class="Background" id="sfondo" >
             <!--Platforms-->
         <div class="game_container" id="Platforms">
-            <div id="nome"></div>
         </div>
 
-        <!--Game Section-->
-        <div class="game_container" id="games">
+        <div class="container" id="sezione_principale">
+            <div class="container" id="foto"></div>
+            <div class="container" id="info">
+                <div  id = "Titolo_gioco"> Titolo </div>
+                <div id="sub_info"> <div id ="logo_piattaforma"> </div> </div>
+                <div id = lingue > lingua 1 - lingua 2 - lingua 3</div>
+                <div id= categorie> azione avventura multiplayer rpg</div>
+                <div  id= link_acquisto> <div class = "button" id= "acquisto"> <h1>Acquista</h1></div></div>
+            </div>
             
         </div>
-        <!--Pulsanti Pagina-->
-        <div class="game_container" id="Page_btn"></div>
+        <div class="container" id="sezione_secondaria">
+            <div class="container" id="video">
+                <iframe id= "player" src="https://www.youtube.com/embed/ChDof6K--GI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div id="screen"><h1>sezione screen le dimesioni saranno definite in seguito</h1></div>
+            <div id="descrizione"><h3>qui ci andranno le descrizioni del gioco per come li vogliamo noi</h3></div>
+            <div id="requisiti"> <h3>qua invece i requisiti, la fromattazione sarà configurato a testo inserito </h3> </div>
         </div>
+        
 
         
         
