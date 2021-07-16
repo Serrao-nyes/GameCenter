@@ -1,9 +1,9 @@
 package it.unical.mat.webcomp21.persistence;
-import it.unical.mat.webcomp21.persistence.dao.GiochiDesideratiDAO;
-import it.unical.mat.webcomp21.persistence.dao.GiochiPossedutiDAO;
+import it.unical.mat.webcomp21.persistence.dao.GiocoDesideratoDAO;
+import it.unical.mat.webcomp21.persistence.dao.GiocoPossedutoDAO;
 import it.unical.mat.webcomp21.persistence.dao.UtenteDAO;
-import it.unical.mat.webcomp21.persistence.dao.jdbc.GiochiDesideratiDAOJDBC;
-import it.unical.mat.webcomp21.persistence.dao.jdbc.GiochiPossedutiDAOJDBC;
+import it.unical.mat.webcomp21.persistence.dao.jdbc.GiocoDesideratoDAOJDBC;
+import it.unical.mat.webcomp21.persistence.dao.jdbc.GiocoPossedutoDAOJDBC;
 import it.unical.mat.webcomp21.persistence.dao.jdbc.UtenteDAOJDBC;
 
 public class DBManager {
@@ -37,12 +37,12 @@ public class DBManager {
 		return dataSource;
 	}
 	
-	public GiochiPossedutiDAO giochiPossedutiDAO() {
-		return new GiochiPossedutiDAOJDBC(dataSource);
+	public GiocoPossedutoDAO giocoPossedutoDAO() {
+		return new GiocoPossedutoDAOJDBC(dataSource);
 	}
 	
-	public GiochiDesideratiDAO giochiDesideratiDAO() {
-		return new GiochiDesideratiDAOJDBC(dataSource);
+	public GiocoDesideratoDAO giocoDesideratoDAO() {
+		return new GiocoDesideratoDAOJDBC(dataSource);
 	}
 	
 	public UtenteDAO utenteDAO() {

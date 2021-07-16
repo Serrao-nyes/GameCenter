@@ -4,26 +4,26 @@ import java.util.List;
 
 public class Utente {
 	
-	private String email;
+	private String username;
 	
 	private String password;
 	
-	private String username;
+	private String email;
 	
 	private String nome;
 	
 	private String cognome;
 	
-	private List<GiochiPosseduti> giochiPosseduti;
+	private List<GiocoPosseduto> giochiPosseduti;
 	
-	private List<GiochiDesiderati> giochiDesiderati;
-
-	public String getEmail() {
-		return email;
+	private List<GiocoDesiderato> giochiDesiderati;
+	
+	public void setUser(String username) {
+		this.username = username;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public String getUser() {
+		return username;
 	}
 
 	public String getPassword() {
@@ -33,13 +33,13 @@ public class Utente {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
-	public String getUser() {
-		return username;
+	
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUser(String username) {
-		this.username = username;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getNome() {
@@ -58,19 +58,19 @@ public class Utente {
 		this.cognome = cognome;
 	}
 
-	public List<GiochiPosseduti> getGiochiPosseduti() {
+	public List<GiocoPosseduto> getGiochiPosseduti() {
 		return giochiPosseduti;
 	}
 
-	public void setGiochiPosseduti(List<GiochiPosseduti> giochiPosseduti) {
+	public void setGiochiPosseduti(List<GiocoPosseduto> giochiPosseduti) {
 		this.giochiPosseduti = giochiPosseduti;
 	}
 
-	public List<GiochiDesiderati> getGiochiDesiderati() {
+	public List<GiocoDesiderato> getGiochiDesiderati() {
 		return giochiDesiderati;
 	}
 
-	public void setGiochiDesiderati(List<GiochiDesiderati> giochiDesiderati) {
+	public void setGiochiDesiderati(List<GiocoDesiderato> giochiDesiderati) {
 		this.giochiDesiderati = giochiDesiderati;
 	}
 

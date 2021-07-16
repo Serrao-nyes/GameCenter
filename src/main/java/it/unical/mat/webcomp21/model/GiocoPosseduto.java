@@ -1,19 +1,19 @@
 package it.unical.mat.webcomp21.model;
 
-public class GiochiPosseduti {
+public class GiocoPosseduto {
 	
-	private int idGioco;
+	private int id;
 	
 	private boolean giocato;
 	
 	private boolean completato;
 
-	public int getIdGioco() {
-		return idGioco;
+	public int getId() {
+		return id;
 	}
 
-	public void setIdGioco(int idGioco) {
-		this.idGioco = idGioco;
+	public void setId(int idGioco) {
+		this.id = idGioco;
 	}
 
 	public boolean isGiocato() {
