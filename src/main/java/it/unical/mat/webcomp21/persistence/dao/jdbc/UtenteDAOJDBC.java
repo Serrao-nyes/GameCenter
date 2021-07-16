@@ -48,7 +48,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 	public Utente findByPrimaryKey(String username) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String query = "SELECT * FROM utente WHERE username=?";
+			String query = "SELECT * FROM utente WHERE username = ?";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, username);
 			ResultSet rs = st.executeQuery();
@@ -96,7 +96,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 	public void update(Utente utente) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String update = "UPDATE utente SET username = ?, password = ?, email = ?, nome = ?, cognome = ? WHERE matricola = ?";
+			String update = "UPDATE utente SET username = ?, password = ?, email = ?, nome = ?, cognome = ? WHERE username = ?";
 			PreparedStatement st = conn.prepareStatement(update);
 			st.setString(1, utente.getUser());
 			st.setString(2, BCrypt.hashpw(utente.getPassword(), BCrypt.gensalt(12)));
@@ -115,7 +115,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 	public void delete(Utente utente) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String delete = "DELETE FROM studente WHERE username = ? ";
+			String delete = "DELETE FROM utente WHERE username = ? ";
 			PreparedStatement st = conn.prepareStatement(delete);
 			st.setString(1, utente.getUser());
 			st.executeUpdate();

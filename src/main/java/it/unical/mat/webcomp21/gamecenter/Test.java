@@ -2,6 +2,9 @@ package it.unical.mat.webcomp21.gamecenter;
 
 import org.springframework.security.crypto.bcrypt.BCrypt;
 
+import it.unical.mat.webcomp21.model.Utente;
+import it.unical.mat.webcomp21.persistence.DBManager;
+
 public class Test {
 	
 	public static void main(String[] args) {
@@ -13,6 +16,16 @@ public class Test {
 		}
 		else
 			System.out.println("Password sbagliata!");
+		Utente u = new Utente();
+		u.setUser("prova");
+		u.setPassword("prova");
+		u.setEmail("prova@prova");
+		u.setNome("Mario");
+		u.setCognome("Rossi");
+		DBManager.getInstance().utenteDAO().save(u);
+//		Utente u = new Utente();
+//		u.setUser("prova");
+//		DBManager.getInstance().utenteDAO().delete(u);
 	}
 	
 }
