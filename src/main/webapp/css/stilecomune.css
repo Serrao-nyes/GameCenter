@@ -82,6 +82,10 @@ body {
   height: 100%;
 }
 
+#Log_in {
+  flex-direction: column;
+}
+
 .nav_btn {
   display: flex;
   justify-content: center;
