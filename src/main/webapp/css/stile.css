@@ -233,18 +233,20 @@ body {
 /*------------Piattaforme----------*/
 #Platforms {
   height: 50px;
-  background: #80d893;
+  background: black;
 }
 
 /*--------Image Section-----------*/
 .img_container {
   background: #141411;
-  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+#immagine{
+  height: 100px;
+  width:inherit;
+}
 /*----------Game Section-------------*/
 
 .game_container {
