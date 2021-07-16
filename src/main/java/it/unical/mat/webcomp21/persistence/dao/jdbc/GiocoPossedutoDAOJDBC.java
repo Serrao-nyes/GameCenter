@@ -1,0 +1,116 @@
+package it.unical.mat.webcomp21.persistence.dao.jdbc;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.security.crypto.bcrypt.BCrypt;
+
+import it.unical.mat.webcomp21.model.GiocoPosseduto;
+import it.unical.mat.webcomp21.model.Utente;
+import it.unical.mat.webcomp21.persistence.DBSource;
+import it.unical.mat.webcomp21.persistence.dao.GiocoPossedutoDAO;
+
+public class GiocoPossedutoDAOJDBC implements GiocoPossedutoDAO {
+	
+	private DBSource dbSource;
+
+	public GiocoPossedutoDAOJDBC(DBSource dbSource) {
+		this.dbSource = dbSource;
+	}
+
+	@Override
+	public void save(GiocoPosseduto giocoPosseduto) {
+		try {
+			Connection conn = dbSource.getConnection();
+			String query = "INSERT INTO giocoposseduto VALUES(?,?,?)";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setInt(1, giocoPosseduto.getId());
+			st.setBoolean(2, giocoPosseduto.isGiocato());
+			st.setBoolean(3, giocoPosseduto.isCompletato());
+			st.executeUpdate();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public GiocoPosseduto findByPrimaryKey(int id) {
+		try {
+			Connection conn = dbSource.getConnection();
+			String query = "SELECT * FROM giocoposseduto WHERE id=?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setInt(1, id);
+			ResultSet rs = st.executeQuery();
+			if(rs.next()) {
+				GiocoPosseduto gp = new GiocoPosseduto();
+				gp.setId(rs.getInt("id"));
+				gp.setGiocato(rs.getBoolean("giocato"));
+				gp.setCompletato(rs.getBoolean("completato"));
+				conn.close();
+				return gp;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public List<GiocoPosseduto> findAll() {
+		List<GiocoPosseduto> giochiPosseduti = new ArrayList<GiocoPosseduto>();
+		try {
+			Connection conn = dbSource.getConnection();
+			String query = "SELECT * FROM giocoposseduto";
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(query);
+			while (rs.next()) {
+				GiocoPosseduto gp = new GiocoPosseduto();
+				gp.setId(rs.getInt("id"));
+				gp.setGiocato(rs.getBoolean("giocato"));
+				gp.setCompletato(rs.getBoolean("completato"));
+				giochiPosseduti.add(gp);
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return giochiPosseduti;
+	}
+
+	@Override
+	public void update(GiocoPosseduto giocoPosseduto) {
+		try {
+			Connection conn = dbSource.getConnection();
+			String update = "UPDATE giocoposseduto SET id = ?, giocato = ?, completato = ? WHERE id = ?";
+			PreparedStatement st = conn.prepareStatement(update);
+			st.setInt(1, giocoPosseduto.getId());
+			st.setBoolean(2, giocoPosseduto.isGiocato());
+			st.setBoolean(3, giocoPosseduto.isCompletato());
+			st.executeUpdate();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void delete(GiocoPosseduto giocoPosseduto) {
+		try {
+			Connection conn = dbSource.getConnection();
+			String delete = "DELETE FROM giocoposseduto WHERE id = ? ";
+			PreparedStatement st = conn.prepareStatement(delete);
+			st.setInt(1, giocoPosseduto.getId());
+			st.executeUpdate();
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}
