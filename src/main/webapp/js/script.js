@@ -133,23 +133,22 @@ function createStoreBadge()
         })
     }
 function creatGame(name,image,id) {
-    var Reference= document.createElement("a")
     var Space = document.createElement('div');
     Space.classList.add("GameSpace");
     Space.className = "GameSpace"
-    Space.setAttribute("href","GamePage.html")
+    var Reference = document.createElement('a');
+    Reference.setAttribute("href","GamePage.html")
+    Space.append(Reference)
     var Img = document.createElement('div')
     Img.classList.add("GameImage")
     Img.style.backgroundImage = "url(" + image + ")"
     var Name = document.createElement('div');
     Name.classList.add("GameName");
     Name.textContent = name
-    Space.append(Img);
+    Reference.append(Img);
     Space.append(Name);
-    Reference.append(Space)
     var buttonWishlist=document.createElement("button")
-    buttonWishlist.classList.add("badge")
-    buttonWishlist.setAttribute("style", "background-color: red")
+    buttonWishlist.classList.add("wishlist")
     buttonWishlist.setAttribute("href","doGiochiDesiderati")
     buttonWishlist.addEventListener("click",function ()
     {
@@ -164,7 +163,7 @@ function creatGame(name,image,id) {
                 {    alert("Gioco aggiunto alla lista dei desideri")}
                 else
                 {
-                   alert("Logga per aggiungereun gioco alla lista desideri")
+                    alert("Logga per aggiungereun gioco alla lista desideri")
                 }
             },
             fail: function( jqXHR, textStatus ) {
@@ -174,8 +173,8 @@ function creatGame(name,image,id) {
         });
     })
 
-    GameContainer.append(buttonWishlist)
-    GameContainer.append(Reference);
+    Img.append(buttonWishlist)
+    GameContainer.append(Space);
 
 }
 function  createButton()
