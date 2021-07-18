@@ -132,51 +132,52 @@ function createStoreBadge()
             }
         })
     }
-function creatGame(name,image,id) {
-    var Space = document.createElement('div');
-    Space.classList.add("GameSpace");
-    Space.className = "GameSpace"
-    var Reference = document.createElement('a');
-    Reference.setAttribute("href","GamePage.html")
-    Space.append(Reference)
-    var Img = document.createElement('div')
-    Img.classList.add("GameImage")
-    Img.style.backgroundImage = "url(" + image + ")"
-    var Name = document.createElement('div');
-    Name.classList.add("GameName");
-    Name.textContent = name
-    Reference.append(Img);
-    Space.append(Name);
-    var buttonWishlist=document.createElement("button")
-    buttonWishlist.classList.add("wishlist")
-    buttonWishlist.setAttribute("href","doGiochiDesiderati")
-    buttonWishlist.addEventListener("click",function ()
-    {
-        console.log(id)
-        $.ajax({
-            url:"doGiochiDesiderati",
-            type:"POST",
-            data: {idGiocodesiderato : id},
-            success:function (response)
-            {
-                if (response)
-                {    alert("Gioco aggiunto alla lista dei desideri")}
-                else
+    function creatGame(name,image) {
+        var Reference= document.createElement("a")
+        Reference.setAttribute("href","GamePage.html")
+        var Space = document.createElement('div');
+        Space.classList.add("GameSpace");
+        Space.className = "GameSpace"
+        Space.setAttribute("href","GamePage.html")
+        var Img = document.createElement('div')
+        Img.classList.add("GameImage")
+        Img.style.backgroundImage = "url(" + image + ")"
+        var Name = document.createElement('div');
+        Name.classList.add("GameName");
+        Name.textContent = name
+        Space.append(Img);
+        Space.append(Name);
+        Reference.append(Space)
+        GameContainer.append(Reference);
+        var wish= document.createElement("a")
+        wish.classList.add("wishlist")
+        wish.setAttribute("href", "doGiochiDesiderati")
+        wish.setAttribute("style", "background-color: red")
+        wish.addEventListener("click", function(){
+            console.log(id)
+            $.ajax({
+                url:"doGiochiDesiderati",
+                type:"POST",
+                data: {idGiocodesiderato : id},
+                success:function (response)
                 {
-                    alert("Logga per aggiungereun gioco alla lista desideri")
+                    if (response){
+                        alert("Gioco aggiunto alla lista dei desideri")
+                    }
+                    else{
+                        alert("Logga per aggiungereun gioco alla lista desideri")
+                    }
+                },
+                fail: function( jqXHR, textStatus ) {
+                    console.log("nyes")
+                    alert( "Request failed: " + textStatus );
                 }
-            },
-            fail: function( jqXHR, textStatus ) {
-                console.log("nyes")
-                alert( "Request failed: " + textStatus );
-            }
-        });
-    })
+            });
+        })
 
-    Img.append(buttonWishlist)
-    GameContainer.append(Space);
-
+       Img.append()
 }
+
 function  createButton()
 {
     
