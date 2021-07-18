@@ -167,7 +167,7 @@ function creatGame(name,image,id) {
                 }
             },
             fail: function( jqXHR, textStatus ) {
-                console.log("nyes")
+                console.log("nyess")
                 alert( "Request failed: " + textStatus );
             }
         });
