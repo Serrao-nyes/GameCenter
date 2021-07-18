@@ -13,7 +13,6 @@ pageEncoding="ISO-8859-1"%>
     <link href="../css/stilecomune.css" rel="stylesheet" type="text/css">
     <link href="../css/stilehome.css" rel="stylesheet" type="text/css">
 
-    
     <!-- Optional JavaScript -->
     <script defer src="../js/script.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -32,15 +31,27 @@ pageEncoding="ISO-8859-1"%>
                 <span class="bar"></span>
             </div>
             <ul class="nav_menu">
-                <li class="nav_item">
-                    <a href="#" class="nav_links">Account</a>
-                </li>
-                <li class="nav_item">
-                    <a href="#" class="nav_links">Support</a>
-                </li>
-                <li class="nav_btn">
-                    <a href="#" class="button">Sign Up</a>
-                </li>
+                <c:if test="${usernamelogged==null}">
+                    <li class="nav_btn">
+                        <a href="goToLogin" class="button">Log In</a>
+                    </li>
+                    <li class="nav_btn">
+                        <a href="doRegistrazione" class="button">Sign Up</a>
+                    </li>
+                </c:if>
+                <c:if test="${usernamelogged!=null}">
+                    <li class="nav_item">
+                        <a href="#" class="nav_links">Account</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#" class="nav_links">Lista Desideri</a>
+                    </li>
+                    <li class="nav_item">
+                        <a href="#" class="nav_links">Libreria</a>
+                    </li>
+                </c:if>
+
+
             </ul>
         </div>
     </nav> 

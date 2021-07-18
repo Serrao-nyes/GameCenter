@@ -23,7 +23,7 @@ async function fetchGames(page,size,store){
         success:function (result){
             for(var i=0;i<result.results.length;i++)
             {
-                creatGame(result.results[i].name,result.results[i].background_image);
+                creatGame(result.results[i].name,result.results[i].background_image,result.results[i].id);
             }
             createButton();
         }
@@ -37,6 +37,7 @@ async function fetchGames(page,size,store){
                 for(var i=0;i<result.results.length;i++)
                 {
                     creatGame(result.results[i].name,result.results[i].background_image,result.results[i].id);
+
                 }
                 createButton();
             }
@@ -133,7 +134,6 @@ function createStoreBadge()
     }
 function creatGame(name,image,id) {
     var Reference= document.createElement("a")
-    Reference.setAttribute("href","GamePage.html")
     var Space = document.createElement('div');
     Space.classList.add("GameSpace");
     Space.className = "GameSpace"
@@ -150,12 +150,14 @@ function creatGame(name,image,id) {
     var buttonWishlist=document.createElement("button")
     buttonWishlist.classList.add("badge")
     buttonWishlist.setAttribute("style", "background-color: red")
+    buttonWishlist.setAttribute("href","doGiochiDesiderati")
     buttonWishlist.addEventListener("click",function ()
     {
+        console.log(id)
         $.ajax({
-            type:'POST',
             url:"doGiochiDesiderati",
-            data:{idGiocodesiderato:id},
+            type:"POST",
+            data: {idGiocodesiderato : id},
             success:function (response)
             {
                 if (response)
@@ -166,12 +168,13 @@ function creatGame(name,image,id) {
                 }
             },
             fail: function( jqXHR, textStatus ) {
+                console.log("nyes")
                 alert( "Request failed: " + textStatus );
             }
         });
     })
 
-    Name.append(buttonWishlist)
+    GameContainer.append(buttonWishlist)
     GameContainer.append(Reference);
 
 }

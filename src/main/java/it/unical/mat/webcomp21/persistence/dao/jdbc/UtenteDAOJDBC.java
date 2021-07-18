@@ -129,7 +129,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 	public void addGiochiPosseduti(Utente utente, GiocoPosseduto giocoPosseduto) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String query = "INSERT INTO possiede(utente,gioco) VALUES(?,?) RETURNING id";
+			String query = "INSERT INTO possiede(utente,gioco) VALUES(?,?)";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, utente.getUser());
 			st.setInt(2, giocoPosseduto.getId());	
@@ -144,10 +144,10 @@ public class UtenteDAOJDBC implements UtenteDAO {
 	public void addGiochiDesiderati(Utente utente, GiocoDesiderato giocoDesiderato) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String query = "INSERT INTO desidera(utente,gioco) VALUES(?,?) RETURNING id";
+			String query = "INSERT INTO desidera(utente,gioco) VALUES(?,?)";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, utente.getUser());
-			st.setInt(2, giocoDesiderato.getId());
+			st.setLong(2, giocoDesiderato.getId());
 			st.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {
@@ -178,7 +178,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			String delete = "DELETE FROM desidera WHERE utente = ? AND gioco = ?";
 			PreparedStatement st = conn.prepareStatement(delete);
 			st.setString(1, utente.getUser());
-			st.setInt(2, giocoDesiderato.getId());
+			st.setLong(2, giocoDesiderato.getId());
 			st.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {

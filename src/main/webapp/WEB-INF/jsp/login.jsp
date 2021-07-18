@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,13 +10,12 @@
     <title>Game Center</title>
 
     <!-- Bootstrap CSS -->
-    <link href="../css/stilecomune.css" rel="stylesheet" type="text/css">
-    <link href="../css/stilehome.css" rel="stylesheet" type="text/css">
-    <link href="../css/Log-in.css" rel="stylesheet" type="text/css">
+    <link href="../../css/stilecomune.css" rel="stylesheet" type="text/css">
+    <link href="../../css/stilehome.css" rel="stylesheet" type="text/css">
+    <link href="../../css/log-in.css" rel="stylesheet" type="text/css">
 
     
     <!-- Optional JavaScript -->
-    <script defer src="../js/script.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> type="text/javascript"</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -23,7 +25,7 @@
     <!--Navbar Section-->
     <nav class="navbar">
         <div class="nav_container" id="nav">
-            <a href="index.html" class="nav_logo" id="logo">GAME CENTER</a>
+            <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
         </div>
     </nav>
 
@@ -37,14 +39,14 @@
             </div>
             <button class="button button_fill button_medium" type="submit">Log in</button></form>
             <div class="page__additional">
-                <a href="/signup" rel="nofollow">
+                <a href="doRegistrazione" rel="nofollow">
                     Don't have an account? Sign up.
                 </a>
-                <a href="/password_recovery" rel="nofollow">
+             <!--   <a href="/password_recovery" rel="nofollow">
                     <span>
                         Forgot your password?
                     </span>
-                </a>
+                </a> -->
         </div>
     </div>
 </body>

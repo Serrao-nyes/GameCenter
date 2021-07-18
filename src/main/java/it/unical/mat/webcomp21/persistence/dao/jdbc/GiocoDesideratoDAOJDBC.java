@@ -27,7 +27,7 @@ public class GiocoDesideratoDAOJDBC implements GiocoDesideratoDAO {
 			Connection conn = dbSource.getConnection();
 			String query = "INSERT INTO giocodesiderato VALUES(?)";
 			PreparedStatement st = conn.prepareStatement(query);
-			st.setInt(1, giocoDesiderato.getId());
+			st.setLong(1, giocoDesiderato.getId());
 			st.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {
@@ -65,7 +65,7 @@ public class GiocoDesideratoDAOJDBC implements GiocoDesideratoDAO {
 			ResultSet rs = st.executeQuery(query);
 			while (rs.next()) {
 				GiocoDesiderato gp = new GiocoDesiderato();
-				gp.setId(rs.getInt("id"));
+				gp.setId(rs.getLong("id"));
 				giochiDesiderati.add(gp);
 			}
 			conn.close();
@@ -81,7 +81,7 @@ public class GiocoDesideratoDAOJDBC implements GiocoDesideratoDAO {
 			Connection conn = dbSource.getConnection();
 			String update = "UPDATE giocodesiderato SET id = ? WHERE id = ?";
 			PreparedStatement st = conn.prepareStatement(update);
-			st.setInt(1, giocoDesiderato.getId());
+			st.setLong(1, giocoDesiderato.getId());
 			st.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {
@@ -95,7 +95,7 @@ public class GiocoDesideratoDAOJDBC implements GiocoDesideratoDAO {
 			Connection conn = dbSource.getConnection();
 			String delete = "DELETE FROM giocodesiderato WHERE id = ? ";
 			PreparedStatement st = conn.prepareStatement(delete);
-			st.setInt(1, giocoDesiderato.getId());
+			st.setLong(1, giocoDesiderato.getId());
 			st.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {
