@@ -15,7 +15,6 @@ var Store
 var Filtred=false
 document.onload=fetchGames(PageNumber,PageSize,Store),createStoreBadge()
 
-
 async function fetchGames(page,size,store){
     if(!Filtred)
     { $.ajax({
@@ -37,7 +36,7 @@ async function fetchGames(page,size,store){
             success:function (result){
                 for(var i=0;i<result.results.length;i++)
                 {
-                    creatGame(result.results[i].name,result.results[i].background_image);
+                    creatGame(result.results[i].name,result.results[i].background_image,result.results[i].id);
                 }
                 createButton();
             }
@@ -132,7 +131,7 @@ function createStoreBadge()
             }
         })
     }
-function creatGame(name,image) {
+function creatGame(name,image,id) {
     var Reference= document.createElement("a")
     Reference.setAttribute("href","GamePage.html")
     var Space = document.createElement('div');
@@ -148,7 +147,33 @@ function creatGame(name,image) {
     Space.append(Img);
     Space.append(Name);
     Reference.append(Space)
+    var buttonWishlist=document.createElement("button")
+    buttonWishlist.classList.add("badge")
+    buttonWishlist.setAttribute("style", "background-color: red")
+    buttonWishlist.addEventListener("click",function ()
+    {
+        $.ajax({
+            type:'POST',
+            url:"doGiochiDesiderati",
+            data:{idGiocodesiderato:id},
+            success:function (response)
+            {
+                if (response)
+                {    alert("Gioco aggiunto alla lista dei desideri")}
+                else
+                {
+                   alert("Logga per aggiungereun gioco alla lista desideri")
+                }
+            },
+            fail: function( jqXHR, textStatus ) {
+                alert( "Request failed: " + textStatus );
+            }
+        });
+    })
+
+    Name.append(buttonWishlist)
     GameContainer.append(Reference);
+
 }
 function  createButton()
 {

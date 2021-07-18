@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +25,7 @@
     <!--Navbar Section-->
     <nav class="navbar">
         <div class="nav_container" id="nav">
-            <a href="index.html" class="nav_logo" id="logo">GAME CENTER</a>
+            <a href="index.jsp" class="nav_logo" id="logo">GAME CENTER</a>
             <div class="nav_toggle" id="menu_button">
                 <span class="bar"></span>
                 <span class="bar"></span>
