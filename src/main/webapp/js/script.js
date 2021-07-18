@@ -173,7 +173,7 @@ function creatGame(name,image,id) {
         });
     })
 
-    Img.append(buttonWishlist)
+    Space.append(buttonWishlist)
     GameContainer.append(Space);
 
 }
