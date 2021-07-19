@@ -23,16 +23,23 @@ pageEncoding="ISO-8859-1"%>
 <body>
     <!--Navbar Section-->
     <nav class="navbar">
+
         <div class="nav_container" id="nav">
             <a href="index.jsp" class="nav_logo" id="logo">GAME CENTER</a>
+
             <div class="nav_toggle" id="menu_button">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
+            <div class="searchbar">
+                <button class="searchbutton"></button>
+                <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="">
+
+            </div>
             <ul class="nav_menu">
                 <c:if test="${usernamelogged==null}">
-                    <li class="nav_btn">
+                    <li class="nav_btn" >
                         <a href="goToLogin" class="button">Log In</a>
                     </li>
                     <li class="nav_btn">
@@ -53,6 +60,7 @@ pageEncoding="ISO-8859-1"%>
 
 
             </ul>
+
         </div>
     </nav> 
     

@@ -33,6 +33,7 @@ pageEncoding="ISO-8859-1"%>
         <form id="login-form" method="post">
             <div class="input">
                 <input class="input__field" type="email" placeholder="Email" name="email" value="">
+
             </div>
             <div class="input">
                 <input class="input__field" type="password" placeholder="Password" name="password" value="">

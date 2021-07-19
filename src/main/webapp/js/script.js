@@ -26,6 +26,7 @@ async function fetchGames(page,size,store){
                 creatGame(result.results[i].name,result.results[i].background_image,result.results[i].id);
             }
             createButton();
+
         }
     });}
     else
@@ -149,6 +150,7 @@ function creatGame(name,image,id) {
     Space.append(Name);
     var buttonWishlist=document.createElement("button")
     buttonWishlist.classList.add("wishlist")
+    buttonWishlist.setAttribute("id","nyes")
     buttonWishlist.setAttribute("href","doGiochiDesiderati")
     buttonWishlist.addEventListener("click",function ()
     {
@@ -160,19 +162,38 @@ function creatGame(name,image,id) {
             success:function (response)
             {
                 if (response)
-                {    alert("Gioco aggiunto alla lista dei desideri")}
+                {
+                    buttonWishlist.setAttribute("style","background-color:green")
+                    alert("Gioco aggiunto alla lista dei desideri")
+                }
                 else
                 {
                     alert("Logga per aggiungereun gioco alla lista desideri")
                 }
+
             },
             fail: function( jqXHR, textStatus ) {
-                console.log("nyess")
                 alert( "Request failed: " + textStatus );
             }
         });
     })
+    buttonWishlist.addEventListener("mouseenter",function (){
+        {buttonWishlist.setAttribute("style","background-color:white")}
 
+    })
+    buttonWishlist.addEventListener("mouseleave",function (){
+
+        buttonWishlist.setAttribute("style","background-color:transparent")
+
+    })
+    var libraryButton=document.createElement("button")
+    libraryButton.classList.add("library")
+    libraryButton.addEventListener("mouseenter",function (){
+        libraryButton.setAttribute("style","background-color:white")
+    })
+    libraryButton.addEventListener("mouseleave",function (){
+        libraryButton.setAttribute("style","background-color: transparent")})
+    Space.append(libraryButton)
     Space.append(buttonWishlist)
     GameContainer.append(Space);
 

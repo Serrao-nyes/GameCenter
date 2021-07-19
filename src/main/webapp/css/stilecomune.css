@@ -230,14 +230,24 @@ body {
 }
 .wishlist
 {
-  width: 40px;
-  height: 40px;
-  background-color: yellow;
+  width: 30px;
+  height: 30px;
   background-size: cover;
-  border-radius: 100%;
-  margin-left: 0px;
-  text-align: left;
-  text-decoration: none
+  background-color:  transparent;
+  text-decoration: none;
+  margin-left: 20px;
+  background-image:url("../images/wishlist.png");
+  border: none;
+}
+.library
+{
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-color: transparent;
+  text-decoration: none;
+  background-image:url("../images/library.png");
+  border: none;
 }
 
 /*------------Piattaforme----------*/
