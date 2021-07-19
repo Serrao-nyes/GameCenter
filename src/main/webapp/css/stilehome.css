@@ -24,7 +24,7 @@
 
 .GameSpace {
   border-radius: 8px;
-  background-color: rgb(52,52,52);
+  background-color: rgb(52, 52, 52);
   width: 250px;
   height: 220px;
   display: inline-block;
@@ -46,7 +46,17 @@
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
 }
+
 .GameName {
   background-color: transparent;
   color: antiquewhite;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Btn-container {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
 }

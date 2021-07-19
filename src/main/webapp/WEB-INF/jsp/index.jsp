@@ -15,6 +15,8 @@ pageEncoding="ISO-8859-1"%>
 
     <!-- Optional JavaScript -->
     <script defer src="../js/script.js"></script>
+    <script src="https://kit.fontawesome.com/5f2af914a2.js" crossorigin="anonymous"></script>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> type="text/javascript"</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -26,27 +28,29 @@ pageEncoding="ISO-8859-1"%>
 
         <div class="nav_container" id="nav">
             <a href="index.jsp" class="nav_logo" id="logo">GAME CENTER</a>
+            
+        <div class="search-bar" id = "ricerca">
+	        <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="">
+		    <a class="search-btn"> 
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
 
             <div class="nav_toggle" id="menu_button">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-            <input class="searchbar">
+         </div>
 
-                <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="">
-                    <button class="searchbutton"></button>
-                </input>
-
-
-            </div>
+        
             <ul class="nav_menu">
                 <c:if test="${usernamelogged==null}">
                     <li class="nav_btn" >
                         <a href="goToLogin" class="button">Log In</a>
                     </li>
                     <li class="nav_btn">
-                        <a href="goToRegistrazione" class="button">Sign Up</a>
+                        <a href="goToRegistrazione" class="button">Registrati</a>
                     </li>
                 </c:if>
                 <c:if test="${usernamelogged!=null}">

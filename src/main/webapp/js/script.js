@@ -140,6 +140,8 @@ function creatGame(name,image,id) {
     var Reference = document.createElement('a');
     Reference.setAttribute("href","GamePage.html")
     Space.append(Reference)
+    var pulsanti= document.createElement('div')
+    pulsanti.classList.add("Btn-container")
     var Img = document.createElement('div')
     Img.classList.add("GameImage")
     Img.style.backgroundImage = "url(" + image + ")"
@@ -147,10 +149,11 @@ function creatGame(name,image,id) {
     Name.classList.add("GameName");
     Name.textContent = name
     Reference.append(Img);
+    Name.append(pulsanti)
     Space.append(Name);
-    var buttonWishlist=document.createElement("button")
-    buttonWishlist.classList.add("wishlist")
-    buttonWishlist.setAttribute("id","nyes")
+    var buttonWishlist=document.createElement("i")
+    buttonWishlist.setAttribute("class", "fas fa-star fa-lg")
+    buttonWishlist.setAttribute("id","wishlist")
     buttonWishlist.setAttribute("href","doGiochiDesiderati")
     buttonWishlist.addEventListener("click",function ()
     {
@@ -177,24 +180,11 @@ function creatGame(name,image,id) {
             }
         });
     })
-    buttonWishlist.addEventListener("mouseenter",function (){
-        {buttonWishlist.setAttribute("style","background-color:white")}
-
-    })
-    buttonWishlist.addEventListener("mouseleave",function (){
-
-        buttonWishlist.setAttribute("style","background-color:transparent")
-
-    })
-    var libraryButton=document.createElement("button")
-    libraryButton.classList.add("library")
-    libraryButton.addEventListener("mouseenter",function (){
-        libraryButton.setAttribute("style","background-color:white")
-    })
-    libraryButton.addEventListener("mouseleave",function (){
-        libraryButton.setAttribute("style","background-color: transparent")})
-    Space.append(libraryButton)
-    Space.append(buttonWishlist)
+    var libraryButton=document.createElement("i")
+    libraryButton.setAttribute("class", "fas fa-plus-circle fa-lg")
+    libraryButton.setAttribute("id", "libreria")
+    pulsanti.append(libraryButton)
+    pulsanti.append(buttonWishlist)
     GameContainer.append(Space);
 
 }
