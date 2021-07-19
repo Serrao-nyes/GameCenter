@@ -10,6 +10,7 @@ public interface UtenteDAO {
 	
 	public void save(Utente utente);  // Create
 	public Utente findByPrimaryKey(String username);    // Retrieve
+	public Utente findByEmail(String email);
 	public List<Utente> findAll();       
 	public void update(Utente utente); //Update
 	public void delete(Utente utente); //Delete	
@@ -19,5 +20,6 @@ public interface UtenteDAO {
 	public void removeGiochiDesiderati(Utente utente, GiocoDesiderato giocoDesiderato);
 	public void giochiPosseduti(Utente utente);
 	public void giochiDesiderati(Utente utente);
+	
 	
 }

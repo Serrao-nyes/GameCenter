@@ -67,6 +67,30 @@ public class UtenteDAOJDBC implements UtenteDAO {
 		}
 		return null;
 	}
+	
+	@Override
+	public Utente findByEmail(String email) {
+		try {
+			Connection conn = dbSource.getConnection();
+			String query = "SELECT * FROM utente WHERE email = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, email);
+			ResultSet rs = st.executeQuery();
+			if(rs.next()) {
+				Utente utente = new Utente();
+				utente.setUser(rs.getString("username"));
+				utente.setPassword(rs.getString("password"));
+				utente.setEmail(rs.getString("email"));
+				utente.setNome(rs.getString("nome"));
+				utente.setCognome(rs.getString("cognome"));
+				conn.close();
+				return utente;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 	@Override
 	public List<Utente> findAll() {
