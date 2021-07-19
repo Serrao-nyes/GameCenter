@@ -32,7 +32,7 @@ pageEncoding="ISO-8859-1"%>
     <div class="container" id="Log-mod">
         <form id="login-form" method="post">
             <div class="input">
-                <input class="input__field" type="email" placeholder="Email" name="email" value="">
+                <input class="input__field" type="text" placeholder="Username" name="username" value="">
 
             </div>
             <div class="input">

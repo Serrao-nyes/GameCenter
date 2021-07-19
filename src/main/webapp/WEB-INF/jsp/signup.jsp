@@ -25,21 +25,21 @@
 </nav>
 
 <div class="container" id="Sign-mod">
-  <form id="login-form" method="post">
+  <form id="login-form" method="POST" action="doRegistrazione">
+    <div class="input">
+      <input class="input__field" type="text" placeholder="Username" name="username" value="">
+    </div>
+    <div class="input">
+      <input class="input__field" type="password" placeholder="Password" name="password" value="">
+    </div>
     <div class="input">
       <input class="input__field" type="email" placeholder="Email" name="email" value="">
     </div>
     <div class="input">
-      <input class="input__field" type="UserName" placeholder="UserName" name="email" value="">
+      <input class="input__field" type="text" placeholder="Nome" name="nome" value="">
     </div>
-    <div class="input">
-      <input class="input__field" type="Nome" placeholder="Nome" name="email" value="">
-    </div>
-    <div class="input">
-      <input class="input__field" type="Cognome" placeholder="Cognome" name="email" value="">
-    </div>
-    <div class="input">
-      <input class="input__field" type="password" placeholder="Password" name="password" value="">
+     <div class="input">
+      <input class="input__field" type="text" placeholder="Cognome" name="cognome" value="">
     </div>
     <button class="button button_fill button_medium" type="submit">Log in</button></form>
   <div class="page__additional_sign">

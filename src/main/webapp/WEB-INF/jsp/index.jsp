@@ -43,7 +43,7 @@ pageEncoding="ISO-8859-1"%>
                         <a href="goToLogin" class="button">Log In</a>
                     </li>
                     <li class="nav_btn">
-                        <a href="doRegistrazione" class="button">Sign Up</a>
+                        <a href="goToRegistrazione" class="button">Sign Up</a>
                     </li>
                 </c:if>
                 <c:if test="${usernamelogged!=null}">
