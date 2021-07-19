@@ -29,7 +29,7 @@ public class GiocoPossedutoDAOJDBC implements GiocoPossedutoDAO {
 			Connection conn = dbSource.getConnection();
 			String query = "INSERT INTO giocoposseduto VALUES(?,?,?)";
 			PreparedStatement st = conn.prepareStatement(query);
-			st.setInt(1, giocoPosseduto.getId());
+			st.setLong(1, giocoPosseduto.getId());
 			st.setBoolean(2, giocoPosseduto.isGiocato());
 			st.setBoolean(3, giocoPosseduto.isCompletato());
 			st.executeUpdate();
@@ -89,7 +89,7 @@ public class GiocoPossedutoDAOJDBC implements GiocoPossedutoDAO {
 			Connection conn = dbSource.getConnection();
 			String update = "UPDATE giocoposseduto SET id = ?, giocato = ?, completato = ? WHERE id = ?";
 			PreparedStatement st = conn.prepareStatement(update);
-			st.setInt(1, giocoPosseduto.getId());
+			st.setLong(1, giocoPosseduto.getId());
 			st.setBoolean(2, giocoPosseduto.isGiocato());
 			st.setBoolean(3, giocoPosseduto.isCompletato());
 			st.executeUpdate();
@@ -105,7 +105,7 @@ public class GiocoPossedutoDAOJDBC implements GiocoPossedutoDAO {
 			Connection conn = dbSource.getConnection();
 			String delete = "DELETE FROM giocoposseduto WHERE id = ? ";
 			PreparedStatement st = conn.prepareStatement(delete);
-			st.setInt(1, giocoPosseduto.getId());
+			st.setLong(1, giocoPosseduto.getId());
 			st.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {

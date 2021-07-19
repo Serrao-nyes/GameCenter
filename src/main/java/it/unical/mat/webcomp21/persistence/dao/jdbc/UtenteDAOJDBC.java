@@ -156,7 +156,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			String query = "INSERT INTO possiede(utente,gioco) VALUES(?,?)";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, utente.getUser());
-			st.setInt(2, giocoPosseduto.getId());	
+			st.setLong(2, giocoPosseduto.getId());	
 			st.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {
@@ -186,7 +186,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			String delete = "DELETE FROM possiede WHERE utente = ? AND gioco = ?";
 			PreparedStatement st = conn.prepareStatement(delete);
 			st.setString(1, utente.getUser());
-			st.setInt(2, giocoPosseduto.getId());
+			st.setLong(2, giocoPosseduto.getId());
 			st.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {

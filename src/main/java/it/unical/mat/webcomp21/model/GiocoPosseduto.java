@@ -2,17 +2,17 @@ package it.unical.mat.webcomp21.model;
 
 public class GiocoPosseduto {
 	
-	private int id;
+	private long id;
 	
 	private boolean giocato;
 	
 	private boolean completato;
 
-	public int getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(int idGioco) {
+	public void setId(long idGioco) {
 		this.id = idGioco;
 	}
 
