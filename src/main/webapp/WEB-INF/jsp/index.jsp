@@ -32,9 +32,12 @@ pageEncoding="ISO-8859-1"%>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-            <div class="searchbar">
-                <button class="searchbutton"></button>
+            <input class="searchbar">
+
                 <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="">
+                    <button class="searchbutton"></button>
+                </input>
+
 
             </div>
             <ul class="nav_menu">
