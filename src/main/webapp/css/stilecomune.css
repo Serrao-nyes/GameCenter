@@ -294,6 +294,24 @@ body {
   text-decoration: none;
 }
 
+#libreria:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+#wishlist:hover {
+  transform: scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+#libreria:active {
+  transform: perspective(600px) scale(0.9);
+}
+
+#wishlist:active {
+  transform: perspective(600px) scale(0.9);
+}
+
 /*------------Piattaforme----------*/
 
 #Platforms {
