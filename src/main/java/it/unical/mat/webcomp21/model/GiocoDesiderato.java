@@ -3,6 +3,8 @@ package it.unical.mat.webcomp21.model;
 public class GiocoDesiderato {
 	
 	private long id;
+	
+	private String nome;
 
 	public long getId() {
 		return id;
@@ -10,6 +12,14 @@ public class GiocoDesiderato {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 }

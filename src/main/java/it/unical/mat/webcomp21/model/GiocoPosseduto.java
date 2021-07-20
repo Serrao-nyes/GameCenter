@@ -4,9 +4,7 @@ public class GiocoPosseduto {
 	
 	private long id;
 	
-	private boolean giocato;
-	
-	private boolean completato;
+	private String nome;
 
 	public long getId() {
 		return id;
@@ -16,20 +14,12 @@ public class GiocoPosseduto {
 		this.id = idGioco;
 	}
 
-	public boolean isGiocato() {
-		return giocato;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setGiocato(boolean giocato) {
-		this.giocato = giocato;
-	}
-
-	public boolean isCompletato() {
-		return completato;
-	}
-
-	public void setCompletato(boolean completato) {
-		this.completato = completato;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 }

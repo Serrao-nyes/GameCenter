@@ -27,11 +27,10 @@ public class GiocoPossedutoDAOJDBC implements GiocoPossedutoDAO {
 	public void save(GiocoPosseduto giocoPosseduto) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String query = "INSERT INTO giocoposseduto VALUES(?,?,?)";
+			String query = "INSERT INTO giocoposseduto VALUES(?,?)";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setLong(1, giocoPosseduto.getId());
-			st.setBoolean(2, giocoPosseduto.isGiocato());
-			st.setBoolean(3, giocoPosseduto.isCompletato());
+			st.setString(2, giocoPosseduto.getNome());
 			st.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {
@@ -43,15 +42,14 @@ public class GiocoPossedutoDAOJDBC implements GiocoPossedutoDAO {
 	public GiocoPosseduto findByPrimaryKey(int id) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String query = "SELECT * FROM giocoposseduto WHERE id=?";
+			String query = "SELECT * FROM giocoposseduto WHERE id = ?";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setInt(1, id);
 			ResultSet rs = st.executeQuery();
 			if(rs.next()) {
 				GiocoPosseduto gp = new GiocoPosseduto();
-				gp.setId(rs.getInt("id"));
-				gp.setGiocato(rs.getBoolean("giocato"));
-				gp.setCompletato(rs.getBoolean("completato"));
+				gp.setId(rs.getLong("id"));
+				gp.setNome(rs.getString("nome"));
 				conn.close();
 				return gp;
 			}
@@ -71,9 +69,8 @@ public class GiocoPossedutoDAOJDBC implements GiocoPossedutoDAO {
 			ResultSet rs = st.executeQuery(query);
 			while (rs.next()) {
 				GiocoPosseduto gp = new GiocoPosseduto();
-				gp.setId(rs.getInt("id"));
-				gp.setGiocato(rs.getBoolean("giocato"));
-				gp.setCompletato(rs.getBoolean("completato"));
+				gp.setId(rs.getLong("id"));
+				gp.setNome(rs.getString("nome"));
 				giochiPosseduti.add(gp);
 			}
 			conn.close();
@@ -87,11 +84,11 @@ public class GiocoPossedutoDAOJDBC implements GiocoPossedutoDAO {
 	public void update(GiocoPosseduto giocoPosseduto) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String update = "UPDATE giocoposseduto SET id = ?, giocato = ?, completato = ? WHERE id = ?";
+			String update = "UPDATE giocoposseduto SET id = ?, nome = ? WHERE id = ?";
 			PreparedStatement st = conn.prepareStatement(update);
 			st.setLong(1, giocoPosseduto.getId());
-			st.setBoolean(2, giocoPosseduto.isGiocato());
-			st.setBoolean(3, giocoPosseduto.isCompletato());
+			st.setString(2, giocoPosseduto.getNome());
+			st.setLong(3, giocoPosseduto.getId());
 			st.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {

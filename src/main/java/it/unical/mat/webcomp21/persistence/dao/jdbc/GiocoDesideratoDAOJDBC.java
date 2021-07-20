@@ -25,9 +25,10 @@ public class GiocoDesideratoDAOJDBC implements GiocoDesideratoDAO {
 	public void save(GiocoDesiderato giocoDesiderato) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String query = "INSERT INTO giocodesiderato VALUES(?)";
+			String query = "INSERT INTO giocodesiderato VALUES(?,?)";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setLong(1, giocoDesiderato.getId());
+			st.setString(2, giocoDesiderato.getNome());
 			st.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {
@@ -39,13 +40,14 @@ public class GiocoDesideratoDAOJDBC implements GiocoDesideratoDAO {
 	public GiocoDesiderato findByPrimaryKey(int id) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String query = "SELECT * FROM giocoposseduto WHERE id=?";
+			String query = "SELECT * FROM giocodesiderato WHERE id=?";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setInt(1, id);
 			ResultSet rs = st.executeQuery();
 			if(rs.next()) {
 				GiocoDesiderato gp = new GiocoDesiderato();
-				gp.setId(rs.getInt("id"));
+				gp.setId(rs.getLong("id"));
+				gp.setNome(rs.getString("gioco"));
 				conn.close();
 				return gp;
 			}
@@ -66,6 +68,7 @@ public class GiocoDesideratoDAOJDBC implements GiocoDesideratoDAO {
 			while (rs.next()) {
 				GiocoDesiderato gp = new GiocoDesiderato();
 				gp.setId(rs.getLong("id"));
+				gp.setNome(rs.getString("gioco"));
 				giochiDesiderati.add(gp);
 			}
 			conn.close();
@@ -79,7 +82,7 @@ public class GiocoDesideratoDAOJDBC implements GiocoDesideratoDAO {
 	public void update(GiocoDesiderato giocoDesiderato) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String update = "UPDATE giocodesiderato SET id = ? WHERE id = ?";
+			String update = "UPDATE giocodesiderato SET id = ?, nome= ? WHERE id = ?";
 			PreparedStatement st = conn.prepareStatement(update);
 			st.setLong(1, giocoDesiderato.getId());
 			st.executeUpdate();

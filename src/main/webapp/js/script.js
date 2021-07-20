@@ -158,27 +158,53 @@ function creatGame(name,image,id) {
     buttonWishlist.addEventListener("click",function ()
     {
         console.log(id)
-        $.ajax({
-            url:"doGiochiDesiderati",
-            type:"POST",
-            data: {idGiocodesiderato : id},
-            success:function (response)
-            {
-                if (response)
-                {
-                    buttonWishlist.setAttribute("style","background-color:green")
-                    alert("Gioco aggiunto alla lista dei desideri")
-                }
-                else
-                {
-                    alert("Logga per aggiungereun gioco alla lista desideri")
-                }
+		if(buttonWishlist.style.backgroundColor==="") {
+	        $.ajax({
+	            url:"doGiochiDesiderati",
+	            type:"POST",
+	            data: {idGiocodesiderato : id, nomeGiocoDesiderato : name},
+	            success:function (response)
+	            {	
+	                if (response)
+	                {
+	                    buttonWishlist.setAttribute("style","background-color:green")
+	                    alert("Gioco aggiunto alla lista dei desideri")
+	                }
+	                else
+	                {
+	                    alert("Devi essere loggato per poter aggiungere un gioco alla lista desideri")
+	                }
+	
+	            },
+	            fail: function( jqXHR, textStatus ) {
+	                alert( "Request failed: " + textStatus );
+	            }
+	        });
+		}
+		else { 
+			$.ajax({
+	            url:"removeGiochiDesiderati",
+	            type:"POST",
+	            data: {idGiocodesiderato : id, nomeGiocoDesiderato : name},
+	            success:function (response)
+	            {	
+	                if (response)
+	                {
+	                    buttonWishlist.setAttribute("style","background-color:")
+	                    alert("Gioco eliminato dalla lista dei desideri")
+	                }
+	                else
+	                {
+	                    alert("Devi essere loggato per poter aggiungere un gioco alla lista desideri")
 
-            },
-            fail: function( jqXHR, textStatus ) {
-                alert( "Request failed: " + textStatus );
-            }
-        });
+	                }	
+
+	            },
+	            fail: function( jqXHR, textStatus ) {
+	                alert( "Request failed: " + textStatus );
+	            }
+	        });
+		}
     })
     var libraryButton=document.createElement("i")
     libraryButton.setAttribute("class", "fas fa-plus-circle fa-lg")

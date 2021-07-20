@@ -14,7 +14,7 @@ import it.unical.mat.webcomp21.persistence.DBManager;
 public class GiochiDesideratiController {
 	
 	@PostMapping("doGiochiDesiderati")
-	public Boolean giochiDesiderati(HttpSession session, @RequestParam long idGiocodesiderato) {
+	public Boolean giochiDesiderati(HttpSession session, @RequestParam long idGiocodesiderato, @RequestParam String nomeGiocoDesiderato) {
 		System.out.println("nyes");
 		GiocoDesiderato giocoDesiderato = new GiocoDesiderato();
 		Utente u = new Utente();
@@ -24,6 +24,7 @@ public class GiochiDesideratiController {
 		u.setNome("Mario");
 		u.setCognome("Rossi");
 		giocoDesiderato.setId(idGiocodesiderato);
+		giocoDesiderato.setNome(nomeGiocoDesiderato);
 		DBManager.getInstance().giocoDesideratoDAO().save(giocoDesiderato);
 		DBManager.getInstance().utenteDAO().addGiochiDesiderati(u, giocoDesiderato);
 //		String username = session.getAttribute("usernameLogged").toString();
@@ -33,6 +34,15 @@ public class GiochiDesideratiController {
 			return true;
 		}*/
 	//	return false;
+		return true;
+	}
+	
+	@PostMapping("removeGiochiDesiderati")
+	public Boolean removeGiochiDesiderati(HttpSession session, @RequestParam long idGiocodesiderato, @RequestParam String nomeGiocoDesiderato) {
+		GiocoDesiderato giocoDesiderato = new GiocoDesiderato();
+		giocoDesiderato.setId(idGiocodesiderato);
+		giocoDesiderato.setNome(nomeGiocoDesiderato);
+		DBManager.getInstance().giocoDesideratoDAO().delete(giocoDesiderato);
 		return true;
 	}
 
