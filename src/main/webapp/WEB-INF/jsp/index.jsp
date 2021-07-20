@@ -27,7 +27,7 @@ pageEncoding="ISO-8859-1"%>
     <nav class="navbar">
 
         <div class="nav_container" id="nav">
-            <a href="index.jsp" class="nav_logo" id="logo">GAME CENTER</a>
+            <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
             
         <div class="search-bar" id = "ricerca">
 	        <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="">
@@ -47,10 +47,10 @@ pageEncoding="ISO-8859-1"%>
             <ul class="nav_menu">
                 <c:if test="${usernamelogged==null}">
                     <li class="nav_btn" >
-                        <a href="goToLogin" class="button">Log In</a>
+                        <a href="/html/login.html" class="button">Log In</a>
                     </li>
                     <li class="nav_btn">
-                        <a href="goToRegistrazione" class="button">Registrati</a>
+                        <a href="/html/signup.html" class="button">Registrati</a>
                     </li>
                 </c:if>
                 <c:if test="${usernamelogged!=null}">
