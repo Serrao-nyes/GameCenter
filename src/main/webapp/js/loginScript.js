@@ -2,15 +2,23 @@ function doLogin(){
     var buttonLogin=document.getElementById("login")
     buttonLogin.addEventListener("click",function (){
         if (document.getElementById("user").value==="" || document.getElementById("psw").value==="")
-        {alert("Compila tutti i campi")}
-            else{request()}
+        {
+            alert("Compila tutti i campi")
+        }
+            else{
+                request()
+            }
     })
     document.addEventListener("keyup", function (event){
         if(event.keyCode===13)
         {
             if (document.getElementById("user").value==="" && document.getElementById("psw").value==="")
-            {alert("Compila tutti i campi")}
-            else{request()}
+            {
+                alert("Compila tutti i campi")
+            }
+            else{
+                request()
+            }
         }
     })
 
@@ -44,4 +52,4 @@ function request(){
         }
     });
 }
-doLogin()
+document.onload=doLogin()

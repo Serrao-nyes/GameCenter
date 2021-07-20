@@ -32,10 +32,10 @@ public class LoginController {
 		return "index";
 	}
 	
-//	@GetMapping("goToLogin")
-//	public String goTologin() {
-//
-//		return "login";
-//	}
+	@GetMapping("goToLogin")
+	public String goTologin() {
+
+		return "login";
+	}
 
 }

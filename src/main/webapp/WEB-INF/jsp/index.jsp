@@ -47,7 +47,7 @@ pageEncoding="ISO-8859-1"%>
             <ul class="nav_menu">
                 <c:if test="${usernamelogged==null}">
                     <li class="nav_btn" >
-                        <a href="/html/login.html" class="button">Log In</a>
+                        <a href="goToLogin" class="button">Log In</a>
                     </li>
                     <li class="nav_btn">
                         <a href="goToRegistrazione" class="button">Registrati</a>

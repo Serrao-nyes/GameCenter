@@ -9,6 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Center</title>
   <script defer src="../../js/signupScript.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <!-- Bootstrap CSS -->
   <link href="../../css/stilecomune.css" rel="stylesheet" type="text/css">
   <link href="../../css/stilehome.css" rel="stylesheet" type="text/css">
@@ -25,7 +27,7 @@
 </nav>
 
 <div class="container" id="Sign-mod">
-  <form id="login-form" method="POST" action="doRegistrazione">
+  <form id="login-form" method="GET" >
     <div class="input">
       <input class="input__field" type="text" placeholder="Username" name="username" value="" id="user">
     </div>

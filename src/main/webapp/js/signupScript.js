@@ -3,8 +3,14 @@ function doRegistrazione(){
         if (document.getElementById("user").value==="" || document.getElementById("psw").value===""
             || document.getElementById("email").value===""
             || document.getElementById("nome").value==="" || document.getElementById("cognome").value==="" )
-        {alert("Compila tutti i campi")}
-        else{request()}
+        {alert("Compila tutti i campi")
+            window.location.replace("goToRegistrazione")
+        }
+        else{
+
+            request()
+            window.location.replace("doRegistrazione")
+        }
     })
     document.addEventListener("keyup",function (event){
         if(event.keyCode===13)
@@ -12,8 +18,11 @@ function doRegistrazione(){
             if (document.getElementById("user").value==="" || document.getElementById("psw").value===""
                 || document.getElementById("email").value===""
                 || document.getElementById("nome").value==="" || document.getElementById("cognome").value==="" )
-            {alert("Compila tutti i campi")}
-            else{request()}
+            {alert("Compila tutti i campi")
+                window.location.replace("goToRegistrazione")
+            }
+            else{   window.location.replace("doRegistrazione")
+                request()}
         }
     })
 }
@@ -33,23 +42,27 @@ function request(){
         data:{username:user,password:psw,email:email,nome:nome,cognome:cognome},
         success:function (response)
         {
+
             if (response==="Registrazione effettuata con successo")
             {
-                window.location.href="/html/login.html"
+
+                window.location.replace("goToLogin")
             }
             else if (response==="Username ed email già esistenti")
             {
 
                 alert("Username ed email già esistenti")
-
+                window.location.replace("goToRegistrazione")
             }
             else if(response==="Username già esistente")
             {
                 alert("Username già esistente")
+                window.location.replace("goToRegistrazione")
             }
             else
             {
                 alert("Email già esistente")
+                window.location.replace("goToRegistrazione")
             }
         },
         fail: function( jqXHR, textStatus ) {
@@ -57,4 +70,4 @@ function request(){
         }
     });
 }
-doRegistrazione()
+document.onload=doRegistrazione()
