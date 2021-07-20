@@ -1,29 +1,8 @@
-function doRegistrazione(){
-    document.getElementById("reg").addEventListener("click",function (){
-        if (document.getElementById("user").value==="" || document.getElementById("psw").value===""
-            || document.getElementById("email").value===""
-            || document.getElementById("nome").value==="" || document.getElementById("cognome").value==="" )
-        {alert("Compila tutti i campi")
-            window.location.replace("goToRegistrazione")
-        }
-        else{
-
-            request()
-            window.location.replace("doRegistrazione")
-        }
-    })
-    document.addEventListener("keyup",function (event){
-        if(event.keyCode===13)
-        {
-            if (document.getElementById("user").value==="" || document.getElementById("psw").value===""
-                || document.getElementById("email").value===""
-                || document.getElementById("nome").value==="" || document.getElementById("cognome").value==="" )
-            {alert("Compila tutti i campi")
-                window.location.replace("goToRegistrazione")
-            }
-            else{   window.location.replace("doRegistrazione")
-                request()}
-        }
+function doRegistrazione() {
+	var button = document.getElementById("reg")
+    button.addEventListener("click",function (){
+			location.href = "doRegistrazione"
+			request()
     })
 }
 
@@ -36,33 +15,47 @@ function request(){
     var email=document.getElementById("email").value
     var nome=document.getElementById("nome").value
     var cognome=document.getElementById("cognome").value
+	console.log(user + "JSFUORI")
+			console.log(psw + "JSFUORI")
+			console.log(email + "JSFUORI")
+			console.log(nome + "JSFUORI")
+			console.log(cognome + "JSFUORI")
     $.ajax({
         url:"doRegistrazione",
         type:"POST",
         data:{username:user,password:psw,email:email,nome:nome,cognome:cognome},
         success:function (response)
         {
-
+			console.log(user + "JS")
+			console.log(psw + "JS")
+			console.log(email + "JS")
+			console.log(nome + "JS")
+			console.log(cognome + "JS")
             if (response==="Registrazione effettuata con successo")
             {
-
-                window.location.replace("goToLogin")
+				alert("Registrazione effettuata con successo")
+                location.href = "goToLogin"
             }
+			else if(response==="Tutti i campi devono essere compilati") {
+				
+				alert("Tutti i campi devono essere compilati")
+                location.href = "goToRegistrazione"
+			}
             else if (response==="Username ed email già esistenti")
             {
 
                 alert("Username ed email già esistenti")
-                window.location.replace("goToRegistrazione")
+                location.href = "goToRegistrazione"
             }
             else if(response==="Username già esistente")
             {
                 alert("Username già esistente")
-                window.location.replace("goToRegistrazione")
+                location.href = "goToRegistrazione"
             }
             else
             {
                 alert("Email già esistente")
-                window.location.replace("goToRegistrazione")
+                location.href = "goToRegistrazione"
             }
         },
         fail: function( jqXHR, textStatus ) {

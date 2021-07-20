@@ -16,14 +16,13 @@ import it.unical.mat.webcomp21.persistence.DBManager;
 public class LoginController {
 
 	@PostMapping("doLogin")
-	@ResponseBody
-	public Boolean login(HttpSession session, @RequestParam String username, @RequestParam String password) {
+	public String login(HttpSession session, @RequestParam String username, @RequestParam String password) {
 		Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 		if((utente != null) && BCrypt.checkpw(password, utente.getPassword())) {
 			session.setAttribute("usernameLogged", username);
-			return true;
+			return "index";
 		}
-		return false;
+		return "login";
 	}
 	
 	@GetMapping("doLogout")
@@ -34,7 +33,6 @@ public class LoginController {
 	
 	@GetMapping("goToLogin")
 	public String goTologin() {
-
 		return "login";
 	}
 

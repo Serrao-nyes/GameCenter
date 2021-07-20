@@ -25,23 +25,27 @@
     <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
   </div>
 </nav>
-
+<c:if test="${errore != null}">
+	<script type="text/javascript">
+		alert(${errore})
+	</script>
+</c:if>
 <div class="container" id="Sign-mod">
-  <form id="login-form" method="GET" >
+  <form id="login-form" method="post" action="doRegistrazione">
     <div class="input">
-      <input class="input__field" type="text" placeholder="Username" name="username" value="" id="user">
+      <input class="input__field" type="text" placeholder="Username" value="" name="username" id="user">
     </div>
     <div class="input">
-      <input class="input__field" type="password" placeholder="Password" name="password" value="" id="psw">
+      <input class="input__field" type="password" placeholder="Password" value="" name="password" id="psw">
     </div>
     <div class="input">
-      <input class="input__field" type="email" placeholder="Email" name="email" value="" id="email">
+      <input class="input__field" type="email" placeholder="Email"  value="" name="email" id="email">
     </div>
     <div class="input">
-      <input class="input__field" type="text" placeholder="Nome" name="nome" value="" id="nome">
+      <input class="input__field" type="text" placeholder="Nome" value="" name="nome" id="nome">
     </div>
      <div class="input">
-      <input class="input__field" type="text" placeholder="Cognome" name="cognome" value="" id="cognome">
+      <input class="input__field" type="text" placeholder="Cognome" value="" name="cognome" id="cognome">
     </div>
     <button class="button button_fill button_medium" type="submit" id="reg">Registrati</button></form>
   <div class="page__additional_sign">
