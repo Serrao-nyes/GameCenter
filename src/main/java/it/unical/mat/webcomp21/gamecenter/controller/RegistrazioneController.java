@@ -17,10 +17,18 @@ public class RegistrazioneController {
 			 					@RequestParam String nome, @RequestParam String cognome) {
 		Utente utenteUsername = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 		Utente utenteEmail = DBManager.getInstance().utenteDAO().findByEmail(email);
+	/*	if (utenteUsername!=null)
+		{System.out.println("Username nullo");}
+		if (utenteEmail!=null)
+		{System.out.println("Mail nullo");}*/
+		if(username.equals("") || password.equals("") || email.equals("") || nome.equals("") || cognome.equals(""))
+		{model.addAttribute("errore", "Tutti i campi devono essere riempiti");
+				return "signup";}
 		if(utenteUsername != null && utenteEmail != null) {
 			model.addAttribute("errore", "Username ed email già esistenti");
 			return "signup";
 		}
+
 		if(utenteUsername != null && utenteEmail == null) {
 			model.addAttribute("errore", "Username già esistente");
 			return "signup";

@@ -14,7 +14,7 @@ pageEncoding="ISO-8859-1"%>
     <link href="../css/stilehome.css" rel="stylesheet" type="text/css">
 
     <!-- Optional JavaScript -->
-    <script defer src="../js/script.js"></script>
+    <script defer src="../js/indexScript.js"></script>
     <script src="https://kit.fontawesome.com/5f2af914a2.js" crossorigin="anonymous"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -23,6 +23,9 @@ pageEncoding="ISO-8859-1"%>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
+<!--<script>
+    console.log("${usernamelogged}")
+</script>-->
     <!--Navbar Section-->
     <nav class="navbar">
 
@@ -55,14 +58,15 @@ pageEncoding="ISO-8859-1"%>
                 </c:if>
                 <c:if test="${usernamelogged!=null}">
                     <li class="nav_item">
-                        <a href="#" class="nav_links">Account</a>
+                        Benvenuto, ${usernamelogged}
                     </li>
                     <li class="nav_item">
-                        <a href="#" class="nav_links">Lista Desideri</a>
+                        <a href="#"  class="button">Account</a>
                     </li>
                     <li class="nav_item">
-                        <a href="#" class="nav_links">Libreria</a>
+                        <a href="doLogout"  class="button">Logout</a>
                     </li>
+
                 </c:if>
 
 

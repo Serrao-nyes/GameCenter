@@ -56,7 +56,11 @@ function createStoreBadge()
     PlatformContainer.append(steam)
     steam.setAttribute("style",  "background-image: url('../images/steam-logo-transparent.png')")
     steam.addEventListener('click',function () {
-        if (Store != 1) {
+        if(Store==1)
+        {
+            window.location.href="/"
+        }
+        else if (Store != 1) {
             Filtred = true
             Store = 1
             cleanGameContainer()
@@ -84,7 +88,11 @@ function createStoreBadge()
     PlatformContainer.append(epic)
     epic.setAttribute("style",  "background-image: url('../images/epic.png')")
     epic.addEventListener('click',function () {
-        if (Store != 11) {
+        if(Store==11)
+        {
+            window.location.href="/"
+        }
+        else if (Store != 11) {
             Filtred = true
             Store = 11
             cleanGameContainer()
@@ -112,7 +120,11 @@ function createStoreBadge()
     PlatformContainer.append(xbox)
     xbox.setAttribute("style",  "background-image: url('../images/xbox.png')")
     xbox.addEventListener('click',function () {
-        if (Store != 7) {
+        if(Store==7)
+        {
+            window.location.href="/"
+        }
+        else if (Store != 7) {
             Filtred = true
             Store = 7
             cleanGameContainer()
@@ -140,7 +152,11 @@ function createStoreBadge()
     PlatformContainer.append(gog)
     gog.setAttribute("style",  "background-image: url('../images/gog.png')")
     gog.addEventListener('click',function () {
-        if (Store != 5) {
+        if(Store==5)
+        {
+            window.location.href="/"
+        }
+       else if (Store != 5) {
             Filtred = true
             Store = 5
             cleanGameContainer()
@@ -168,7 +184,11 @@ function createStoreBadge()
     PlatformContainer.append(playstation)
     playstation.setAttribute("style",  "background-image: url('../images/playstation.jpg')")
     playstation.addEventListener('click',function () {
-        if (Store != 3) {
+        if(Store==3)
+        {
+            window.location.href="/"
+        }
+        else if (Store != 3) {
             Filtred = true
             Store = 3
             cleanGameContainer()
@@ -196,7 +216,11 @@ function createStoreBadge()
     PlatformContainer.append(nintendo)
     nintendo.setAttribute("style", "background-image: url('../images/nintendo.png')")
     nintendo.addEventListener('click', function () {
-        if (Store != 6) {
+        if(Store==6)
+        {
+            window.location.href="/"
+        }
+        else if (Store != 6) {
             Filtred = true
             Store = 6
             cleanGameContainer()
@@ -243,54 +267,54 @@ function creatGame(name,image,id) {
     buttonWishlist.setAttribute("href","doGiochiDesiderati")
     buttonWishlist.addEventListener("click",function ()
     {
-    //    console.log(id)
-		if(buttonWishlist.style.backgroundColor==="") {
-	        $.ajax({
-	            url:"doGiochiDesiderati",
-	            type:"POST",
-	            data: {idGiocodesiderato : id, nomeGiocoDesiderato : name},
-	            success:function (response)
-	            {	
-	                if (response)
-	                {
-	                    buttonWishlist.setAttribute("style","background-color:green")
-	                    alert("Gioco aggiunto alla lista dei desideri")
-	                }
-	                else
-	                {
-	                    alert("Devi essere loggato per poter aggiungere un gioco alla lista desideri")
-	                }
-	
-	            },
-	            fail: function( jqXHR, textStatus ) {
-	                alert( "Request failed: " + textStatus );
-	            }
-	        });
-		}
-		else { 
-			$.ajax({
-	            url:"removeGiochiDesiderati",
-	            type:"POST",
-	            data: {idGiocoDesiderato : id, nomeGiocoDesiderato : name},
-	            success:function (response)
-	            {	
-	                if (response)
-	                {
-	                    buttonWishlist.setAttribute("style","background-color:")
-	                    alert("Gioco eliminato dalla lista dei desideri")
-	                }
-	                else
-	                {
-	                    alert("Devi essere loggato per poter eliminare un gioco alla lista desideri")
+        //    console.log(id)
+        if(buttonWishlist.style.backgroundColor==="") {
+            $.ajax({
+                url:"doGiochiDesiderati",
+                type:"POST",
+                data: {idGiocodesiderato : id, nomeGiocoDesiderato : name},
+                success:function (response)
+                {
+                    if (response)
+                    {
+                        buttonWishlist.setAttribute("style","background-color:green")
+                        alert("Gioco aggiunto alla lista dei desideri")
+                    }
+                    else
+                    {
+                        alert("Devi essere loggato per poter aggiungere un gioco alla lista desideri")
+                    }
 
-	                }	
+                },
+                fail: function( jqXHR, textStatus ) {
+                    alert( "Request failed: " + textStatus );
+                }
+            });
+        }
+        else {
+            $.ajax({
+                url:"removeGiochiDesiderati",
+                type:"POST",
+                data: {idGiocoDesiderato : id, nomeGiocoDesiderato : name},
+                success:function (response)
+                {
+                    if (response)
+                    {
+                        buttonWishlist.setAttribute("style","background-color:")
+                        alert("Gioco eliminato dalla lista dei desideri")
+                    }
+                    else
+                    {
+                        alert("Devi essere loggato per poter eliminare un gioco alla lista desideri")
 
-	            },
-	            fail: function( jqXHR, textStatus ) {
-	                alert( "Request failed: " + textStatus );
-	            }
-	        });
-		}
+                    }
+
+                },
+                fail: function( jqXHR, textStatus ) {
+                    alert( "Request failed: " + textStatus );
+                }
+            });
+        }
     })
     var libraryButton=document.createElement("i")
     libraryButton.setAttribute("class", "fas fa-plus-circle fa-lg")
@@ -304,6 +328,7 @@ function creatGame(name,image,id) {
                 data: {idGiocoPosseduto : id, nomeGiocoPosseduto : name},
                 success:function (response)
                 {
+                    console.log(response)
                     if (response)
                     {
                         libraryButton.setAttribute("style","background-color:green")

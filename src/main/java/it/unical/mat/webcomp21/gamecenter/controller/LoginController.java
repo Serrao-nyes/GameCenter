@@ -19,7 +19,7 @@ public class LoginController {
 	public String login(HttpSession session, @RequestParam String username, @RequestParam String password) {
 		Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 		if((utente != null) && BCrypt.checkpw(password, utente.getPassword())) {
-			session.setAttribute("usernameLogged", username);
+			session.setAttribute("usernamelogged", username);
 			return "index";
 		}
 		return "login";

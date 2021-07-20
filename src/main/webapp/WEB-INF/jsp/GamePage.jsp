@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +10,11 @@
     <title>Nome Gioco</title>
 
     <!-- Bootstrap CSS -->
-    <link href="../css/stilecomune.css" rel="stylesheet" type="text/css">
-    <link href="../css/stilegioco.css" rel="stylesheet" type="text/css">
+    <link href="../../css/stilecomune.css" rel="stylesheet" type="text/css">
+    <link href="../../css/stilegioco.css" rel="stylesheet" type="text/css">
     
     <!-- Optional JavaScript -->
-    <script defer src="../js/script.js"></script>
+    <script defer src="../../js/indexScript.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> type="text/javascript"</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -70,7 +73,7 @@
             </div>
             <div id="screen"><h1>sezione screen le dimesioni saranno definite in seguito</h1></div>
             <div id="descrizione"><h3>qui ci andranno le descrizioni del gioco per come li vogliamo noi</h3></div>
-            <div id="requisiti"> <h3>qua invece i requisiti, la fromattazione sar√† configurato a testo inserito </h3> </div>
+            <div id="requisiti"> <h3>qua invece i requisiti, la fromattazione sar‡ configurato a testo inserito </h3> </div>
         </div>
         
 

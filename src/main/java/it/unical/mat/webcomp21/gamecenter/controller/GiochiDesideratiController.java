@@ -19,8 +19,8 @@ public class GiochiDesideratiController {
 		GiocoDesiderato giocoDesiderato = new GiocoDesiderato();
 		giocoDesiderato.setId(idGiocoDesiderato);
 		giocoDesiderato.setNome(nomeGiocoDesiderato);
-		if(session.getAttribute("usernameLogged") != null) {
-			String username = session.getAttribute("usernameLogged").toString();
+		if(session.getAttribute("usernamelogged") != null) {
+			String username = session.getAttribute("usernamelogged").toString();
 			Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 			GiocoDesiderato gd = DBManager.getInstance().giocoDesideratoDAO().findByPrimaryKey(idGiocoDesiderato);
 			if(gd == null)
@@ -49,8 +49,8 @@ public class GiochiDesideratiController {
 		GiocoDesiderato giocoDesiderato = new GiocoDesiderato();
 		giocoDesiderato.setId(idGiocoDesiderato);
 		giocoDesiderato.setNome(nomeGiocoDesiderato);
-		if(session.getAttribute("usernameLogged") != null) {
-			String username = session.getAttribute("usernameLogged").toString();
+		if(session.getAttribute("usernamelogged") != null) {
+			String username = session.getAttribute("usernamelogged").toString();
 			Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 			DBManager.getInstance().utenteDAO().removeGiochiDesiderati(utente, giocoDesiderato);
 			//DBManager.getInstance().giocoDesideratoDAO().delete(giocoDesiderato);

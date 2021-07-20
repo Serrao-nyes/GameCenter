@@ -15,7 +15,6 @@
     <link href="../../css/log-in.css" rel="stylesheet" type="text/css">
     
     <!-- Optional JavaScript -->
-    <script defer src="../../js/loginScript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> type="text/javascript"</script>
@@ -23,7 +22,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <c:if test="${usernameLogged != null}">
-	<script type="text/javascript">
+	<script>
 		alert("Username o password erratti. Riprova")
 	</script>
 </c:if>
