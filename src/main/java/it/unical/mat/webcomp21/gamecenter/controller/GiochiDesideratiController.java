@@ -45,9 +45,9 @@ public class GiochiDesideratiController {
 	}
 	
 	@PostMapping("removeGiochiDesiderati")
-	public Boolean removeGiochiDesiderati(HttpSession session, @RequestParam long idGiocodesiderato, @RequestParam String nomeGiocoDesiderato) {
+	public Boolean removeGiochiDesiderati(HttpSession session, @RequestParam long idGiocoDesiderato, @RequestParam String nomeGiocoDesiderato) {
 		GiocoDesiderato giocoDesiderato = new GiocoDesiderato();
-		giocoDesiderato.setId(idGiocodesiderato);
+		giocoDesiderato.setId(idGiocoDesiderato);
 		giocoDesiderato.setNome(nomeGiocoDesiderato);
 		if(session.getAttribute("usernameLogged") != null) {
 			String username = session.getAttribute("usernameLogged").toString();

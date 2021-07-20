@@ -13,14 +13,16 @@ var PageNumber=1
 var PageSize=40
 var Store
 var Filtred=false
-document.onload=fetchGames(PageNumber,PageSize,Store),createStoreBadge()
+document.onload=fetchGames(PageNumber,PageSize,Store),createStoreBadge(),search()
 
 async function fetchGames(page,size,store){
+    Search=false
     if(!Filtred)
     { $.ajax({
         type:'GET',
         url:"https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&page="+page+"&page_size="+size,
         success:function (result){
+            Search=false
             for(var i=0;i<result.results.length;i++)
             {
                 creatGame(result.results[i].name,result.results[i].background_image,result.results[i].id);
@@ -59,7 +61,21 @@ function createStoreBadge()
             Store = 1
             cleanGameContainer()
             cleanPosizione()
-            fetchGames(PageNumber, PageSize, Store)
+            if(Search==false)
+            {fetchGames(PageNumber, PageSize, Store)}
+            else
+            { $.ajax({
+                type: 'GET',
+                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
+                success: function (result) {
+                    cleanGameContainer()
+                    for (var i = 0; i < result.results.length; i++) {
+
+                        creatGame(result.results[i].name, result.results[i].background_image, result.results[i].id);
+                    }
+                    cleanPosizione()
+                }
+            });}
         }
     })
     var epic=document.createElement("button")
@@ -73,7 +89,21 @@ function createStoreBadge()
             Store = 11
             cleanGameContainer()
             cleanPosizione()
-            fetchGames(PageNumber, PageSize, Store)
+            if(Search==false)
+            {fetchGames(PageNumber, PageSize, Store)}
+            else
+            { $.ajax({
+                type: 'GET',
+                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
+                success: function (result) {
+                    cleanGameContainer()
+                    for (var i = 0; i < result.results.length; i++) {
+
+                        creatGame(result.results[i].name, result.results[i].background_image, result.results[i].id);
+                    }
+                    cleanPosizione()
+                }
+            });}
         }
     })
     var xbox=document.createElement("button")
@@ -87,7 +117,21 @@ function createStoreBadge()
             Store = 7
             cleanGameContainer()
             cleanPosizione()
-            fetchGames(PageNumber, PageSize, Store)
+            if(Search==false)
+            {fetchGames(PageNumber, PageSize, Store)}
+            else
+            { $.ajax({
+                type: 'GET',
+                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
+                success: function (result) {
+                    cleanGameContainer()
+                    for (var i = 0; i < result.results.length; i++) {
+
+                        creatGame(result.results[i].name, result.results[i].background_image, result.results[i].id);
+                    }
+                    cleanPosizione()
+                }
+            });}
         }
     })
     var gog=document.createElement("button")
@@ -101,7 +145,21 @@ function createStoreBadge()
             Store = 5
             cleanGameContainer()
             cleanPosizione()
-            fetchGames(PageNumber, PageSize, Store)
+            if(Search==false)
+            {fetchGames(PageNumber, PageSize, Store)}
+            else
+            { $.ajax({
+                type: 'GET',
+                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
+                success: function (result) {
+                    cleanGameContainer()
+                    for (var i = 0; i < result.results.length; i++) {
+
+                        creatGame(result.results[i].name, result.results[i].background_image, result.results[i].id);
+                    }
+                    cleanPosizione()
+                }
+            });}
         }
     })
     var playstation=document.createElement("button")
@@ -115,24 +173,52 @@ function createStoreBadge()
             Store = 3
             cleanGameContainer()
             cleanPosizione()
-            fetchGames(PageNumber, PageSize, Store)
+            if(Search==false)
+            {fetchGames(PageNumber, PageSize, Store)}
+            else
+            { $.ajax({
+                type: 'GET',
+                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
+                success: function (result) {
+                    cleanGameContainer()
+                    for (var i = 0; i < result.results.length; i++) {
+
+                        creatGame(result.results[i].name, result.results[i].background_image, result.results[i].id);
+                    }
+                    cleanPosizione()
+                }
+            });}
         }
     })
-        var nintendo = document.createElement("button")
-        nintendo.classList.add("badge")
-        nintendo.setAttribute("id", "nintendo")
-        PlatformContainer.append(nintendo)
-        nintendo.setAttribute("style", "background-image: url('../images/nintendo.png')")
-        nintendo.addEventListener('click', function () {
-            if (Store != 6) {
-                Filtred = true
-                Store = 6
-                cleanGameContainer()
-                cleanPosizione()
-                fetchGames(PageNumber, PageSize, Store)
-            }
-        })
-    }
+    var nintendo = document.createElement("button")
+    nintendo.classList.add("badge")
+    nintendo.setAttribute("id", "nintendo")
+    PlatformContainer.append(nintendo)
+    nintendo.setAttribute("style", "background-image: url('../images/nintendo.png')")
+    nintendo.addEventListener('click', function () {
+        if (Store != 6) {
+            Filtred = true
+            Store = 6
+            cleanGameContainer()
+            cleanPosizione()
+            if(Search==false)
+            {fetchGames(PageNumber, PageSize, Store)}
+            else
+            { $.ajax({
+                type: 'GET',
+                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
+                success: function (result) {
+                    cleanGameContainer()
+                    for (var i = 0; i < result.results.length; i++) {
+
+                        creatGame(result.results[i].name, result.results[i].background_image, result.results[i].id);
+                    }
+                    cleanPosizione()
+                }
+            });}
+        }
+    })
+}
 function creatGame(name,image,id) {
     var Space = document.createElement('div');
     Space.classList.add("GameSpace");
@@ -157,7 +243,7 @@ function creatGame(name,image,id) {
     buttonWishlist.setAttribute("href","doGiochiDesiderati")
     buttonWishlist.addEventListener("click",function ()
     {
-        console.log(id)
+    //    console.log(id)
 		if(buttonWishlist.style.backgroundColor==="") {
 	        $.ajax({
 	            url:"doGiochiDesiderati",
@@ -185,7 +271,7 @@ function creatGame(name,image,id) {
 			$.ajax({
 	            url:"removeGiochiDesiderati",
 	            type:"POST",
-	            data: {idGiocodesiderato : id, nomeGiocoDesiderato : name},
+	            data: {idGiocoDesiderato : id, nomeGiocoDesiderato : name},
 	            success:function (response)
 	            {	
 	                if (response)
@@ -195,7 +281,7 @@ function creatGame(name,image,id) {
 	                }
 	                else
 	                {
-	                    alert("Devi essere loggato per poter aggiungere un gioco alla lista desideri")
+	                    alert("Devi essere loggato per poter eliminare un gioco alla lista desideri")
 
 	                }	
 
@@ -209,6 +295,57 @@ function creatGame(name,image,id) {
     var libraryButton=document.createElement("i")
     libraryButton.setAttribute("class", "fas fa-plus-circle fa-lg")
     libraryButton.setAttribute("id", "libreria")
+    libraryButton.addEventListener("click",function (){
+        //    console.log(id)
+        if(libraryButton.style.backgroundColor==="") {
+            $.ajax({
+                url:"doGiochiPosseduti",
+                type:"POST",
+                data: {idGiocoPosseduto : id, nomeGiocoPosseduto : name},
+                success:function (response)
+                {
+                    if (response)
+                    {
+                        libraryButton.setAttribute("style","background-color:green")
+                        alert("Gioco aggiunto alla libreria")
+                    }
+                    else
+                    {
+                        alert("Devi essere loggato per poter aggiungere un gioco alla libreria")
+                    }
+
+                },
+                fail: function( jqXHR, textStatus ) {
+                    alert( "Request failed: " + textStatus );
+                }
+            });
+        }
+        else {
+            $.ajax({
+                url:"removeGiochiPosseduti",
+                type:"POST",
+                data: {idGiocoPosseduto : id, nomeGiocoPosseduto : name},
+                success:function (response)
+                {
+                    if (response)
+                    {
+                        libraryButton.setAttribute("style","background-color:")
+                        alert("Gioco eliminato dalla libreria")
+                    }
+                    else
+                    {
+                        alert("Devi essere loggato per poter eliminare un gioco dalla libreria")
+
+                    }
+
+                },
+                fail: function( jqXHR, textStatus ) {
+                    alert( "Request failed: " + textStatus );
+                }
+            });
+        }
+
+    })
     pulsanti.append(libraryButton)
     pulsanti.append(buttonWishlist)
     GameContainer.append(Space);
@@ -266,3 +403,46 @@ function changePageBackward()
         fetchGames(PageNumber,PageSize,Store)
     }
 }
+
+function search() {
+    var searchutton = document.getElementById("sb")
+    searchutton.addEventListener("click", function () {
+        Search=true
+        Filtred=false
+        Store=null
+        $.ajax({
+            type: 'GET',
+            url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&page_size=100",
+            success: function (result) {
+                cleanGameContainer()
+                for (var i = 0; i < result.results.length; i++) {
+
+                    creatGame(result.results[i].name, result.results[i].background_image, result.results[i].id);
+                }
+                cleanPosizione()
+            }
+        });
+
+    })
+    document.addEventListener("keyup",function (event){
+        if(event.keyCode===13)
+        {
+            Search=true
+            Filtred=false
+            Store=null
+            $.ajax({
+                type: 'GET',
+                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&page_size=100",
+                success: function (result) {
+                    cleanGameContainer()
+                    for (var i = 0; i < result.results.length; i++) {
+
+                        creatGame(result.results[i].name, result.results[i].background_image, result.results[i].id);
+                    }
+                    cleanPosizione()
+                }
+            });
+        }
+    })
+}
+

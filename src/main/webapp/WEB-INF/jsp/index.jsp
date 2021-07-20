@@ -30,9 +30,9 @@ pageEncoding="ISO-8859-1"%>
             <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
             
         <div class="search-bar" id = "ricerca">
-	        <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="">
+	        <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="" id="cerca">
 		    <a class="search-btn"> 
-                <i class="fas fa-search"></i>
+                <i class="fas fa-search" id="sb"></i>
             </a>
         </div>
 
@@ -50,7 +50,7 @@ pageEncoding="ISO-8859-1"%>
                         <a href="/html/login.html" class="button">Log In</a>
                     </li>
                     <li class="nav_btn">
-                        <a href="/html/signup.html" class="button">Registrati</a>
+                        <a href="goToRegistrazione" class="button">Registrati</a>
                     </li>
                 </c:if>
                 <c:if test="${usernamelogged!=null}">

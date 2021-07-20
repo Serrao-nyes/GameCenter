@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+         pageEncoding="ISO-8859-1"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Center</title>
-
+  <script defer src="../../js/signupScript.js"></script>
   <!-- Bootstrap CSS -->
   <link href="../../css/stilecomune.css" rel="stylesheet" type="text/css">
   <link href="../../css/stilehome.css" rel="stylesheet" type="text/css">
@@ -24,21 +27,21 @@
 <div class="container" id="Sign-mod">
   <form id="login-form" method="POST" action="doRegistrazione">
     <div class="input">
-      <input class="input__field" type="text" placeholder="Username" name="username" value="">
+      <input class="input__field" type="text" placeholder="Username" name="username" value="" id="user">
     </div>
     <div class="input">
-      <input class="input__field" type="password" placeholder="Password" name="password" value="">
+      <input class="input__field" type="password" placeholder="Password" name="password" value="" id="psw">
     </div>
     <div class="input">
-      <input class="input__field" type="email" placeholder="Email" name="email" value="">
+      <input class="input__field" type="email" placeholder="Email" name="email" value="" id="email">
     </div>
     <div class="input">
-      <input class="input__field" type="text" placeholder="Nome" name="nome" value="">
+      <input class="input__field" type="text" placeholder="Nome" name="nome" value="" id="nome">
     </div>
      <div class="input">
-      <input class="input__field" type="text" placeholder="Cognome" name="cognome" value="">
+      <input class="input__field" type="text" placeholder="Cognome" name="cognome" value="" id="cognome">
     </div>
-    <button class="button button_fill button_medium" type="submit">Registrati</button></form>
+    <button class="button button_fill button_medium" type="submit" id="reg">Registrati</button></form>
   <div class="page__additional_sign">
     Benvenuto in GameCenter!
   </div>

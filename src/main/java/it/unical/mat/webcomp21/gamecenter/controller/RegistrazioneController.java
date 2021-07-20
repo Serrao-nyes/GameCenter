@@ -34,9 +34,9 @@ public class RegistrazioneController {
 		return "Registrazione effettuata con successo";
 	} 
 	
-//	@GetMapping("goToRegistrazione")
-//	public String registrazione() {
-//		return "signup";
-//	}
+	@GetMapping("goToRegistrazione")
+	public String registrazione() {
+		return "signup";
+	}
 
 }
