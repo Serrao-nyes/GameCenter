@@ -12,11 +12,6 @@ import it.unical.mat.webcomp21.persistence.DBManager;
 @Controller
 public class RegistrazioneController {
 	
-	@GetMapping("goToRegistrazione")
-	public String registrazione() {
-		return "signup";
-	}
-	
 	@PostMapping("doRegistrazione")
 	@ResponseBody
 	public String registrazione(@RequestParam String username, @RequestParam String password, @RequestParam String email,
@@ -38,5 +33,10 @@ public class RegistrazioneController {
 		DBManager.getInstance().utenteDAO().save(nuovoUtente);
 		return "Registrazione effettuata con successo";
 	} 
+	
+//	@GetMapping("goToRegistrazione")
+//	public String registrazione() {
+//		return "signup";
+//	}
 
 }

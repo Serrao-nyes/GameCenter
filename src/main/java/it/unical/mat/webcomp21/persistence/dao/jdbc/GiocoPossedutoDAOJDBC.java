@@ -39,12 +39,12 @@ public class GiocoPossedutoDAOJDBC implements GiocoPossedutoDAO {
 	}
 
 	@Override
-	public GiocoPosseduto findByPrimaryKey(int id) {
+	public GiocoPosseduto findByPrimaryKey(long id) {
 		try {
 			Connection conn = dbSource.getConnection();
 			String query = "SELECT * FROM giocoposseduto WHERE id = ?";
 			PreparedStatement st = conn.prepareStatement(query);
-			st.setInt(1, id);
+			st.setLong(1, id);
 			ResultSet rs = st.executeQuery();
 			if(rs.next()) {
 				GiocoPosseduto gp = new GiocoPosseduto();

@@ -6,26 +6,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.unical.mat.webcomp21.model.GiocoDesiderato;
+import it.unical.mat.webcomp21.model.GiocoPosseduto;
 import it.unical.mat.webcomp21.model.Utente;
 import it.unical.mat.webcomp21.persistence.DBManager;
 
 @RestController
-public class GiochiDesideratiController {
+public class GiochiPossedutiController {
 	
-	@PostMapping("doGiochiDesiderati")
-	public Boolean giochiDesiderati(HttpSession session, @RequestParam long idGiocoDesiderato, @RequestParam String nomeGiocoDesiderato) {
+	@PostMapping("doGiochiPosseduti")
+	public Boolean giochiPosseduti(HttpSession session, @RequestParam long idGiocoPosseduto, @RequestParam String nomeGiocoPosseduto) {
 		System.out.println("nyes");
-		GiocoDesiderato giocoDesiderato = new GiocoDesiderato();
-		giocoDesiderato.setId(idGiocoDesiderato);
-		giocoDesiderato.setNome(nomeGiocoDesiderato);
+		GiocoPosseduto giocoPosseduto = new GiocoPosseduto();
+		giocoPosseduto.setId(idGiocoPosseduto);
+		giocoPosseduto.setNome(nomeGiocoPosseduto);
 		if(session.getAttribute("usernameLogged") != null) {
 			String username = session.getAttribute("usernameLogged").toString();
 			Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
-			GiocoDesiderato gd = DBManager.getInstance().giocoDesideratoDAO().findByPrimaryKey(idGiocoDesiderato);
-			if(gd == null)
-				DBManager.getInstance().giocoDesideratoDAO().save(giocoDesiderato);
-			DBManager.getInstance().utenteDAO().addGiochiDesiderati(utente, giocoDesiderato);
+			GiocoPosseduto gp = DBManager.getInstance().giocoPossedutoDAO().findByPrimaryKey(idGiocoPosseduto);
+			if(gp == null)
+				DBManager.getInstance().giocoPossedutoDAO().save(giocoPosseduto);
+			DBManager.getInstance().utenteDAO().addGiochiPosseduti(utente, giocoPosseduto);
 			return true;
 		}
 		return false;
@@ -44,15 +44,15 @@ public class GiochiDesideratiController {
 	//	return false;
 	}
 	
-	@PostMapping("removeGiochiDesiderati")
-	public Boolean removeGiochiDesiderati(HttpSession session, @RequestParam long idGiocodesiderato, @RequestParam String nomeGiocoDesiderato) {
-		GiocoDesiderato giocoDesiderato = new GiocoDesiderato();
-		giocoDesiderato.setId(idGiocodesiderato);
-		giocoDesiderato.setNome(nomeGiocoDesiderato);
+	@PostMapping("removeGiochiPosseduti")
+	public Boolean removeGiochiposseduti(HttpSession session, @RequestParam long idGiocoPosseduto, @RequestParam String nomeGiocoPosseduto) {
+		GiocoPosseduto giocoPosseduto = new GiocoPosseduto();
+		giocoPosseduto.setId(idGiocoPosseduto);
+		giocoPosseduto.setNome(nomeGiocoPosseduto);
 		if(session.getAttribute("usernameLogged") != null) {
 			String username = session.getAttribute("usernameLogged").toString();
 			Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
-			DBManager.getInstance().utenteDAO().removeGiochiDesiderati(utente, giocoDesiderato);
+			DBManager.getInstance().utenteDAO().removeGiochiPosseduti(utente, giocoPosseduto);
 			//DBManager.getInstance().giocoDesideratoDAO().delete(giocoDesiderato);
 			return true;
 		}
@@ -60,3 +60,4 @@ public class GiochiDesideratiController {
 	}
 
 }
+
