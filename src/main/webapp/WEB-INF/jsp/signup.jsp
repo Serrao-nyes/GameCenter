@@ -30,7 +30,10 @@
 	</script>
 </c:if>
 <div class="container" id="Sign-mod">
-  <form id="login-form" method="post" action="doRegistrazione">
+  <div class="page__additional_sign">
+    Benvenuto in GameCenter!
+  </div>
+  <form id="signup-form" method="post" action="doRegistrazione">
     <div class="input">
       <input class="input__field" type="text" placeholder="Username" value="" name="username" id="user" required>
     </div>
@@ -47,8 +50,5 @@
       <input class="input__field" type="text" placeholder="Cognome" value="" name="cognome" id="cognome"required>
     </div>
     <button class="button button_fill button_medium" type="submit" id="reg">Registrati</button></form>
-  <div class="page__additional_sign">
-    Benvenuto in GameCenter!
-  </div>
 </div>
 </body>

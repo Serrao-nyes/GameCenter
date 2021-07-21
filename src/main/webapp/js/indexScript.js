@@ -50,11 +50,19 @@ async function fetchGames(page,size,store){
 
 function createStoreBadge()
 {
-    var steam=document.createElement("button")
-    steam.classList.add("badge")
+    var steam=document.createElement("div")
+    console.log("ciao")
+    steam.classList.add("tasto_piattaforma")
     steam.setAttribute("id","steam")
+    var sfondos=document.createElement("div")
+    sfondos.classList.add("sfondo_piattaforma")
+    var nomes=document.createElement("div")
+    nomes.classList.add("nome_piattaforma")
+    sfondos.setAttribute("style",  "background-image: url('../images/steam-logo-transparent.png')")
+    nomes.innerText = "Steam"
     PlatformContainer.append(steam)
-    steam.setAttribute("style",  "background-image: url('../images/steam-logo-transparent.png')")
+    steam.append(sfondos)
+    steam.append(nomes)
     steam.addEventListener('click',function () {
         if(Store==1)
         {
@@ -63,6 +71,8 @@ function createStoreBadge()
         else if (Store != 1) {
             Filtred = true
             Store = 1
+            steam.setAttribute('style', 'border-style: solid')
+            steam.setAttribute('style', 'border: #f09144')
             cleanGameContainer()
             cleanPosizione()
             if(Search==false)
@@ -74,7 +84,6 @@ function createStoreBadge()
                 success: function (result) {
                     cleanGameContainer()
                     for (var i = 0; i < result.results.length; i++) {
-
                         creatGame(result.results[i].name, result.results[i].background_image, result.results[i].id);
                     }
                     cleanPosizione()
@@ -82,11 +91,19 @@ function createStoreBadge()
             });}
         }
     })
-    var epic=document.createElement("button")
-    epic.classList.add("badge")
+    var epic=document.createElement("div")
+    console.log("ciao")
+    epic.classList.add("tasto_piattaforma")
     epic.setAttribute("id","epic")
+    var sfondoe=document.createElement("div")
+    sfondoe.classList.add("sfondo_piattaforma")
+    var nomee=document.createElement("div")
+    nomee.classList.add("nome_piattaforma")
+    sfondoe.setAttribute("style",  "background-image: url('../images/epic.png')")
+    nomee.innerText = "Epic"
     PlatformContainer.append(epic)
-    epic.setAttribute("style",  "background-image: url('../images/epic.png')")
+    epic.append(sfondoe)
+    epic.append(nomee)
     epic.addEventListener('click',function () {
         if(Store==11)
         {
@@ -95,6 +112,8 @@ function createStoreBadge()
         else if (Store != 11) {
             Filtred = true
             Store = 11
+            epic.setAttribute('style', 'border-style: solid')
+            epic.setAttribute('style', 'border: #f09144')
             cleanGameContainer()
             cleanPosizione()
             if(Search==false)
@@ -106,7 +125,6 @@ function createStoreBadge()
                 success: function (result) {
                     cleanGameContainer()
                     for (var i = 0; i < result.results.length; i++) {
-
                         creatGame(result.results[i].name, result.results[i].background_image, result.results[i].id);
                     }
                     cleanPosizione()
@@ -114,11 +132,19 @@ function createStoreBadge()
             });}
         }
     })
-    var xbox=document.createElement("button")
-    xbox.classList.add("badge")
+    var xbox=document.createElement("div")
+    console.log("ciao")
+    xbox.classList.add("tasto_piattaforma")
     xbox.setAttribute("id","xbox")
+    var sfondox=document.createElement("div")
+    sfondox.classList.add("sfondo_piattaforma")
+    var nomex=document.createElement("div")
+    nomex.classList.add("nome_piattaforma")
+    sfondox.setAttribute("style",  "background-image: url('../images/xbox.png')")
+    nomex.innerText = "Xbox"
     PlatformContainer.append(xbox)
-    xbox.setAttribute("style",  "background-image: url('../images/xbox.png')")
+    xbox.append(sfondox)
+    xbox.append(nomex)
     xbox.addEventListener('click',function () {
         if(Store==7)
         {
@@ -127,6 +153,8 @@ function createStoreBadge()
         else if (Store != 7) {
             Filtred = true
             Store = 7
+            xbox.setAttribute('style', 'border-style: solid')
+            xbox.setAttribute('style', 'border: #f09144')
             cleanGameContainer()
             cleanPosizione()
             if(Search==false)
@@ -146,19 +174,29 @@ function createStoreBadge()
             });}
         }
     })
-    var gog=document.createElement("button")
-    gog.classList.add("badge")
+    var gog=document.createElement("div")
+    console.log("ciao")
+    gog.classList.add("tasto_piattaforma")
     gog.setAttribute("id","gog")
+    var sfondog=document.createElement("div")
+    sfondog.classList.add("sfondo_piattaforma")
+    var nomeg=document.createElement("div")
+    nomeg.classList.add("nome_piattaforma")
+    sfondog.setAttribute("style",  "background-image: url('../images/gog.png')")
+    nomeg.innerText = "Gog"
     PlatformContainer.append(gog)
-    gog.setAttribute("style",  "background-image: url('../images/gog.png')")
+    gog.append(sfondog)
+    gog.append(nomeg)
     gog.addEventListener('click',function () {
         if(Store==5)
         {
             window.location.href="/"
         }
-       else if (Store != 5) {
+        else if (Store != 5) {
             Filtred = true
             Store = 5
+            gog.setAttribute('style', 'border-style: solid')
+            gog.setAttribute('style', 'border: #f09144')
             cleanGameContainer()
             cleanPosizione()
             if(Search==false)
@@ -178,11 +216,19 @@ function createStoreBadge()
             });}
         }
     })
-    var playstation=document.createElement("button")
-    playstation.classList.add("badge")
+    var playstation=document.createElement("div")
+    console.log("ciao")
+    playstation.classList.add("tasto_piattaforma")
     playstation.setAttribute("id","playstation")
+    var sfondop=document.createElement("div")
+    sfondop.classList.add("sfondo_piattaforma")
+    var nomep=document.createElement("div")
+    nomep.classList.add("nome_piattaforma")
+    sfondop.setAttribute("style",  "background-image: url('../images/playstation.jpg')")
+    nomep.innerText = "PSstore"
     PlatformContainer.append(playstation)
-    playstation.setAttribute("style",  "background-image: url('../images/playstation.jpg')")
+    playstation.append(sfondop)
+    playstation.append(nomep)
     playstation.addEventListener('click',function () {
         if(Store==3)
         {
@@ -191,6 +237,8 @@ function createStoreBadge()
         else if (Store != 3) {
             Filtred = true
             Store = 3
+            playstation.setAttribute('style', 'border-style: solid')
+            playstation.setAttribute('style', 'border: #f09144')
             cleanGameContainer()
             cleanPosizione()
             if(Search==false)
@@ -210,11 +258,20 @@ function createStoreBadge()
             });}
         }
     })
-    var nintendo = document.createElement("button")
-    nintendo.classList.add("badge")
-    nintendo.setAttribute("id", "nintendo")
+
+    var nintendo=document.createElement("div")
+    console.log("ciao")
+    nintendo.classList.add("tasto_piattaforma")
+    nintendo.setAttribute("id","nintendo")
+    var sfondon=document.createElement("div")
+    sfondon.classList.add("sfondo_piattaforma")
+    var nomen=document.createElement("div")
+    nomen.classList.add("nome_piattaforma")
+    sfondon.setAttribute("style",  "background-image: url('../images/nintendo.png')")
+    nomen.innerText = "Nintendo"
     PlatformContainer.append(nintendo)
-    nintendo.setAttribute("style", "background-image: url('../images/nintendo.png')")
+    nintendo.append(sfondon)
+    nintendo.append(nomen)
     nintendo.addEventListener('click', function () {
         if(Store==6)
         {
@@ -223,6 +280,8 @@ function createStoreBadge()
         else if (Store != 6) {
             Filtred = true
             Store = 6
+            nintendo.setAttribute('style', 'border-style: solid')
+            nintendo.setAttribute('style', 'border: #f09144')
             cleanGameContainer()
             cleanPosizione()
             if(Search==false)
@@ -243,6 +302,8 @@ function createStoreBadge()
         }
     })
 }
+
+
 function creatGame(name,image,id) {
     var Space = document.createElement('div');
     Space.classList.add("GameSpace");

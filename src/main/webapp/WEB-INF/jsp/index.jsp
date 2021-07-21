@@ -32,13 +32,6 @@ pageEncoding="ISO-8859-1"%>
         <div class="nav_container" id="nav">
             <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
             
-        <div class="search-bar" id = "ricerca">
-	        <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="" id="cerca">
-		    <a class="search-btn"> 
-                <i class="fas fa-search" id="sb"></i>
-            </a>
-        </div>
-
             <div class="nav_toggle" id="menu_button">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -49,6 +42,14 @@ pageEncoding="ISO-8859-1"%>
         
             <ul class="nav_menu">
                 <c:if test="${usernamelogged==null}">
+                    <li class="nav_item" >
+                        <div class="search-bar" id = "ricerca">
+                            <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="" id="cerca">
+                            <a class="search-btn"> 
+                                <i class="fas fa-search" id="sb"></i>
+                            </a>
+                        </div>
+                    </li>
                     <li class="nav_btn" >
                         <a href="goToLogin" class="button">Log In</a>
                     </li>
@@ -57,13 +58,21 @@ pageEncoding="ISO-8859-1"%>
                     </li>
                 </c:if>
                 <c:if test="${usernamelogged!=null}">
-                    <li class="nav_item">
-                        Benvenuto, ${usernamelogged}
+                    <li class="nav_item" >
+                        <div class="search-bar" id = "ricerca">
+                            <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="" id="cerca">
+                            <a class="search-btn"> 
+                                <i class="fas fa-search" id="sb"></i>
+                            </a>
+                        </div>
                     </li>
-                    <li class="nav_item">
+                    <li class="nav_item" >
+                        <div class="nome-nav"> Benvenuto, PincoPallino </div>
+                    </li>
+                    <li class="nav_btn">
                         <a href="#"  class="button">Account</a>
                     </li>
-                    <li class="nav_item">
+                    <li class="nav_btn">
                         <a href="doLogout"  class="button">Logout</a>
                     </li>
 
@@ -85,7 +94,6 @@ pageEncoding="ISO-8859-1"%>
         <div class="Background" id="sfondo" >
             <!--Platforms-->
         <div class="game_container" id="Platforms">
-            <div id="nome"></div>
         </div>
 
         <!--Game Section-->
