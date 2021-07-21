@@ -5,6 +5,11 @@ menu.addEventListener('click', function(){
     menulinks.classList.toggle('active')
 })
 
+/*const filtro = document.querySelector('.tasto_piattaforma')
+filtro.addEventListener('click', function(){
+    filtro.classList.toggle('attivo')
+})*/
+
 const Posizione = document.getElementById("Page_btn")
 var Button_Render = 0;
 const GameContainer= document.getElementById('games')
@@ -66,13 +71,22 @@ function createStoreBadge()
     steam.addEventListener('click',function () {
         if(Store==1)
         {
-            window.location.href="/"
+            Filtred = false
+            Store = 0
+            steam.setAttribute('style', 'border-color: #fff')
+            cleanGameContainer()
+            cleanPosizione()
+            fetchGames(1,PageSize,Store)
         }
         else if (Store != 1) {
             Filtred = true
             Store = 1
-            steam.setAttribute('style', 'border-style: solid')
-            steam.setAttribute('style', 'border: #f09144')
+            steam.setAttribute('style', 'border-color: #e9872b')
+            epic.setAttribute('style', 'border-color: #fff')
+            xbox.setAttribute('style', 'border-color: #fff')
+            gog.setAttribute('style', 'border-color: #fff')
+            playstation.setAttribute('style', 'border-color: #fff')
+            nintendo.setAttribute('style', 'border-color: #fff')
             cleanGameContainer()
             cleanPosizione()
             if(Search==false)
@@ -107,13 +121,22 @@ function createStoreBadge()
     epic.addEventListener('click',function () {
         if(Store==11)
         {
-            window.location.href="/"
+            Filtred = false
+            Store = 0
+            epic.setAttribute('style', 'border-color: #fff')
+            cleanGameContainer()
+            cleanPosizione()
+            fetchGames(1,PageSize,Store)
         }
         else if (Store != 11) {
             Filtred = true
             Store = 11
-            epic.setAttribute('style', 'border-style: solid')
-            epic.setAttribute('style', 'border: #f09144')
+            epic.setAttribute('style', 'border-color: #e9872b')
+            steam.setAttribute('style', 'border-color: #fff')
+            xbox.setAttribute('style', 'border-color: #fff')
+            gog.setAttribute('style', 'border-color: #fff')
+            playstation.setAttribute('style', 'border-color: #fff')
+            nintendo.setAttribute('style', 'border-color: #fff')
             cleanGameContainer()
             cleanPosizione()
             if(Search==false)
@@ -148,13 +171,22 @@ function createStoreBadge()
     xbox.addEventListener('click',function () {
         if(Store==7)
         {
-            window.location.href="/"
+            Filtred = false
+            Store = 0
+            xbox.setAttribute('style', 'border-color: #fff')
+            cleanGameContainer()
+            cleanPosizione()
+            fetchGames(1,PageSize,Store)
         }
         else if (Store != 7) {
             Filtred = true
             Store = 7
-            xbox.setAttribute('style', 'border-style: solid')
-            xbox.setAttribute('style', 'border: #f09144')
+            xbox.setAttribute('style', 'border-color: #e9872b')
+            epic.setAttribute('style', 'border-color: #fff')
+            steam.setAttribute('style', 'border-color: #fff')
+            gog.setAttribute('style', 'border-color: #fff')
+            playstation.setAttribute('style', 'border-color: #fff')
+            nintendo.setAttribute('style', 'border-color: #fff')
             cleanGameContainer()
             cleanPosizione()
             if(Search==false)
@@ -190,13 +222,22 @@ function createStoreBadge()
     gog.addEventListener('click',function () {
         if(Store==5)
         {
-            window.location.href="/"
+            Filtred = false
+            Store = 0
+            gog.setAttribute('style', 'border-color: #fff')
+            cleanGameContainer()
+            cleanPosizione()
+            fetchGames(1,PageSize,Store)
         }
         else if (Store != 5) {
             Filtred = true
             Store = 5
-            gog.setAttribute('style', 'border-style: solid')
-            gog.setAttribute('style', 'border: #f09144')
+            gog.setAttribute('style', 'border-color: #e9872b')
+            epic.setAttribute('style', 'border-color: #fff')
+            steam.setAttribute('style', 'border-color: #fff')
+            xbox.setAttribute('style', 'border-color: #fff')
+            playstation.setAttribute('style', 'border-color: #fff')
+            nintendo.setAttribute('style', 'border-color: #fff')
             cleanGameContainer()
             cleanPosizione()
             if(Search==false)
@@ -208,7 +249,6 @@ function createStoreBadge()
                 success: function (result) {
                     cleanGameContainer()
                     for (var i = 0; i < result.results.length; i++) {
-
                         creatGame(result.results[i].name, result.results[i].background_image, result.results[i].id);
                     }
                     cleanPosizione()
@@ -232,13 +272,22 @@ function createStoreBadge()
     playstation.addEventListener('click',function () {
         if(Store==3)
         {
-            window.location.href="/"
+            Filtred = false
+            Store = 0
+            playstation.setAttribute('style', 'border-color: #fff')
+            cleanGameContainer()
+            cleanPosizione()
+            fetchGames(1,PageSize,Store)
         }
         else if (Store != 3) {
             Filtred = true
             Store = 3
-            playstation.setAttribute('style', 'border-style: solid')
-            playstation.setAttribute('style', 'border: #f09144')
+            playstation.setAttribute('style', 'border-color: #e9872b')
+            epic.setAttribute('style', 'border-color: #fff')
+            steam.setAttribute('style', 'border-color: #fff')
+            xbox.setAttribute('style', 'border-color: #fff')
+            gog.setAttribute('style', 'border-color: #fff')
+            nintendo.setAttribute('style', 'border-color: #fff')
             cleanGameContainer()
             cleanPosizione()
             if(Search==false)
@@ -250,7 +299,6 @@ function createStoreBadge()
                 success: function (result) {
                     cleanGameContainer()
                     for (var i = 0; i < result.results.length; i++) {
-
                         creatGame(result.results[i].name, result.results[i].background_image, result.results[i].id);
                     }
                     cleanPosizione()
@@ -275,13 +323,22 @@ function createStoreBadge()
     nintendo.addEventListener('click', function () {
         if(Store==6)
         {
-            window.location.href="/"
+            Filtred = false
+            Store = 0
+            nintendo.setAttribute('style', 'border-color: #fff')
+            cleanGameContainer()
+            cleanPosizione()
+            fetchGames(1,PageSize,Store)
         }
         else if (Store != 6) {
             Filtred = true
             Store = 6
-            nintendo.setAttribute('style', 'border-style: solid')
-            nintendo.setAttribute('style', 'border: #f09144')
+            nintendo.setAttribute('style', 'border-color: #e9872b')
+            epic.setAttribute('style', 'border-color: #fff')
+            steam.setAttribute('style', 'border-color: #fff')
+            xbox.setAttribute('style', 'border-color: #fff')
+            gog.setAttribute('style', 'border-color: #fff')
+            playstation.setAttribute('style', 'border-color: #fff')
             cleanGameContainer()
             cleanPosizione()
             if(Search==false)
@@ -293,7 +350,6 @@ function createStoreBadge()
                 success: function (result) {
                     cleanGameContainer()
                     for (var i = 0; i < result.results.length; i++) {
-
                         creatGame(result.results[i].name, result.results[i].background_image, result.results[i].id);
                     }
                     cleanPosizione()
@@ -302,7 +358,6 @@ function createStoreBadge()
         }
     })
 }
-
 
 function creatGame(name,image,id) {
     var Space = document.createElement('div');
