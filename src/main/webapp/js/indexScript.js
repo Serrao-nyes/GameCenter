@@ -178,9 +178,9 @@ function createStoreBadge()
             cleanPosizione()
             fetchGames(1,PageSize,Store)
         }
-        else if (Store != 7) {
+        else if (Store != 2) {
             Filtred = true
-            Store = 7
+            Store = 2
             xbox.setAttribute('style', 'border-color: #e9872b')
             epic.setAttribute('style', 'border-color: #fff')
             steam.setAttribute('style', 'border-color: #fff')
@@ -364,7 +364,7 @@ function creatGame(name,image,id) {
     Space.classList.add("GameSpace");
     Space.className = "GameSpace"
     var Reference = document.createElement('a');
-    Reference.setAttribute("href","GamePage.html")
+    Reference.setAttribute("href","GamePage?idGioco="+id)
     Space.append(Reference)
     var pulsanti= document.createElement('div')
     pulsanti.classList.add("Btn-container")
