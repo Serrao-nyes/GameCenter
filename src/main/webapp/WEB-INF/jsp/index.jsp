@@ -51,7 +51,7 @@ pageEncoding="ISO-8859-1"%>
                         </div>
                     </li>
                     <li class="nav_btn" >
-                        <a href="goToLogin" class="button">Log In</a>
+                        <a href="goToLogin" class="button">Login</a>
                     </li>
                     <li class="nav_btn">
                         <a href="goToRegistrazione" class="button">Registrati</a>
@@ -67,10 +67,10 @@ pageEncoding="ISO-8859-1"%>
                         </div>
                     </li>
                     <li class="nav_item" >
-                        <div class="nome-nav"> Benvenuto, PincoPallino </div>
+                        <div class="nome-nav"> Benvenuto, ${nomeUtente}</div>
                     </li>
                     <li class="nav_btn">
-                        <a href="#"  class="button">Account</a>
+                        <a href="#" class="button">Account</a>
                     </li>
                     <li class="nav_btn">
                         <a href="doLogout"  class="button">Logout</a>

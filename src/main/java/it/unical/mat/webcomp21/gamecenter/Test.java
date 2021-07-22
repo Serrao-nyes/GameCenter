@@ -16,13 +16,20 @@ public class Test {
 		}
 		else
 			System.out.println("Password sbagliata!");
-		Utente u = new Utente();
-		u.setUser("prova");
-		u.setPassword("prova");
-		u.setEmail("prova@prova");
-		u.setNome("Mario");
-		u.setCognome("Rossi");
-		DBManager.getInstance().utenteDAO().save(u);
+		Utente u2 = new Utente();
+		u2.setUser("prova");
+		u2.setPassword("prova");
+		u2.setEmail("prova@prova");
+		u2.setNome("Mario");
+		u2.setCognome("Rossi");
+		DBManager.getInstance().utenteDAO().save(u2);
+//		Utente u = new Utente();
+//		u.setUser("");
+//		u.setPassword("p2");
+//		u.setEmail("p3");
+//		u.setNome("");
+//		u.setCognome("p5");
+//		DBManager.getInstance().utenteDAO().update(u, u2);
 //		Utente u = new Utente();
 //		u.setUser("prova");
 //		DBManager.getInstance().utenteDAO().delete(u);

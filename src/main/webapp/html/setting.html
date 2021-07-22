@@ -38,7 +38,7 @@
         
             <ul class="nav_menu">
                     <li class="nav_btn" >
-                        <a href="goToLogin" class="button">Log In</a>
+                        <a href="goToLogin" class="button">Login</a>
                     </li>
                     <li class="nav_btn">
                         <a href="goToRegistrazione" class="button">Registrati</a>
@@ -63,42 +63,41 @@
                     Username : 
                 </li>
                 <li id = "dato">
-                    Nome :
+                    Password :
                 </li>
                 <li id = "dato">
-                    Cognome :
+                    Conferma Password :
                 </li>
                 <li id = "dato">
                     Email :
                 </li>
-                <li id = "dato">Password :
-
+                <li id = "dato">
+					Nome :
                 </li>
                 <li id = "dato">
-                    Conferma Password :
+                    Cognome :
                 </li>
             </ul>
         </div>
         <div class="container" id="risultati">
             <div class="input">
-                <input class="campo_risultato" type="text" placeholder="Username" name="username" value="">
+                <input class="campo_risultato" type="text" placeholder="Username" name="username" value="" id="username">
             </div>
             <div class="input">
-                <input class="campo_risultato" type="text" placeholder="Nome" name="username" value="" disabled = "disabled">
+                <input class="campo_risultato" type="password" placeholder="Password" name="username" value="" id="password">
             </div>
             <div class="input">
-                <input class="campo_risultato" type="text" placeholder="Cognome" name="username" value="" disabled = "disabled">
+                <input class="campo_risultato" type="password" placeholder="Conferma Password" name="username" value="" id="confermaPassword">
             </div>
             <div class="input">
-                <input class="campo_risultato" type="text" placeholder="Email" name="username" value="" disabled = "disabled">
+                <input class="campo_risultato" type="email" placeholder="Email" name="username" value="" disabled = "disabled" id="email" required>
             </div>
             <div class="input">
-                <input class="campo_risultato" type="text" placeholder="Password" name="username" value="">
+                <input class="campo_risultato" type="text" placeholder="Nome" name="username" value="" disabled = "disabled" id="nome">
             </div>
             <div class="input">
-                <input class="campo_risultato" type="text" placeholder="Conferma Password" name="username" value="">
+                <input class="campo_risultato" type="text" placeholder="Cognome" name="username" value="" disabled = "disabled" id="cognome">
             </div>
-
             <div class="button" id="save">Salva</div>
         </div>
     </div>

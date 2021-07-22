@@ -12,7 +12,7 @@ public interface UtenteDAO {
 	public Utente findByPrimaryKey(String username);    // Retrieve
 	public Utente findByEmail(String email);
 	public List<Utente> findAll();       
-	public void update(Utente utente); //Update
+	public void update(Utente utenteAggiornato, Utente utenteAttuale); //Update
 	public void delete(Utente utente); //Delete	
 	public void addGiochiPosseduti(Utente utente, GiocoPosseduto giocoPosseduto);
 	public void addGiochiDesiderati(Utente utente, GiocoDesiderato giocoDesiderato);
@@ -20,6 +20,8 @@ public interface UtenteDAO {
 	public void removeGiochiDesiderati(Utente utente, GiocoDesiderato giocoDesiderato);
 	public void giochiPosseduti(Utente utente);
 	public void giochiDesiderati(Utente utente);
+	public Boolean findGiocoDesideratoById(Long idGioco);    // Retrieve
+	public Boolean findGiocoPossedutoById(Long idGioco);
 	
 	
 }

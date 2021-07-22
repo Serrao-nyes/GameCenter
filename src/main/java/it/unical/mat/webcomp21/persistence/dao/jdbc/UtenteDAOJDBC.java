@@ -117,17 +117,36 @@ public class UtenteDAOJDBC implements UtenteDAO {
 	}
 
 	@Override
-	public void update(Utente utente) {
+	public void update(Utente utenteAggiornato, Utente utenteAttuale) {
 		try {
 			Connection conn = dbSource.getConnection();
 			String update = "UPDATE utente SET username = ?, password = ?, email = ?, nome = ?, cognome = ? WHERE username = ?";
 			PreparedStatement st = conn.prepareStatement(update);
-			st.setString(1, utente.getUser());
-			st.setString(2, BCrypt.hashpw(utente.getPassword(), BCrypt.gensalt(12)));
-			st.setString(3, utente.getEmail());			
-			st.setString(4, utente.getNome());
-			st.setString(5, utente.getCognome());
-			st.setString(6, utente.getUser());
+			if(!utenteAggiornato.getUser().equals(""))
+				st.setString(1, utenteAggiornato.getUser());
+			else
+				st.setString(1, utenteAttuale.getUser());
+			
+			if(!utenteAggiornato.getPassword().equals(""))
+				st.setString(2, utenteAggiornato.getPassword());
+			else
+				st.setString(2, utenteAttuale.getPassword());
+			
+			if(!utenteAggiornato.getEmail().equals(""))
+				st.setString(3, utenteAggiornato.getEmail());
+			else
+				st.setString(3, utenteAttuale.getEmail());
+			
+			if(!utenteAggiornato.getNome().equals(""))
+				st.setString(4, utenteAggiornato.getNome());
+			else
+				st.setString(4, utenteAttuale.getNome());
+			
+			if(!utenteAggiornato.getCognome().equals(""))
+				st.setString(5, utenteAggiornato.getCognome());
+			else
+				st.setString(5, utenteAttuale.getUser());
+			st.setString(6, utenteAttuale.getUser());
 			st.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {
@@ -248,6 +267,42 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			e.printStackTrace();
 		}
 		utente.setGiochiDesiderati(giochiDesiderati);
+	}
+
+	@Override
+	public Boolean findGiocoDesideratoById(Long idGioco) {
+		try {
+			Connection conn = dbSource.getConnection();
+			String query = "SELECT * FROM desidera WHERE id = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setLong(1, idGioco);
+			ResultSet rs = st.executeQuery();
+			if(rs.next()) {
+				conn.close();
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean findGiocoPossedutoById(Long idGioco) {
+		try {
+			Connection conn = dbSource.getConnection();
+			String query = "SELECT * FROM possiede WHERE id = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setLong(1, idGioco);
+			ResultSet rs = st.executeQuery();
+			if(rs.next()) {
+				conn.close();
+				return true;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 	
 }
