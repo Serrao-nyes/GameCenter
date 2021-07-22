@@ -15,7 +15,6 @@
     <link href="../../css/stilehome.css" rel="stylesheet" type="text/css">
 
     <!-- Optional JavaScript -->
-    <script defer src="../../js/GamePageScript.js"></script>
     <script src="https://kit.fontawesome.com/5f2af914a2.js" crossorigin="anonymous"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> type="text/javascript"</script>
@@ -73,9 +72,15 @@
             <div class="container" id="foto"></div>
             <div class="container" id="info">
                 <div  id = "Titolo_gioco"></div>
-                <div class="container" id="sub_info"></div>
-                <div id= categorie></div>
-                <div  id= link_acquisto> <div class = "button" id= "acquisto"> <h1></h1></div></div>
+                <div>
+                    <h3>Acquista Qui:</h3>
+                    <div class="container" id="sub_info" ></div>
+                </div>
+                <div >
+                    <h3>Categorie:</h3>
+                    <div id= categorie>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -83,9 +88,12 @@
             <div class="container" id="video">
                 <iframe id= "player"  title="Trailer" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            <div id="screen"></div>
-            <div id="descrizione"></div>
-            <div id="requisiti"> </div>
+            <div id="galleria"></div>
+            <div id="popup">
+                <img src="" alt="" id = "immagine-scelto">
+            </div>
+            <div id="descrizione">
+            </div>
         </div>
 
 
@@ -100,12 +108,15 @@
         const InfoSec=document.getElementById("sub_info")
         const Categorie=document.getElementById("categorie")
         const sezionesecondaria=document.getElementById("sezione_secondaria")
+        const popup = document.getElementById("popup")
+        const pop = document.getElementById("immagine-scelto")
         const Video=document.getElementById("player")
         const VideoContainer=document.getElementById("video")
-        const Screen=document.getElementById("screen")
+        const Screen=document.getElementById("galleria")
         const Descrizione=document.getElementById("descrizione")
         const Requisti=document.getElementById("requisiti")
         const TitoloPagina=document.getElementById("titoloPagina")
+        const indice = [1,2,3,4,5,6]
         var generi
         document.onload=fetchInformation(),fetchVideos(),fetchScreen(),fetchStores()
         //checkRequiremments()
@@ -115,7 +126,7 @@
                 type:'GET',
                 url:"https://api.rawg.io/api/games/"+"${idGioco}"+"?key=2d150e2f5c964e6992d048af8ef065f7&",
                 success:function (result){
-                    createGameInformation(result.background_image,result.name,result.description,result.genres,result.platforms)
+                    createGameInformation(result.background_image,result.name,result.description_raw,result.genres,result.platforms)
 
                 }
             });
@@ -163,43 +174,54 @@
             Cover.setAttribute("style","background-image:url("+cover+")")
             Titolo.innerText=titolo
             TitoloPagina.innerText=titolo
-            Descrizione.innerText=descrizione
+            var tit_tes = document.createElement('h1')
+            tit_tes.setAttribute ("id", "Tit_tes")
+            tit_tes.innerText = "Descrizione"
+            Descrizione.append(tit_tes)
+            Descrizione.append(descrizione)
             for(var i=0;i<genres.length;i++)
             {
                 if(i!=0)
                 {generi=generi+genres[i].name+" "}
                 else{
-                    generi=genres[i].name+" "
+                    generi=genres[i].name+" - "
                 }
             }
             Categorie.innerText=generi
-            for(var i=0;i<platform.length;i++)
-            {
-                if(platform[i].platform.name=="PC")
-                {
-                    Requisti.innerText="Requisiti:\n Requisiti Minimi: "+platform[i].requirements.minimum+"\n"+"Requisiti Consigliati: "+platform[i].requirements.recommended
-                    break
-                }
-            }
-
-
-
         }
 
         function appendVideo(video){
+            Video.setAttribute("src",video)
+        }
 
-            Video.setAttribute("src",video)}
+
+        function myFunction(source){
+            popup.style.transform = "translateY(0)"
+            pop.setAttribute("src", source)
+        }
+
+
         function appendScreen(screens){
-
+            var indice = []
             for(var i=0;i<screens.length;i++)
             {
                 var screen= document.createElement('img')
                 screen.classList.add("immagine")
                 Screen.append(screen)
                 screen.setAttribute("src",screens[i].image)
-
+                screen.setAttribute("id", i+1)
+                screen.setAttribute("onClick", "myFunction(this.src)")
+                indice.push(screens[i].image)
             }
         }
+
+        popup.addEventListener('click', ()=>{
+            popup.style.transform = "translateY(-100%)"
+            pop.src = '';
+            pop.alt = '';
+        })
+
+
         function appendStore(stores){
             for(var i=0;i<stores.length;i++)
             {

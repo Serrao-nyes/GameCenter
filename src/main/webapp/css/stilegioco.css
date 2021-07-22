@@ -4,7 +4,7 @@
   position: relative;
   text-align: center;
   height: auto;
-  background: #141414;
+  background: rgb(92, 92, 92);
   color: #fff;
   margin: auto;
   padding-top: 5px;
@@ -12,65 +12,61 @@
 
 #sezione_principale {
   display: flex;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 #foto {
   width: 450px;
-  height: 350px;
+  height: 270px;
   background-size: 100%;
   background-repeat: no-repeat;
-  border-top-right-radius: 8px;
-  border-top-left-radius: 8px;
+  border-radius: 8px;
 }
 
 #info {
   width: 800px;
-  height: 400px;
-  background-color: pink;
-  margin-bottom: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  margin-left: 20px;
-  overflow: hidden;
-}
-
-.product .infos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  margin-left: 20px;
-  background: #fff;
-  overflow: hidden;
+  height: fit-content;
+  padding: 50px;
+  margin-bottom: 20px;
+  color: black;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: coral;
+  box-shadow: 3px 3px 10px black;
 }
 
 #sub_info {
-  border: 1px solid rgba(62, 62, 62, 0.2);
-  border-radius: 6px;
+  color: black;
+  font-weight: 400;
+  font-size: medium;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
-  margin: 10px 0;
-  background: rgba(0, 0, 0, 0.04);
+  background: transparent;
   flex-wrap: wrap;
   padding: 5px;
+  margin-bottom: 30px;
 }
+
+#link_store {
+  background: transparent;
+}
+
 #Titolo_gioco {
-  border: 1px solid rgba(62, 62, 62, 0.2);
-  border-radius: 6px;
+  width: 100%;
+  margin: 10px 0;
+  font-size: 40px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  margin: 10px 0;
-  background: rgba(0, 0, 0, 0.04);
+  background: transparent;
   flex-wrap: wrap;
   padding: 5px;
+  margin-bottom: 30px;
 }
 
 #logo_piattaforma {
@@ -103,18 +99,73 @@
 }
 
 #player {
-  width: 728px;
-  height: 410px;
+  width: 100%;
+  height: 700px;
   border-top-width: 0px;
   border-right-width: 0px;
   border-bottom-width: 0px;
   border-left-width: 0px;
 }
-.immagine
-{
-  width: 728px;
-  height: 410px;
+
+#categorie {
+  width: 100%;
+  height: 50px;
+  font-size: medium;
+  font-weight: 500;
+  padding: 10px;
 }
+
+.immagine {
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+  cursor: pointer;
+  transition: 250ms transform;
+}
+
+.immagine:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 10px black;
+}
+
 #sezione_secondaria {
-  padding-top: 80px;
+  padding: 60px;
+  justify-content: space-around;
+}
+
+#galleria {
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 0.6fr));
+  grid-gap: 20px;
+}
+
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-100%);
+  transition: 250ms transform;
+  padding: 50px;
+}
+
+#immagine-scelto {
+  max-height: 100%;
+}
+
+#descrizione {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+#Tit_tes {
+  text-align: center;
+  margin: auto;
+  color: coral;
 }
