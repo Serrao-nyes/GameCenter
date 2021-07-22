@@ -27,13 +27,13 @@ public class ImpostazioniController {
 		utenteAggiornato.setNome(nome);
 		utenteAggiornato.setCognome(cognome);
 		DBManager.getInstance().utenteDAO().update(utenteAggiornato, utenteAttuale);
-		return "Modifiche effettuate con successo";
 		if(!username.equals(""))
 			session.setAttribute("usernamelogged", username);
-		
-
-
+		if(!nome.equals(""))
+			session.setAttribute("nomeUtente", nome);
+		return "Modifiche effettuate con successo";
 	}
+	
 	@GetMapping("doImpostazioni")
 	public String impostazioni(){
 		return "setting";
