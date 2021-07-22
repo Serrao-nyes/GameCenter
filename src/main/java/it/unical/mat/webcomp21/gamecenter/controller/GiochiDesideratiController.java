@@ -9,6 +9,8 @@ import it.unical.mat.webcomp21.model.GiocoDesiderato;
 import it.unical.mat.webcomp21.model.Utente;
 import it.unical.mat.webcomp21.persistence.DBManager;
 
+import java.util.ArrayList;
+
 @RestController
 public class GiochiDesideratiController {
 	
@@ -67,6 +69,7 @@ public class GiochiDesideratiController {
 		DBManager.getInstance().utenteDAO().giochiDesiderati(utente);
 		if(utente.getGiochiDesiderati().size() > 0)
 			model.addAttribute("giochiDesiderati", utente.getGiochiDesiderati());
+
 
 	}
 

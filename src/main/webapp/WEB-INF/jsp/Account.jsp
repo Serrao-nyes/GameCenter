@@ -260,10 +260,8 @@
             GameContainer.append(Space);
 
         }
-function stampo(){
-            console.log("nomean")
-}
-        document.onload=fetchListaDesideri("${gd.id}"),stampo()
+
+        document.onload=fetchListaDesideri("${gd.id}")
         var ButtonWishList=document.getElementById("wishlista")
         var ButtonLibrary=document.getElementById("liblista")
 
