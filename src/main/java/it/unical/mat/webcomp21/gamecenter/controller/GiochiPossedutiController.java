@@ -58,7 +58,7 @@ public class GiochiPossedutiController {
 		return false;
 	}
 
-	@GetMapping("doLibreria")
+	/*@GetMapping("doLibreria")
 	@ResponseBody
 	public void libreria(HttpSession session, Model model) {
 		String username = session.getAttribute("usernamelogged").toString();
@@ -67,7 +67,7 @@ public class GiochiPossedutiController {
 		if(utente.getGiochiPosseduti().size() > 0)
 			model.addAttribute("giochiPosseduti", utente.getGiochiPosseduti());
 
-	}
+	}*/
 
 }
 

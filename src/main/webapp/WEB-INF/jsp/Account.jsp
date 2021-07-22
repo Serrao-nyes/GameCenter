@@ -75,46 +75,36 @@
         </div>
         
         <div class= "container" id ="button-bar">
-            <button class="button" id="wishlista">
-                Wishlist
-            </button>
-            <button class="button" id="liblista">
-                Libreria
-            </button>
+
+
 
             </div>
-        <div class="game_container" id="games"></div>
+        <div class="game_container" id="games">
+
+            <p id="wishlista">
+                Wishlist
+            </p>
+        </div>
+        <div class="game_container" id="games2">
+
+            <p id="liblista">
+                Libreria
+            </p>
+
+        </div>
+
 
 
 
         </div>
 
         </div>
-    <script>
-        /*const GameContainer=document.getElementById("games")
-        $.ajax({
-            url:"doAccount",
-            type:"GET",
-            success:function ()
-            {
-                console.log("ajax eseguito")
-
-
-            }
-        });*/
-    </script>
 
 
     <c:if test="${giochiDesiderati!=null}">
         <c:forEach var="gd" items="${giochiDesiderati}">
     <script>
-        var GameContainer=document.getElementById("games")
-        function cleanGameContainer()
-        {
-            while (GameContainer.firstChild) {
-                GameContainer.removeChild(GameContainer.firstChild);
-            }
-        }
+        var GameContaine=document.getElementById("games")
         async function fetchListaDesideri(id){
             $.ajax({
                 type:'GET',
@@ -145,158 +135,72 @@
             Reference.append(Img);
             Name.append(pulsanti)
             Space.append(Name);
-            var buttonWishlist=document.createElement("i")
-            buttonWishlist.setAttribute("class", "fas fa-star fa-lg")
-            buttonWishlist.setAttribute("id","wishlist")
-            buttonWishlist.setAttribute("href","doGiochiDesiderati")
-            buttonWishlist.addEventListener("click",function ()
-            {
-                //    console.log(id)
-                if(buttonWishlist.style.backgroundColor==="") {
-                    $.ajax({
-                        url:"doGiochiDesiderati",
-                        type:"POST",
-                        data: {idGiocodesiderato : id, nomeGiocoDesiderato : name},
-                        success:function (response)
-                        {
-                            if (response)
-                            {
-                                buttonWishlist.setAttribute("style","background-color:green")
-                                alert("Gioco aggiunto alla lista dei desideri")
-                            }
-                            else
-                            {
-                                alert("Devi essere loggato per poter aggiungere un gioco alla lista desideri")
-                            }
 
-                        },
-                        fail: function( jqXHR, textStatus ) {
-                            alert( "Request failed: " + textStatus );
-                        }
-                    });
-                }
-                else {
-                    $.ajax({
-                        url:"removeGiochiDesiderati",
-                        type:"POST",
-                        data: {idGiocoDesiderato : id, nomeGiocoDesiderato : name},
-                        success:function (response)
-                        {
-                            if (response)
-                            {
-                                buttonWishlist.setAttribute("style","background-color:")
-                                alert("Gioco eliminato dalla lista dei desideri")
-                            }
-                            else
-                            {
-                                alert("Devi essere loggato per poter eliminare un gioco alla lista desideri")
-
-                            }
-
-                        },
-                        fail: function( jqXHR, textStatus ) {
-                            alert( "Request failed: " + textStatus );
-                        }
-                    });
-                }
-            })
-            var libraryButton=document.createElement("i")
-            libraryButton.setAttribute("class", "fas fa-plus-circle fa-lg")
-            libraryButton.setAttribute("id", "libreria")
-            libraryButton.addEventListener("click",function (){
-                //    console.log(id)
-                if(libraryButton.style.backgroundColor==="") {
-                    $.ajax({
-                        url:"doGiochiPosseduti",
-                        type:"POST",
-                        data: {idGiocoPosseduto : id, nomeGiocoPosseduto : name},
-                        success:function (response)
-                        {
-                            console.log(response)
-                            if (response)
-                            {
-                                libraryButton.setAttribute("style","background-color:green")
-                                alert("Gioco aggiunto alla libreria")
-                            }
-                            else
-                            {
-                                alert("Devi essere loggato per poter aggiungere un gioco alla libreria")
-                            }
-
-                        },
-                        fail: function( jqXHR, textStatus ) {
-                            alert( "Request failed: " + textStatus );
-                        }
-                    });
-                }
-                else {
-                    $.ajax({
-                        url:"removeGiochiPosseduti",
-                        type:"POST",
-                        data: {idGiocoPosseduto : id, nomeGiocoPosseduto : name},
-                        success:function (response)
-                        {
-                            if (response)
-                            {
-                                libraryButton.setAttribute("style","background-color:")
-                                alert("Gioco eliminato dalla libreria")
-                            }
-                            else
-                            {
-                                alert("Devi essere loggato per poter eliminare un gioco dalla libreria")
-
-                            }
-
-                        },
-                        fail: function( jqXHR, textStatus ) {
-                            alert( "Request failed: " + textStatus );
-                        }
-                    });
-                }
-
-            })
-            pulsanti.append(libraryButton)
-            pulsanti.append(buttonWishlist)
-            GameContainer.append(Space);
+            GameContaine.append(Space);
 
         }
 
         document.onload=fetchListaDesideri("${gd.id}")
-        var ButtonWishList=document.getElementById("wishlista")
-        var ButtonLibrary=document.getElementById("liblista")
-
-        ButtonWishList.addEventListener("click",function (){
-            $.ajax({
-                url:"doListaDeiDesideri",
-                type:"GET",
-                success:function ()
-                {
-                    cleanGameContainer()
-                    fetchListaDesideri("${gd.id}")
-
-                }
-            });})
-        ButtonLibrary.addEventListener("click",function (){
-            $.ajax({
-                url:"doLibreria",
-                type:"GET",
-                success:function ()
-                {
-
-                    cleanGameContainer()
-                    fetchListaDesideri("${gd.id}")
-
-                }
-            });
-        })
     </script>
         </c:forEach>
     </c:if>
     <c:if test="${giochiDesiderati==null}">
 
         <script>
-            console.log("nyesmon")
-            GameContainer.innerText="LA TUA WISHLIST E' VUOTA"
+            var GameContainer=document.getElementById("games")
+            var error=document.createElement("p")
+            error.innerText="LA TUA WISHLIST E' VUOTA"
+            GameContainer.append(error)
+        </script>
+
+    </c:if>
+    <c:if test="${giochiPosseduti!=null}">
+        <c:forEach var="gd" items="${giochiPosseduti}">
+            <script>
+                var GameContainer=document.getElementById("games2")
+                async function fetchListaDesideri(id){
+                    $.ajax({
+                        type:'GET',
+                        url:"https://api.rawg.io/api/games/"+id+"?key=2d150e2f5c964e6992d048af8ef065f7&",
+                        success:function (result){
+                            creatGame(result.name,result.background_image,result.id)
+                        }
+                    });
+                }
+
+
+
+                function creatGame(name,image,id) {
+                    var Space = document.createElement('div');
+                    Space.classList.add("GameSpace");
+                    Space.className = "GameSpace"
+                    var Reference = document.createElement('a');
+                    Reference.setAttribute("href","GamePage?idGioco="+id)
+                    Space.append(Reference)
+                    var pulsanti= document.createElement('div')
+                    pulsanti.classList.add("Btn-container")
+                    var Img = document.createElement('div')
+                    Img.classList.add("GameImage")
+                    Img.style.backgroundImage = "url(" + image + ")"
+                    var Name = document.createElement('div');
+                    Name.classList.add("GameName");
+                    Name.textContent = name
+                    Reference.append(Img);
+                    Name.append(pulsanti)
+                    Space.append(Name);
+                    GameContainer.append(Space);
+
+                }
+
+                document.onload=fetchListaDesideri("${gd.id}")
+            </script>
+        </c:forEach>
+    </c:if>
+    <c:if test="${giochiPosseduti==null}">
+
+        <script>
+            var GameContainer=document.getElementById("games2")
+            GameContainer.innerText="LA TUA LIBRERIA E' VUOTA"
         </script>
 
     </c:if>

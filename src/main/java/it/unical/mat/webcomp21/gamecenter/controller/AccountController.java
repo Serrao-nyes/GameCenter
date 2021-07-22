@@ -18,8 +18,11 @@ public class AccountController {
 		String username = session.getAttribute("usernamelogged").toString();
 		Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 		DBManager.getInstance().utenteDAO().giochiDesiderati(utente);
+		DBManager.getInstance().utenteDAO().giochiPosseduti(utente);
 		if(utente.getGiochiDesiderati().size() > 0)
 			model.addAttribute("giochiDesiderati", utente.getGiochiDesiderati());
+		if(utente.getGiochiPosseduti().size() > 0)
+			model.addAttribute("giochiPosseduti", utente.getGiochiPosseduti());
 		return "Account";
 
 	}

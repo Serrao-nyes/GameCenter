@@ -61,7 +61,7 @@ public class GiochiDesideratiController {
 	}
 
 
-	@GetMapping("doListaDeiDesideri")
+	/*@GetMapping("doListaDeiDesideri")
 	@ResponseBody
 	public void listaDesideri(HttpSession session, Model model) {
 		String username = session.getAttribute("usernamelogged").toString();
@@ -71,6 +71,6 @@ public class GiochiDesideratiController {
 			model.addAttribute("giochiDesiderati", utente.getGiochiDesiderati());
 
 
-	}
+	}*/
 
 }
