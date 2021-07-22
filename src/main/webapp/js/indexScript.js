@@ -24,9 +24,9 @@ async function fetchGames(page,size,store){
     Search=false
     if(!Filtred)
     { $.ajax({
-        type:'GET',
-        url:"https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&page="+page+"&page_size="+size,
-        success:function (result){
+            type:'GET',
+            url:"https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&page="+page+"&page_size="+size,
+            success:function (result){
             Search=false
             for(var i=0;i<result.results.length;i++)
             {
@@ -380,7 +380,7 @@ function creatGame(name,image,id) {
     var buttonWishlist=document.createElement("i")
     buttonWishlist.setAttribute("class", "fas fa-star fa-lg")
     buttonWishlist.setAttribute("id","wishlist")
-    buttonWishlist.setAttribute("href","doGiochiDesiderati")
+    //buttonWishlist.setAttribute("href","doGiochiDesiderati")
     buttonWishlist.addEventListener("click",function ()
     {
         //    console.log(id)
@@ -388,7 +388,7 @@ function creatGame(name,image,id) {
             $.ajax({
                 url:"doGiochiDesiderati",
                 type:"POST",
-                data: {idGiocodesiderato : id, nomeGiocoDesiderato : name},
+                data: {idGiocoDesiderato : id, nomeGiocoDesiderato : name},
                 success:function (response)
                 {
                     if (response)

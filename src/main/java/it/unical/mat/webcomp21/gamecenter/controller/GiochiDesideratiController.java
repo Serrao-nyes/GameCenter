@@ -2,9 +2,8 @@ package it.unical.mat.webcomp21.gamecenter.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import it.unical.mat.webcomp21.model.GiocoDesiderato;
 import it.unical.mat.webcomp21.model.Utente;
@@ -57,6 +56,18 @@ public class GiochiDesideratiController {
 			return true;
 		}
 		return false;
+	}
+
+
+	@GetMapping("doListaDeiDesideri")
+	@ResponseBody
+	public void listaDesideri(HttpSession session, Model model) {
+		String username = session.getAttribute("usernamelogged").toString();
+		Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
+		DBManager.getInstance().utenteDAO().giochiDesiderati(utente);
+		if(utente.getGiochiDesiderati().size() > 0)
+			model.addAttribute("giochiDesiderati", utente.getGiochiDesiderati());
+
 	}
 
 }

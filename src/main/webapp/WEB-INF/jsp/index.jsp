@@ -70,7 +70,7 @@ pageEncoding="ISO-8859-1"%>
                         <div class="nome-nav"> Benvenuto, ${nomeUtente}</div>
                     </li>
                     <li class="nav_btn">
-                        <a href="#" class="button">Account</a>
+                        <a href="doAccount" class="button">Account</a>
                     </li>
                     <li class="nav_btn">
                         <a href="doLogout"  class="button">Logout</a>

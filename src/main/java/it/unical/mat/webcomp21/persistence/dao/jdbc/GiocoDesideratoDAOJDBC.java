@@ -47,7 +47,7 @@ public class GiocoDesideratoDAOJDBC implements GiocoDesideratoDAO {
 			if(rs.next()) {
 				GiocoDesiderato gp = new GiocoDesiderato();
 				gp.setId(rs.getLong("id"));
-				gp.setNome(rs.getString("gioco"));
+				gp.setNome(rs.getString("nome"));
 				conn.close();
 				return gp;
 			}
