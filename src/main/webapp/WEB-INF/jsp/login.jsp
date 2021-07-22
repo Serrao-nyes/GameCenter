@@ -46,7 +46,7 @@
             </div>
             <button class="button button_fill button_medium" type="submit" id="login">Log in</button></form>
             <div class="page__additional">
-                <a href="doRegistrazione" rel="nofollow">
+                <a href="goToRegistrazione" rel="nofollow">
                     Don't have an account? Sign up.
                 </a>
              <!--   <a href="/password_recovery" rel="nofollow">

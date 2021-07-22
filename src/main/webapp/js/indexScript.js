@@ -169,7 +169,7 @@ function createStoreBadge()
     xbox.append(sfondox)
     xbox.append(nomex)
     xbox.addEventListener('click',function () {
-        if(Store==7)
+        if(Store==2)
         {
             Filtred = false
             Store = 0

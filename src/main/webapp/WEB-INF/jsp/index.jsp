@@ -40,8 +40,8 @@ pageEncoding="ISO-8859-1"%>
          </div>
 
         <div class="search-bar" id = "ricerca">
-            <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="">
-            <a class="search-btn">
+            <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="" id="cerca">
+            <a class="search-btn" id="sb">
                 <i class="fas fa-search"></i>
             </a>
         </div>

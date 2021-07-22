@@ -32,13 +32,6 @@
     <div class="nav_container" id="nav">
         <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
 
-        <div class="search-bar" id = "ricerca">
-            <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="" id="cerca">
-            <a class="search-btn">
-                <i class="fas fa-search" id="sb"></i>
-            </a>
-        </div>
-
         <div class="nav_toggle" id="menu_button">
             <span class="bar"></span>
             <span class="bar"></span>
