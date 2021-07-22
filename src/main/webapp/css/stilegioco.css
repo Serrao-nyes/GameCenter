@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1500px;
   position: relative;
   text-align: center;
   height: auto;
@@ -15,10 +15,12 @@
 }
 
 #foto {
-  height: 400px;
-  width: 250px;
-  background-color: pink;
-  margin-bottom: 5px;
+  width: 450px;
+  height: 350px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
 }
 
 #info {
@@ -108,7 +110,11 @@
   border-bottom-width: 0px;
   border-left-width: 0px;
 }
-
+.immagine
+{
+  width: 728px;
+  height: 410px;
+}
 #sezione_secondaria {
   padding-top: 80px;
 }
