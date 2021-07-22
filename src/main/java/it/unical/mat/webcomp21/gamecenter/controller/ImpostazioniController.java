@@ -2,19 +2,17 @@ package it.unical.mat.webcomp21.gamecenter.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import it.unical.mat.webcomp21.model.Utente;
 import it.unical.mat.webcomp21.persistence.DBManager;
 
-@RestController
+@Controller
 public class ImpostazioniController {
 	
-	@GetMapping("doModificheAccount")
-	
+	@PostMapping("doModificheAccount")
+	@ResponseBody
 	public String modificheAccount(HttpSession session, @RequestParam String username,  @RequestParam String password, 
 								   @RequestParam String confermaPassword, @RequestParam String email, @RequestParam String nome, 
 								   @RequestParam String cognome) {
@@ -30,10 +28,15 @@ public class ImpostazioniController {
 		utenteAggiornato.setCognome(cognome);
 		DBManager.getInstance().utenteDAO().update(utenteAggiornato, utenteAttuale);
 		return "Modifiche effettuate con successo";
-//		if(!username.equals(""))
-//			session.setAttribute("usernamelogged", username);
+		if(!username.equals(""))
+			session.setAttribute("usernamelogged", username);
 		
-		//if()
+
+
+	}
+	@GetMapping("doImpostazioni")
+	public String impostazioni(){
+		return "setting";
 	}
 
 }

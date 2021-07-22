@@ -15,6 +15,7 @@
     <link href="../../css/account.css" rel="stylesheet" type="text/css">
 
     <!-- Optional JavaScript -->
+    <script defer src="/js/indexScript.js"></script>
     <script src="https://kit.fontawesome.com/5f2af914a2.js" crossorigin="anonymous"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -27,7 +28,7 @@
     <nav class="navbar">
 
         <div class="nav_container" id="nav">
-            <a href="index.jsp" class="nav_logo" id="logo">GAME CENTER</a>
+            <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
             
         <div class="search-bar" id = "ricerca">
 	        <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="">
@@ -45,13 +46,26 @@
 
         
             <ul class="nav_menu">
+                <c:if test="${usernamelogged==null}">
                     <li class="nav_btn" >
-                        <a href="goToLogin" class="button">Log In</a>
+                        <a href="goToLogin" class="button">Login</a>
                     </li>
                     <li class="nav_btn">
                         <a href="goToRegistrazione" class="button">Registrati</a>
                     </li>
-    </ul>
+                </c:if>
+                <c:if test="${usernamelogged!=null}">
+
+                    <li class="nav_btn">
+                        <a href="doAccount" class="button">Account</a>
+                    </li>
+                    <li class="nav_btn">
+                        <a href="doLogout"  class="button">Logout</a>
+                    </li>
+
+                </c:if>
+
+            </ul>
 
         </div>
     </nav> 
@@ -70,7 +84,7 @@
                 <p id = "nome_utente"> Ciao ${nomeUtente}</p>
             </div>
             <div id="settings">
-                <button class="button" id="settaggi"> Settings</button>
+                <button class="button" onclick="window.location.href='doImpostazioni'" id="settaggi">Impostazioni</button>
             </div>
         </div>
         

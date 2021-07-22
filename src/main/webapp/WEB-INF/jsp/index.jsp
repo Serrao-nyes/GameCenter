@@ -39,17 +39,14 @@ pageEncoding="ISO-8859-1"%>
             </div>
          </div>
 
-        
+        <div class="search-bar" id = "ricerca">
+            <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="">
+            <a class="search-btn">
+                <i class="fas fa-search"></i>
+            </a>
+        </div>
             <ul class="nav_menu">
                 <c:if test="${usernamelogged==null}">
-                    <li class="nav_item" >
-                        <div class="search-bar" id = "ricerca">
-                            <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="" id="cerca">
-                            <a class="search-btn"> 
-                                <i class="fas fa-search" id="sb"></i>
-                            </a>
-                        </div>
-                    </li>
                     <li class="nav_btn" >
                         <a href="goToLogin" class="button">Login</a>
                     </li>
@@ -58,14 +55,6 @@ pageEncoding="ISO-8859-1"%>
                     </li>
                 </c:if>
                 <c:if test="${usernamelogged!=null}">
-                    <li class="nav_item" >
-                        <div class="search-bar" id = "ricerca">
-                            <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="" id="cerca">
-                            <a class="search-btn"> 
-                                <i class="fas fa-search" id="sb"></i>
-                            </a>
-                        </div>
-                    </li>
                     <li class="nav_item" >
                         <div class="nome-nav"> Benvenuto, ${nomeUtente}</div>
                     </li>
