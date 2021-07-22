@@ -128,9 +128,9 @@ public class UtenteDAOJDBC implements UtenteDAO {
 				st.setString(1, utenteAttuale.getUser());
 			
 			if(!utenteAggiornato.getPassword().equals(""))
-				st.setString(2, utenteAggiornato.getPassword());
+				st.setString(2, BCrypt.hashpw(utenteAggiornato.getPassword(), BCrypt.gensalt(12)));
 			else
-				st.setString(2, utenteAttuale.getPassword());
+				st.setString(2, BCrypt.hashpw(utenteAttuale.getPassword(), BCrypt.gensalt(12)));
 			
 			if(!utenteAggiornato.getEmail().equals(""))
 				st.setString(3, utenteAggiornato.getEmail());
@@ -236,9 +236,10 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			Connection conn = dbSource.getConnection();
 			String query = "SELECT * FROM possiede WHERE utente = ?";
 			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, utente.getUser());
 			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
-				int idGioco = rs.getInt("id");
+				Long idGioco = rs.getLong("gioco");
 				GiocoPosseduto gp = DBManager.getInstance().giocoPossedutoDAO().findByPrimaryKey(idGioco);
 				giochiPosseduti.add(gp);
 			}
@@ -256,9 +257,10 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			Connection conn = dbSource.getConnection();
 			String query = "SELECT * FROM desidera WHERE utente = ?";
 			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, utente.getUser());
 			ResultSet rs = st.executeQuery();
 			while (rs.next()) {
-				int idGioco = rs.getInt("id");
+				Long idGioco = rs.getLong("gioco");
 				GiocoDesiderato gd = DBManager.getInstance().giocoDesideratoDAO().findByPrimaryKey(idGioco);
 				giochiDesiderati.add(gd);
 			}
