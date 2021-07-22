@@ -1,26 +1,17 @@
 function doLogin(){
-    var buttonLogin=document.getElementById("login")
-    buttonLogin.addEventListener("click",function (){
-        if (document.getElementById("user").value==="" || document.getElementById("psw").value==="")
-        {
-            alert("Compila tutti i campi")
-        }
-            else{
-                request()
-            }
+    var buttonLogin=document.getElementById("login-form")
+    buttonLogin.addEventListener("submit",function () {
+		event.preventDefault()
+		request()
+    
     })
-    document.addEventListener("keyup", function (event){
+    /*document.addEventListener("keyup", function (event){
         if(event.keyCode===13)
-        {
-            if (document.getElementById("user").value==="" && document.getElementById("psw").value==="")
-            {
-                alert("Compila tutti i campi")
-            }
-            else{
-                request()
-            }
+        {	
+			event.preventDefault()
+	        request()
         }
-    })
+    })*/
 
 }
 

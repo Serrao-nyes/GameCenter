@@ -8,7 +8,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Game Center</title>
-  <script src="../../indexScript.js"></script>
+ 
+  <script defer src="/js/signupScript.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!-- Bootstrap CSS -->
@@ -25,21 +26,21 @@
     <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
   </div>
 </nav>
-<c:if test="${errore!=null}">
+<!--<c:if test="${errore!=null}">
 	<script>
 		alert("${errore}")
 	</script>
-</c:if>
+</c:if>-->
 <div class="container" id="Sign-mod">
   <div class="page__additional_sign">
     Benvenuto in GameCenter!
   </div>
-  <form id="signup-form" method="post" action="doRegistrazione">
+  <form id="signup-form">
     <div class="input">
       <input class="input__field" type="text" placeholder="Username" value="" name="username" id="user" required>
     </div>
     <div class="input">
-      <input class="input__field" type="password" placeholder="Password" value="" name="password" id="psw"required>
+      <input class="input__field" type="password" placeholder="Password" value="" name="password" id="psw" required>
     </div>
     <div class="input">
       <input class="input__field" type="email" placeholder="Email"  value="" name="email" id="email"required>
@@ -50,6 +51,7 @@
      <div class="input">
       <input class="input__field" type="text" placeholder="Cognome" value="" name="cognome" id="cognome"required>
     </div>
-    <button class="button button_fill button_medium" type="submit" id="reg">Registrati</button></form>
+    <button class="button button_fill button_medium" type="submit" id="reg">Registrati</button>
+  </form>
 </div>
 </body>
