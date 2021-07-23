@@ -29,7 +29,7 @@
     <nav class="navbar">
 
         <div class="nav_container" id="nav">
-            <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
+            <a href="index.jsp" class="nav_logo" id="logo">GAME CENTER</a>
 
             <div class="nav_toggle" id="menu_button">
                 <span class="bar"></span>
