@@ -22,6 +22,7 @@ public interface UtenteDAO {
 	public void giochiDesiderati(Utente utente);
 	public Boolean findGiocoDesideratoById(Long idGioco);    // Retrieve
 	public Boolean findGiocoPossedutoById(Long idGioco);
-	
+	public Boolean findGiocoDesideratoByUsernameAndId(String username, Long idGioco);
+	public Boolean findGiocoPossedutoByUsernameAndId(String username, Long idGioco);
 	
 }

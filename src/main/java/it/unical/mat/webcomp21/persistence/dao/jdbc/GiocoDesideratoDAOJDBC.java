@@ -38,6 +38,7 @@ public class GiocoDesideratoDAOJDBC implements GiocoDesideratoDAO {
 
 	@Override
 	public GiocoDesiderato findByPrimaryKey(long id) {
+		GiocoDesiderato gp = null;
 		try {
 			Connection conn = dbSource.getConnection();
 			String query = "SELECT * FROM giocodesiderato WHERE id=?";
@@ -45,16 +46,16 @@ public class GiocoDesideratoDAOJDBC implements GiocoDesideratoDAO {
 			st.setLong(1, id);
 			ResultSet rs = st.executeQuery();
 			if(rs.next()) {
-				GiocoDesiderato gp = new GiocoDesiderato();
+				gp = new GiocoDesiderato();
 				gp.setId(rs.getLong("id"));
 				gp.setNome(rs.getString("nome"));
-				conn.close();
-				return gp;
 			}
+			conn.close();
+			//return gp;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return gp;
 	}
 
 	@Override

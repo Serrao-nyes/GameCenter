@@ -40,6 +40,7 @@ public class GiocoPossedutoDAOJDBC implements GiocoPossedutoDAO {
 
 	@Override
 	public GiocoPosseduto findByPrimaryKey(long id) {
+		GiocoPosseduto gp = null;
 		try {
 			Connection conn = dbSource.getConnection();
 			String query = "SELECT * FROM giocoposseduto WHERE id = ?";
@@ -47,16 +48,16 @@ public class GiocoPossedutoDAOJDBC implements GiocoPossedutoDAO {
 			st.setLong(1, id);
 			ResultSet rs = st.executeQuery();
 			if(rs.next()) {
-				GiocoPosseduto gp = new GiocoPosseduto();
+				gp = new GiocoPosseduto();
 				gp.setId(rs.getLong("id"));
 				gp.setNome(rs.getString("nome"));
-				conn.close();
-				return gp;
 			}
+			conn.close();
+			//return gp;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return gp;
 	}
 
 	@Override

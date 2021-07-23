@@ -52,22 +52,15 @@ public class GiochiPossedutiController {
 			String username = session.getAttribute("usernamelogged").toString();
 			Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 			DBManager.getInstance().utenteDAO().removeGiochiPosseduti(utente, giocoPosseduto);
+			if(!DBManager.getInstance().utenteDAO().findGiocoPossedutoById(idGiocoPosseduto))
+				DBManager.getInstance().giocoPossedutoDAO().delete(giocoPosseduto);
 			//DBManager.getInstance().giocoDesideratoDAO().delete(giocoDesiderato);
 			return true;
 		}
 		return false;
 	}
 
-	/*@GetMapping("doLibreria")
-	@ResponseBody
-	public void libreria(HttpSession session, Model model) {
-		String username = session.getAttribute("usernamelogged").toString();
-		Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
-		DBManager.getInstance().utenteDAO().giochiPosseduti(utente);
-		if(utente.getGiochiPosseduti().size() > 0)
-			model.addAttribute("giochiPosseduti", utente.getGiochiPosseduti());
 
-	}*/
 
 }
 

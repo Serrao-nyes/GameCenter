@@ -29,23 +29,25 @@ function request(){
         data:{username:us, password:ps, email:em, nome:nom, cognome:cogn},
         success:function (response)
         {
+			console.log("riga 32")
             if (response==="Registrazione effettuata con successo")
             {
+				console.log("riga 34")
 				alert("Registrazione effettuata con successo")
 				console.log("27")
-                window.location.href="/"
+                window.location.href="goToLogin"
             }
-            else if(response==="Username ed email già esistenti")
+            else if(response==="Username ed email gia esistenti")
             {
 				console.log("32")
-                alert("Username ed email già esistenti")
+                alert("Username ed email gia esistenti")
             }
-			else if(response==="Email già esistente"){
-				alert("Email già esistente")
+			else if(response==="Email gia esistente"){
+				alert("Email gia esistente")
 			}
 			else{
 				console.log("39")
-				alert("Username già esistente")
+				alert("Username gia esistente")
 			}
 			
         },

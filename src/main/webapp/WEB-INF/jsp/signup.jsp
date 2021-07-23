@@ -10,7 +10,7 @@
   <title>Game Center</title>
  
   <script defer src="/js/signupScript.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <!-- Bootstrap CSS -->
   <link href="../../css/stilecomune.css" rel="stylesheet" type="text/css">

@@ -27,6 +27,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 
 	@Override
 	public void save(Utente utente) {
+		
 		try {
 			Connection conn = dbSource.getConnection();
 			String query = "INSERT INTO utente VALUES(?, ?, ?, ?, ?)";
@@ -41,11 +42,11 @@ public class UtenteDAOJDBC implements UtenteDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
 	public Utente findByPrimaryKey(String username) {
+		Utente utente = null;
 		try {
 			Connection conn = dbSource.getConnection();
 			String query = "SELECT * FROM utente WHERE username = ?";
@@ -53,23 +54,24 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			st.setString(1, username);
 			ResultSet rs = st.executeQuery();
 			if(rs.next()) {
-				Utente utente = new Utente();
+				utente = new Utente();
 				utente.setUser(rs.getString("username"));
 				utente.setPassword(rs.getString("password"));
 				utente.setEmail(rs.getString("email"));
 				utente.setNome(rs.getString("nome"));
 				utente.setCognome(rs.getString("cognome"));
-				conn.close();
-				return utente;
 			}
+			conn.close();
+			//return utente;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return utente;
 	}
 	
 	@Override
 	public Utente findByEmail(String email) {
+		Utente utente = null;
 		try {
 			Connection conn = dbSource.getConnection();
 			String query = "SELECT * FROM utente WHERE email = ?";
@@ -77,19 +79,19 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			st.setString(1, email);
 			ResultSet rs = st.executeQuery();
 			if(rs.next()) {
-				Utente utente = new Utente();
+				utente = new Utente();
 				utente.setUser(rs.getString("username"));
 				utente.setPassword(rs.getString("password"));
 				utente.setEmail(rs.getString("email"));
 				utente.setNome(rs.getString("nome"));
 				utente.setCognome(rs.getString("cognome"));
-				conn.close();
-				return utente;
 			}
+			conn.close();
+			//return utente;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return null;
+		return utente;
 	}
 
 	@Override
@@ -284,6 +286,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 				conn.close();
 				return true;
 			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -302,6 +305,47 @@ public class UtenteDAOJDBC implements UtenteDAO {
 				conn.close();
 				return true;
 			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean findGiocoDesideratoByUsernameAndId(String username, Long idGioco) {
+		try {
+			Connection conn = dbSource.getConnection();
+			String query = "SELECT * FROM desidera WHERE utente = ? AND gioco = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, username);
+			st.setLong(2, idGioco);
+			ResultSet rs = st.executeQuery();
+			if(rs.next()) {
+				conn.close();
+				return true;
+			}
+			conn.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	@Override
+	public Boolean findGiocoPossedutoByUsernameAndId(String username, Long idGioco) {
+		try {
+			Connection conn = dbSource.getConnection();
+			String query = "SELECT * FROM possiede WHERE utente = ? AND gioco = ?";
+			PreparedStatement st = conn.prepareStatement(query);
+			st.setString(1, username);
+			st.setLong(2, idGioco);
+			ResultSet rs = st.executeQuery();
+			if(rs.next()) {
+				conn.close();
+				return true;
+			}
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

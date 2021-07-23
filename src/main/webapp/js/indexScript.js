@@ -490,6 +490,29 @@ function creatGame(name,image,id) {
     pulsanti.append(libraryButton)
     pulsanti.append(buttonWishlist)
     GameContainer.append(Space);
+	$.ajax({
+	        url:"doGiochiDesideratiEPosseduti",
+	        type:"POST",
+	        data: {idGioco : id},
+	        success:function (response)
+	        {
+	            if (response=="Gioco salvato nei desiderati e nei posseduti")
+	            {
+	                buttonWishlist.setAttribute("style","background-color:green")
+					libraryButton.setAttribute("style","background-color:green")
+	            }
+	            else if(response=="Gioco salvato nei desiderati")
+	            {
+	                buttonWishlist.setAttribute("style","background-color:green")
+	            }
+				else if(response=="Gioco salvato nei posseduti"){
+					libraryButton.setAttribute("style","background-color:green")
+				}
+	        },
+	        fail: function( jqXHR, textStatus ) {
+	            alert( "Request failed: " + textStatus );
+	        }
+	    });
 
 }
 function  createButton()

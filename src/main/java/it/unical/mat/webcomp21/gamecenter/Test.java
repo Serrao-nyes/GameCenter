@@ -17,9 +17,9 @@ public class Test {
 		else
 			System.out.println("Password sbagliata!");
 		Utente u2 = new Utente();
-		u2.setUser("prova");
-		u2.setPassword("prova");
-		u2.setEmail("prova@prova");
+		u2.setUser("prova2");
+		u2.setPassword("prova2");
+		u2.setEmail("prova2@prova");
 		u2.setNome("Mario");
 		u2.setCognome("Rossi");
 		DBManager.getInstance().utenteDAO().save(u2);

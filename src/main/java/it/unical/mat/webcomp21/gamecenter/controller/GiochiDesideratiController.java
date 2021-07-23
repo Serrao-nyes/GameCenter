@@ -54,23 +54,12 @@ public class GiochiDesideratiController {
 			String username = session.getAttribute("usernamelogged").toString();
 			Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 			DBManager.getInstance().utenteDAO().removeGiochiDesiderati(utente, giocoDesiderato);
+			if(!DBManager.getInstance().utenteDAO().findGiocoDesideratoById(idGiocoDesiderato))
+				DBManager.getInstance().giocoDesideratoDAO().delete(giocoDesiderato);
 			//DBManager.getInstance().giocoDesideratoDAO().delete(giocoDesiderato);
 			return true;
 		}
 		return false;
 	}
-
-
-	/*@GetMapping("doListaDeiDesideri")
-	@ResponseBody
-	public void listaDesideri(HttpSession session, Model model) {
-		String username = session.getAttribute("usernamelogged").toString();
-		Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
-		DBManager.getInstance().utenteDAO().giochiDesiderati(utente);
-		if(utente.getGiochiDesiderati().size() > 0)
-			model.addAttribute("giochiDesiderati", utente.getGiochiDesiderati());
-
-
-	}*/
 
 }
