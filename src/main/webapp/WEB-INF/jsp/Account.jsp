@@ -185,89 +185,33 @@
         var buttonWishlist=document.createElement("i")
         buttonWishlist.setAttribute("class", "fas fa-star fa-lg")
         buttonWishlist.setAttribute("id","wishlist")
-        //buttonWishlist.setAttribute("href","doGiochiDesiderati")
         buttonWishlist.addEventListener("click",function ()
         {
-            //    console.log(id)
-            if(buttonWishlist.style.backgroundColor==="") {
-                $.ajax({
-                    url:"doGiochiDesiderati",
-                    type:"POST",
-                    data: {idGiocoDesiderato : id, nomeGiocoDesiderato : name},
-                    success:function (response)
-                    {
-                        if (response)
-                        {
-                            buttonWishlist.setAttribute("style","background-color:green")
+              $.ajax({
+                  url:"removeGiochiDesiderati",
+                  type:"POST",
+                  data: {idGiocoDesiderato : id, nomeGiocoDesiderato : name},
+                  success:function (response)
+                  {
+                      if (response)
+                      {
+                    	  alert("Gioco eliminato dalla lista dei desideri")
+                    	  window.location.href = "doAccount"
+                      }
 
-                            alert("Gioco aggiunto alla lista dei desideri")
-                        }
-                        else
-                        {
-                            alert("Devi essere loggato per poter aggiungere un gioco alla lista desideri")
-                        }
-
-                    },
-                    fail: function( jqXHR, textStatus ) {
-                        alert( "Request failed: " + textStatus );
-                    }
-                });
-            }
-            else {
-                $.ajax({
-                    url:"removeGiochiDesiderati",
-                    type:"POST",
-                    data: {idGiocoDesiderato : id, nomeGiocoDesiderato : name},
-                    success:function (response)
-                    {
-                        if (response)
-                        {
-                            buttonWishlist.setAttribute("style","background-color:")
-                            alert("Gioco eliminato dalla lista dei desideri")
-                        }
-                        else
-                        {
-                            alert("Devi essere loggato per poter eliminare un gioco alla lista desideri")
-
-                        }
-
-                    },
-                    fail: function( jqXHR, textStatus ) {
-                        alert( "Request failed: " + textStatus );
-                    }
-                });
-            }
+                  },
+                  fail: function( jqXHR, textStatus ) {
+                      alert( "Request failed: " + textStatus );
+                  }
+              });
+              
+            
         })
         var libraryButton=document.createElement("i")
         libraryButton.setAttribute("class", "fas fa-plus-circle fa-lg")
         libraryButton.setAttribute("id", "libreria")
         libraryButton.addEventListener("click",function (){
-            //    console.log(id)
-            if(libraryButton.style.backgroundColor==="") {
-                $.ajax({
-                    url:"doGiochiPosseduti",
-                    type:"POST",
-                    data: {idGiocoPosseduto : id, nomeGiocoPosseduto : name},
-                    success:function (response)
-                    {
-                        console.log(response)
-                        if (response)
-                        {
-                            libraryButton.setAttribute("style","background-color:green")
-                            alert("Gioco aggiunto alla libreria")
-                        }
-                        else
-                        {
-                            alert("Devi essere loggato per poter aggiungere un gioco alla libreria")
-                        }
 
-                    },
-                    fail: function( jqXHR, textStatus ) {
-                        alert( "Request failed: " + textStatus );
-                    }
-                });
-            }
-            else {
                 $.ajax({
                     url:"removeGiochiPosseduti",
                     type:"POST",
@@ -276,22 +220,14 @@
                     {
                         if (response)
                         {
-                            libraryButton.setAttribute("style","background-color:")
                             alert("Gioco eliminato dalla libreria")
+                            window.location.href = "doAccount"
                         }
-                        else
-                        {
-                            alert("Devi essere loggato per poter eliminare un gioco dalla libreria")
-
-                        }
-
                     },
                     fail: function( jqXHR, textStatus ) {
                         alert( "Request failed: " + textStatus );
                     }
                 });
-            }
-
         })
         pulsanti.append(libraryButton)
         pulsanti.append(buttonWishlist)
