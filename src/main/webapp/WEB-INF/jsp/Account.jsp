@@ -15,7 +15,7 @@
     <link href="../../css/account.css" rel="stylesheet" type="text/css">
 
     <!-- Optional JavaScript -->
-    <script defer src="/js/indexScript.js"></script>
+    <script defer src="/js/account.js"></script>
     <script src="https://kit.fontawesome.com/5f2af914a2.js" crossorigin="anonymous"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -30,21 +30,13 @@
         <div class="nav_container" id="nav">
             <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
             
-        <div class="search-bar" id = "ricerca">
-	        <input class="input__field" type="search" placeholder="Cerca.." name="cerca" value="">
-		    <a class="search-btn"> 
-                <i class="fas fa-search"></i>
-            </a>
-        </div>
-
             <div class="nav_toggle" id="menu_button">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-        </div>
+         </div>
 
-        
             <ul class="nav_menu">
                 <c:if test="${usernamelogged==null}">
                     <li class="nav_btn" >
@@ -55,7 +47,9 @@
                     </li>
                 </c:if>
                 <c:if test="${usernamelogged!=null}">
-
+                    <li class="nav_item" >
+                        <div class="nome-nav"> Benvenuto, ${nomeUtente}</div>
+                    </li>
                     <li class="nav_btn">
                         <a href="doAccount" class="button">Account</a>
                     </li>
@@ -65,10 +59,11 @@
 
                 </c:if>
 
+
             </ul>
 
         </div>
-    </nav> 
+    </nav>
     
     <!--Main Section-->
 <div class="main">

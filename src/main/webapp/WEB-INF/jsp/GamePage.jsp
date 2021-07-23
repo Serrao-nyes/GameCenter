@@ -15,6 +15,7 @@
     <link href="../../css/stilehome.css" rel="stylesheet" type="text/css">
 
     <!-- Optional JavaScript -->
+    <script defer src="/js/gameScript.js"></script>
     <script src="https://kit.fontawesome.com/5f2af914a2.js" crossorigin="anonymous"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> type="text/javascript"</script>
@@ -29,25 +30,44 @@
 <!--Navbar Section-->
 <nav class="navbar">
 
-    <div class="nav_container" id="nav">
-        <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
+        <div class="nav_container" id="nav">
+            <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
+            
+            <div class="nav_toggle" id="menu_button">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+         </div>
 
-        <div class="nav_toggle" id="menu_button">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+        
+            <ul class="nav_menu">
+                <c:if test="${usernamelogged==null}">
+                    <li class="nav_btn" >
+                        <a href="goToLogin" class="button">Login</a>
+                    </li>
+                    <li class="nav_btn">
+                        <a href="goToRegistrazione" class="button">Registrati</a>
+                    </li>
+                </c:if>
+                <c:if test="${usernamelogged!=null}">
+                    <li class="nav_item" >
+                        <div class="nome-nav"> Benvenuto, ${nomeUtente}</div>
+                    </li>
+                    <li class="nav_btn">
+                        <a href="doAccount" class="button">Account</a>
+                    </li>
+                    <li class="nav_btn">
+                        <a href="doLogout"  class="button">Logout</a>
+                    </li>
+
+                </c:if>
+
+
+            </ul>
+
         </div>
-    </div>
-    <ul class="nav_menu">
-        <li class="nav_btn" >
-            <a href="goToLogin" class="button">Log In</a>
-        </li>
-        <li class="nav_btn">
-            <a href="goToRegistrazione" class="button">Registrati</a>
-        </li>
-    </ul>
-    </div>
-</nav>
+    </nav>
 
 <!--Main Section-->
 <div class="main">
