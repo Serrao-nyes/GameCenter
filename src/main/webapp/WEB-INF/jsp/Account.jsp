@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
+        pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,9 +10,10 @@
     <title>Game Center</title>
 
     <!-- Bootstrap CSS -->
+    <link href="../../css/account.css" rel="stylesheet" type="text/css">
     <link href="../../css/stilecomune.css" rel="stylesheet" type="text/css">
     <link href="../../css/stilehome.css" rel="stylesheet" type="text/css">
-    <link href="../../css/account.css" rel="stylesheet" type="text/css">
+    
 
     <!-- Optional JavaScript -->
     <script defer src="/js/account.js"></script>
@@ -84,36 +85,25 @@
         </div>
         
         <div class= "container" id ="button-bar">
-
-
-
+            <div class="accountbutton">
+                <button class="button"  id="liblista">Libreria</button>
             </div>
-        <div class="game_container" id="games">
+            <div class = "accountbutton">
+                <button class="button"  id="wishlista">Wishlist</button>
+            </div>
+            </div>
 
-            <p id="wishlista">
-                Wishlist
-            </p>
-        </div>
         <div class="game_container" id="games2">
-
-            <p id="liblista">
-                Libreria
-            </p>
-
         </div>
+    </div>
+</div>
 
 
-
-
-        </div>
-
-        </div>
-
-
+<script language ="JavaScript" type ="text/JavaScript">
     <c:if test="${giochiDesiderati!=null}">
         <c:forEach var="gd" items="${giochiDesiderati}">
-    <script>
-        var GameContaine=document.getElementById("games")
+    
+        var GameContainer=document.getElementById("games2")
         async function fetchListaDesideri(id){
             $.ajax({
                 type:'GET',
@@ -123,98 +113,222 @@
                 }
             });
         }
-
-
-
-        function creatGame(name,image,id) {
-            var Space = document.createElement('div');
-            Space.classList.add("GameSpace");
-            Space.className = "GameSpace"
-            var Reference = document.createElement('a');
-            Reference.setAttribute("href","GamePage?idGioco="+id)
-            Space.append(Reference)
-            var pulsanti= document.createElement('div')
-            pulsanti.classList.add("Btn-container")
-            var Img = document.createElement('div')
-            Img.classList.add("GameImage")
-            Img.style.backgroundImage = "url(" + image + ")"
-            var Name = document.createElement('div');
-            Name.classList.add("GameName");
-            Name.textContent = name
-            Reference.append(Img);
-            Name.append(pulsanti)
-            Space.append(Name);
-
-            GameContaine.append(Space);
-
-        }
-
-        document.onload=fetchListaDesideri("${gd.id}")
-    </script>
+        var wish = document.getElementById("wishlista")
+        wish.addEventListener('click',function (){
+            cleanGameContainer()
+            fetchListaDesideri("${gd.id}")
+        })
         </c:forEach>
     </c:if>
+
     <c:if test="${giochiDesiderati==null}">
-
-        <script>
-            var GameContainer=document.getElementById("games")
-            var error=document.createElement("p")
-            error.innerText="LA TUA WISHLIST E' VUOTA"
-            GameContainer.append(error)
-        </script>
-
+            var GameContainer=document.getElementById("games2")
+            var wish = document.getElementById("wishlista")
+            wish.addEventListener('click',function (){
+            GameContainer.innerText = "LA TUA WISHLIST E' VUOTA"
+        })
     </c:if>
+
     <c:if test="${giochiPosseduti!=null}">
         <c:forEach var="gd" items="${giochiPosseduti}">
-            <script>
-                var GameContainer=document.getElementById("games2")
-                async function fetchListaDesideri(id){
-                    $.ajax({
-                        type:'GET',
-                        url:"https://api.rawg.io/api/games/"+id+"?key=2d150e2f5c964e6992d048af8ef065f7&",
-                        success:function (result){
-                            creatGame(result.name,result.background_image,result.id)
-                        }
-                    });
+    
+        var GameContainer=document.getElementById("games2")
+        async function fetchListaDesideri(id){
+            $.ajax({
+                type:'GET',
+                url:"https://api.rawg.io/api/games/"+id+"?key=2d150e2f5c964e6992d048af8ef065f7&",
+                success:function (result){
+                    creatGame(result.name,result.background_image,result.id)
                 }
-
-
-
-                function creatGame(name,image,id) {
-                    var Space = document.createElement('div');
-                    Space.classList.add("GameSpace");
-                    Space.className = "GameSpace"
-                    var Reference = document.createElement('a');
-                    Reference.setAttribute("href","GamePage?idGioco="+id)
-                    Space.append(Reference)
-                    var pulsanti= document.createElement('div')
-                    pulsanti.classList.add("Btn-container")
-                    var Img = document.createElement('div')
-                    Img.classList.add("GameImage")
-                    Img.style.backgroundImage = "url(" + image + ")"
-                    var Name = document.createElement('div');
-                    Name.classList.add("GameName");
-                    Name.textContent = name
-                    Reference.append(Img);
-                    Name.append(pulsanti)
-                    Space.append(Name);
-                    GameContainer.append(Space);
-
-                }
-
-                document.onload=fetchListaDesideri("${gd.id}")
-            </script>
+            });
+        }
+        document.onload=fetchListaDesideri("${gd.id}")
+        var lib = document.getElementById("liblista")
+        lib.addEventListener('click',function (){
+            cleanGameContainer()
+            fetchListaDesideri("${gd.id}")
+        })
         </c:forEach>
     </c:if>
+
     <c:if test="${giochiPosseduti==null}">
-
-        <script>
             var GameContainer=document.getElementById("games2")
-            GameContainer.innerText="LA TUA LIBRERIA E' VUOTA"
-        </script>
-
+            var error=document.createElement("p")
+            error.innerText="LA TUA LIBRERIA E' VUOTA"
+            GameContainer.append(error)
+            var lib = document.getElementById("liblista")
+            lib.addEventListener('click',function (){
+                cleanGameContainer()
+                GameContainer.append(error)
+            })
     </c:if>
 
-    </div>
-</div>
+    function creatGame(name,image,id) {
+    var Space = document.createElement('div');
+    Space.classList.add("GameSpace");
+    Space.className = "GameSpace"
+    var Reference = document.createElement('a');
+    Reference.setAttribute("href","GamePage?idGioco="+id)
+    Space.append(Reference)
+    var pulsanti= document.createElement('div')
+    pulsanti.classList.add("Btn-container")
+    var Img = document.createElement('div')
+    Img.classList.add("GameImage")
+    Img.style.backgroundImage = "url(" + image + ")"
+    var Name = document.createElement('div');
+    Name.classList.add("GameName");
+    Name.textContent = name
+    Reference.append(Img);
+    Name.append(pulsanti)
+    Space.append(Name);
+    var buttonWishlist=document.createElement("i")
+    buttonWishlist.setAttribute("class", "fas fa-star fa-lg")
+    buttonWishlist.setAttribute("id","wishlist")
+    //buttonWishlist.setAttribute("href","doGiochiDesiderati")
+    buttonWishlist.addEventListener("click",function ()
+    {
+        //    console.log(id)
+        if(buttonWishlist.style.backgroundColor==="") {
+            $.ajax({
+                url:"doGiochiDesiderati",
+                type:"POST",
+                data: {idGiocoDesiderato : id, nomeGiocoDesiderato : name},
+                success:function (response)
+                {
+                    if (response)
+                    {
+                        buttonWishlist.setAttribute("style","background-color:green")
+                        alert("Gioco aggiunto alla lista dei desideri")
+                    }
+                    else
+                    {
+                        alert("Devi essere loggato per poter aggiungere un gioco alla lista desideri")
+                    }
+
+                },
+                fail: function( jqXHR, textStatus ) {
+                    alert( "Request failed: " + textStatus );
+                }
+            });
+        }
+        else {
+            $.ajax({
+                url:"removeGiochiDesiderati",
+                type:"POST",
+                data: {idGiocoDesiderato : id, nomeGiocoDesiderato : name},
+                success:function (response)
+                {
+                    if (response)
+                    {
+                        buttonWishlist.setAttribute("style","background-color:")
+                        alert("Gioco eliminato dalla lista dei desideri")
+                    }
+                    else
+                    {
+                        alert("Devi essere loggato per poter eliminare un gioco alla lista desideri")
+
+                    }
+
+                },
+                fail: function( jqXHR, textStatus ) {
+                    alert( "Request failed: " + textStatus );
+                }
+            });
+        }
+    })
+    var libraryButton=document.createElement("i")
+    libraryButton.setAttribute("class", "fas fa-plus-circle fa-lg")
+    libraryButton.setAttribute("id", "libreria")
+    libraryButton.addEventListener("click",function (){
+        //    console.log(id)
+        if(libraryButton.style.backgroundColor==="") {
+            $.ajax({
+                url:"doGiochiPosseduti",
+                type:"POST",
+                data: {idGiocoPosseduto : id, nomeGiocoPosseduto : name},
+                success:function (response)
+                {
+                    console.log(response)
+                    if (response)
+                    {
+                        libraryButton.setAttribute("style","background-color:green")
+                        alert("Gioco aggiunto alla libreria")
+                    }
+                    else
+                    {
+                        alert("Devi essere loggato per poter aggiungere un gioco alla libreria")
+                    }
+
+                },
+                fail: function( jqXHR, textStatus ) {
+                    alert( "Request failed: " + textStatus );
+                }
+            });
+        }
+        else {
+            $.ajax({
+                url:"removeGiochiPosseduti",
+                type:"POST",
+                data: {idGiocoPosseduto : id, nomeGiocoPosseduto : name},
+                success:function (response)
+                {
+                    if (response)
+                    {
+                        libraryButton.setAttribute("style","background-color:")
+                        alert("Gioco eliminato dalla libreria")
+                    }
+                    else
+                    {
+                        alert("Devi essere loggato per poter eliminare un gioco dalla libreria")
+
+                    }
+
+                },
+                fail: function( jqXHR, textStatus ) {
+                    alert( "Request failed: " + textStatus );
+                }
+            });
+        }
+
+    })
+    pulsanti.append(libraryButton)
+    pulsanti.append(buttonWishlist)
+    GameContainer.append(Space);
+
+}
+function  createButton()
+{
+    
+    var BackwardButton=document.createElement('button')
+    BackwardButton.classList.add("page_button")
+    BackwardButton.textContent="<<"
+    Posizione.append(BackwardButton)
+    var CurrentPage=document.createElement("button")
+    CurrentPage.classList.add("page_button")
+    CurrentPage.textContent=PageNumber.toString()
+    Posizione.append(CurrentPage)
+    var FarwardButton=document.createElement('button')
+    FarwardButton.classList.add("page_button")
+    FarwardButton.setAttribute("id","bottone")
+    FarwardButton.textContent=">>"
+    Posizione.append(FarwardButton)
+    FarwardButton.addEventListener("click",changePageForward)
+    BackwardButton.addEventListener("click",changePageBackward)
+    Button_Render = 0;
+}
+function cleanGameContainer()
+{
+    if(GameContainer.firstChild == null){
+        GameContainer.innerText = "";
+        console.log("bello")
+    }
+        
+    while (GameContainer.firstChild) {
+        GameContainer.removeChild(GameContainer.firstChild);
+    }
+}
+
+</script>
+
 </body>
 </html>

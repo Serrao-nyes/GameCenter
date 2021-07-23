@@ -10,6 +10,10 @@
   padding-top: 5px;
 }
 
+#games2 {
+  min-height: 700px;
+}
+
 #user {
   display: flex;
   text-align: center;
