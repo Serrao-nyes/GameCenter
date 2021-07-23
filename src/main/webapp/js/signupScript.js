@@ -12,8 +12,6 @@ function doRegistrazione(){
 	        request()
         }
     })*/
-	
-
 }
 
 function request(){
@@ -22,6 +20,10 @@ function request(){
 	var em=document.getElementById("email").value
 	var nom=document.getElementById("nome").value
 	var cogn=document.getElementById("cognome").value
+	if(ps.length < 5) {
+		alert("La password deve contenere almeno 5 caratteri")
+		return
+	}
 	console.log("request 17")
     $.ajax({
         url:"doRegistrazione",
