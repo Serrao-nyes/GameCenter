@@ -13,7 +13,9 @@
     <link href="../../css/stilecomune.css" rel="stylesheet" type="text/css">
     <link href="../../css/stilehome.css" rel="stylesheet" type="text/css">
     <link href="../../css/log-in.css" rel="stylesheet" type="text/css">
-    
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="98707488730-ammo9gtj9eet510bvilg7uh4sue1jocv.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!-- Optional JavaScript -->
     <script defer src="/js/loginScript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -47,6 +49,47 @@
             </div>
             <button class="button button_fill button_medium" type="submit" id="login">Login</button>
         </form>
+        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+        <script>
+            function onSignIn(googleUser) {
+                var profile = googleUser.getBasicProfile()
+                var user=profile.getGivenName()
+                var mail=profile.getEmail()
+                var nome=profile.getGivenName()
+                var cognome=profile.getFamilyName()
+                $.ajax({
+                    url:"doGoogle",
+                    type:"POST",
+                    data:{username:user,email:mail,nome:nome,cognome:cognome},
+                    success:function (response)
+                    {
+                        console.log(response)
+                        if (response)
+                        {
+
+                            window.location.href="/"
+                        }
+
+                    },
+                    fail: function( jqXHR, textStatus ) {
+                        alert( "Request failed: " + textStatus );
+                    }
+                });
+
+               /* // Useful data for your client-side scripts:
+                var profile = googleUser.getBasicProfile();
+                console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                console.log('Full Name: ' + profile.getName());
+                console.log('Given Name: ' + profile.getGivenName());
+                console.log('Family Name: ' + profile.getFamilyName());
+                console.log("Image URL: " + profile.getImageUrl());
+                console.log("Email: " + profile.getEmail());
+
+                // The ID token you need to pass to your backend:
+                var id_token = googleUser.getAuthResponse().id_token;
+                console.log("ID Token: " + id_token);*/
+            }
+        </script>
             <div class="page__additional">
                 <a href="goToRegistrazione" rel="nofollow">
                     Non hai un account? Registrati.
