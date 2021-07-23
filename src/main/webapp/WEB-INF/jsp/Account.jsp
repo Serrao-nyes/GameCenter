@@ -36,7 +36,7 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-         </div>
+        </div>
 
             <ul class="nav_menu">
                 <c:if test="${usernamelogged==null}">
@@ -187,24 +187,24 @@
         buttonWishlist.setAttribute("id","wishlist")
         buttonWishlist.addEventListener("click",function ()
         {
-              $.ajax({
-                  url:"removeGiochiDesiderati",
-                  type:"POST",
-                  data: {idGiocoDesiderato : id, nomeGiocoDesiderato : name},
-                  success:function (response)
-                  {
-                      if (response)
-                      {
-                    	  alert("Gioco eliminato dalla lista dei desideri")
-                    	  window.location.href = "doAccount"
-                      }
+            $.ajax({
+                url:"removeGiochiDesiderati",
+                type:"POST",
+                data: {idGiocoDesiderato : id, nomeGiocoDesiderato : name},
+                success:function (response)
+                {
+                    if (response)
+                    {
+                    	alert("Gioco eliminato dalla lista dei desideri")
+                    	window.location.href = "doAccount"
+                    }
 
-                  },
-                  fail: function( jqXHR, textStatus ) {
-                      alert( "Request failed: " + textStatus );
-                  }
-              });
-              
+                },
+                fail: function( jqXHR, textStatus ) {
+                alert( "Request failed: " + textStatus );
+                }
+            });
+            
             
         })
         var libraryButton=document.createElement("i")

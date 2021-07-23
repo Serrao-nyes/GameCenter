@@ -19,6 +19,7 @@ async function request()
         var email=document.getElementById("email").value
         var nome=document.getElementById("nome").value
         var cognome=document.getElementById("cognome").value
+		var regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 		if(!regexEmail.test(email)){
 			alert("L'email inserita non e' corretta!")
 			return
