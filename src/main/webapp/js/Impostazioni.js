@@ -20,11 +20,15 @@ async function request()
         var nome=document.getElementById("nome").value
         var cognome=document.getElementById("cognome").value
 		var regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-		if(!regexEmail.test(email)&& !email===""){
+		if(!regexEmail.test(email) && email!==""){
 			alert("L'email inserita non e' corretta!")
 			return
 		}
-		if(password.length < 5 && !password===""){
+		if(password !== confPassword) {
+			alert("Le due password inserite non coincidono")
+			return
+		}
+		if(password.length < 5 && password!==""){
 			alert("La nuova password deve contenere almeno 5 caratteri")
 			return
 		}
@@ -33,14 +37,18 @@ async function request()
 	        type:"POST",
 	            data:{username:user, password:password,confermaPassword:confPassword,email:email,nome:nome,cognome:cognome},
 	            success:function(response){
-	                    if(response==="Modifiche effettuate con successo")
-	                    {
+	                    if(response==="Modifiche effettuate con successo") {
 	                        alert("Modifiche effettuate con successo")
 	                    }
-	                    else
-	                    {
-	                        alert("Le due password inserite non coincidono")
-	                    }
+		                else if(response==="Username ed email gia esistenti") {
+			                alert("Username ed email gia' esistenti")
+			            }
+						else if(response==="Email gia esistente") {
+							alert("Email gia' esistente")
+						}
+						else{
+							alert("Username gia' esistente")
+						}
 	            },
 	        	fail: function( jqXHR, textStatus ) {
 	            	alert( "Request failed: " + textStatus );

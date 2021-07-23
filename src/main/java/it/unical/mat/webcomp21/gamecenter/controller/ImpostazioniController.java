@@ -16,10 +16,19 @@ public class ImpostazioniController {
 	public String modificheAccount(HttpSession session, @RequestParam String username,  @RequestParam String password, 
 								   @RequestParam String confermaPassword, @RequestParam String email, @RequestParam String nome, 
 								   @RequestParam String cognome) {
-		if(!password.equals(confermaPassword))
-			return "Le due password inserite non coincidono";
+//		if(!password.equals(confermaPassword))
+//			return "Le due password inserite non coincidono";
+		Utente utenteUsername = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
+		Utente utenteEmail = DBManager.getInstance().utenteDAO().findByEmail(email);
+		if(utenteUsername != null && utenteEmail != null)
+			return "Username ed email gia esistenti";
+		if(utenteUsername != null && utenteEmail == null)
+			return "Username gia esistente";
+		if(utenteUsername == null && utenteEmail != null)
+			return "Email gia esistente";
 		String user = session.getAttribute("usernamelogged").toString();
 		Utente utenteAttuale = DBManager.getInstance().utenteDAO().findByPrimaryKey(user);
+		System.out.println(utenteAttuale.getPassword() + " COLOONTROLLERR");
 		Utente utenteAggiornato = new Utente();
 		utenteAggiornato.setUser(username);
 		utenteAggiornato.setPassword(password);

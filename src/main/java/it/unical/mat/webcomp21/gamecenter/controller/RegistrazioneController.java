@@ -58,14 +58,14 @@ public class RegistrazioneController {
 //		}
 		Utente utenteUsername = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 		Utente utenteEmail = DBManager.getInstance().utenteDAO().findByEmail(email);
-		if(utenteEmail != null)
-			System.out.println("UtenteEmail Diverso da null");
-		else
-			System.out.println("UtenteEmail Uguale a null");
-		if(utenteUsername != null)
-			System.out.println("UtenteUsername Diverso da null");
-		else 
-			System.out.println("UtenteUsername Uguale a null");
+//		if(utenteEmail != null)
+//			System.out.println("UtenteEmail Diverso da null");
+//		else
+//			System.out.println("UtenteEmail Uguale a null");
+//		if(utenteUsername != null)
+//			System.out.println("UtenteUsername Diverso da null");
+//		else 
+//			System.out.println("UtenteUsername Uguale a null");
 		if(utenteUsername != null && utenteEmail != null)
 			return "Username ed email gia esistenti";
 		if(utenteUsername != null && utenteEmail == null)

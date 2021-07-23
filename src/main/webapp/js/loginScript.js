@@ -32,7 +32,6 @@ function request(){
             }
             else
             {
-
                 alert("Username o Password errati. Riprovare")
                 document.getElementById("user").value=""
                 document.getElementById("psw").value=""

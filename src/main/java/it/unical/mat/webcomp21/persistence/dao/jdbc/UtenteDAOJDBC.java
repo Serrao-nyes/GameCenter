@@ -131,8 +131,10 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			
 			if(!utenteAggiornato.getPassword().equals(""))
 				st.setString(2, BCrypt.hashpw(utenteAggiornato.getPassword(), BCrypt.gensalt(12)));
-			else
+			else {
+				System.out.println(utenteAttuale.getPassword());
 				st.setString(2, BCrypt.hashpw(utenteAttuale.getPassword(), BCrypt.gensalt(12)));
+			}
 			
 			if(!utenteAggiornato.getEmail().equals(""))
 				st.setString(3, utenteAggiornato.getEmail());
@@ -147,7 +149,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			if(!utenteAggiornato.getCognome().equals(""))
 				st.setString(5, utenteAggiornato.getCognome());
 			else
-				st.setString(5, utenteAttuale.getUser());
+				st.setString(5, utenteAttuale.getCognome());
 			st.setString(6, utenteAttuale.getUser());
 			st.executeUpdate();
 			conn.close();
