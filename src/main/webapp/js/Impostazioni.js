@@ -19,11 +19,12 @@ async function request()
         var email=document.getElementById("email").value
         var nome=document.getElementById("nome").value
         var cognome=document.getElementById("cognome").value
-		if(!regexEmail.test(email)){
+		var regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+		if(!regexEmail.test(email) && !email===""){
 			alert("L'email inserita non e' corretta!")
 			return
 		}
-		if(password.length < 5){
+		if(password.length < 5 && !password===""){
 			alert("La nuova password deve contenere almeno 5 caratteri")
 			return
 		}
