@@ -496,16 +496,20 @@ function creatGame(name,image,id) {
 	        data: {idGioco : id},
 	        success:function (response)
 	        {
-	            if (response=="Gioco salvato nei desiderati e nei posseduti")
+				console.log(id+"\n")
+	            if (response==="Gioco salvato nei desiderati e nei posseduti")
 	            {
+					console.log("Gioco salvato nei desiderati e nei posseduti")
 	                buttonWishlist.setAttribute("style","background-color:green")
 					libraryButton.setAttribute("style","background-color:green")
 	            }
-	            else if(response=="Gioco salvato nei desiderati")
+	            else if(response==="Gioco salvato nei desiderati")
 	            {
+					console.log("Gioco salvato nei desiderati")
 	                buttonWishlist.setAttribute("style","background-color:green")
 	            }
-				else if(response=="Gioco salvato nei posseduti"){
+				else if(response==="Gioco salvato nei posseduti"){
+					console.log("Gioco salvato nei posseduti")
 					libraryButton.setAttribute("style","background-color:green")
 				}
 	        },
