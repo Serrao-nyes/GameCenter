@@ -107,7 +107,7 @@
                 <input class="campo_risultato" type="password" placeholder="Conferma Password" name="username" value="" id="confermaPassword">
             </div>
             <div class="input">
-                <input class="campo_risultato" type="email" placeholder="Email" name="username" value="" id="email" required>
+                <input class="campo_risultato" type="email" placeholder="Email" name="username" value="" id="email" >
             </div>
             <div class="input">
                 <input class="campo_risultato" type="text" placeholder="Nome" name="username" value="" id="nome">
