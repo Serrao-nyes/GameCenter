@@ -49,7 +49,9 @@
             </div>
             <button class="button button_fill button_medium" type="submit" id="login">Login</button>
         </form>
-        <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+        
+            <div class="page__additional">
+                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" id = "google-log"></div>
         <script>
             function onSignIn(googleUser) {
                 var profile = googleUser.getBasicProfile()
@@ -90,7 +92,6 @@
                 console.log("ID Token: " + id_token);*/
             }
         </script>
-            <div class="page__additional">
                 <a href="goToRegistrazione" rel="nofollow">
                     Non hai un account? Registrati.
                 </a>

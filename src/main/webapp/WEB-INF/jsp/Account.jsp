@@ -80,7 +80,7 @@
                 <p id = "nome_utente"> Ciao ${nomeUtente}</p>
             </div>
             <div id="settings">
-                <button class="button" onclick="window.location.href='doImpostazioni'" id="settaggi">Impostazioni</button>
+                <button class="button" onclick="window.location.href='doImpostazioni'" id="settaggi">Impostazioni<i class="fas fa-cog" id = "set-ico"></i></button>
             </div>
         </div>
         

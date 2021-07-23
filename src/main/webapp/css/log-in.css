@@ -99,7 +99,6 @@ a {
     display: flex;
     flex-direction: column;
     padding: 5rem;
-    padding-right: 0px;
   }
 
   #Sign-mod {
@@ -109,6 +108,26 @@ a {
     margin-top: 15rem;
     border-radius: 20px;
     flex-direction: column;
+  }
+
+  #google-log {
+    position: relative;
+    margin: auto;
+    margin-bottom: 10px;
+  }
+
+  a {
+    margin-top: 30px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  #login-form {
+    width: 100%;
+    margin: auto;
+    padding: 0px;
   }
 
   .input__field {
@@ -121,8 +140,8 @@ a {
   }
 
   .page__additional {
-    margin: 1rem;
-    padding: 1rem;
+    margin: auto;
+    padding: auto;
     display: flex;
   }
 }
@@ -136,8 +155,24 @@ a {
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    padding: 5rem;
-    padding-right: 0px;
+    padding: 2rem;
+  }
+
+  #login-form {
+    width: 100%;
+    margin: auto;
+  }
+
+  #google-log {
+    position: relative;
+    margin: auto;
+    padding: auto;
+    margin-bottom: 10px;
+  }
+
+  .input {
+    width: 100%;
+    margin: auto;
   }
 
   #Sign-mod {
@@ -148,4 +183,10 @@ a {
     border-radius: 20px;
     flex-direction: column;
   }
+}
+
+#google-log {
+  position: relative;
+  margin: auto;
+  padding: auto;
 }
