@@ -125,8 +125,9 @@
             var GameContainer=document.getElementById("games2")
             var wish = document.getElementById("wishlista")
             wish.addEventListener('click',function (){
-            GameContainer.innerText = "LA TUA WISHLIST E' VUOTA"
-        })
+                cleanGameContainer()
+                GameContainer.innerText = "LA TUA WISHLIST E' VUOTA"
+            })
     </c:if>
 
     <c:if test="${giochiPosseduti!=null}">

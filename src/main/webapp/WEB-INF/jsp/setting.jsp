@@ -16,7 +16,7 @@
     <link href="../../css/settings.css" rel="stylesheet" type="text/css">
 
     <!-- Optional JavaScript -->
-    <script defer src="../../js/Impostazioni.js"></script>
+    <script defer src="../js/Impostazioni.js"></script>
     <script src="https://kit.fontawesome.com/5f2af914a2.js" crossorigin="anonymous"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -29,41 +29,42 @@
     <nav class="navbar">
 
         <div class="nav_container" id="nav">
-            <a href="index.jsp" class="nav_logo" id="logo">GAME CENTER</a>
-
+            <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
+            
             <div class="nav_toggle" id="menu_button">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
+         </div>
+
+            <ul class="nav_menu">
+                <c:if test="${usernamelogged==null}">
+                    <li class="nav_btn" >
+                        <a href="goToLogin" class="button">Login</a>
+                    </li>
+                    <li class="nav_btn">
+                        <a href="goToRegistrazione" class="button">Registrati</a>
+                    </li>
+                </c:if>
+                <c:if test="${usernamelogged!=null}">
+                    <li class="nav_item" >
+                        <div class="nome-nav"> Benvenuto, ${nomeUtente}</div>
+                    </li>
+                    <li class="nav_btn">
+                        <a href="doAccount" class="button">Account</a>
+                    </li>
+                    <li class="nav_btn">
+                        <a href="doLogout"  class="button">Logout</a>
+                    </li>
+
+                </c:if>
+
+
+            </ul>
+
         </div>
-
-
-        <ul class="nav_menu">
-            <c:if test="${usernamelogged==null}">
-                <li class="nav_btn" >
-                    <a href="goToLogin" class="button">Login</a>
-                </li>
-                <li class="nav_btn">
-                    <a href="goToRegistrazione" class="button">Registrati</a>
-                </li>
-            </c:if>
-            <c:if test="${usernamelogged!=null}">
-
-                <li class="nav_btn">
-                    <a href="doAccount" class="button">Account</a>
-                </li>
-                <li class="nav_btn">
-                    <a href="doLogout"  class="button">Logout</a>
-                </li>
-
-            </c:if>
-
-        </ul>
-
-
-        </div>
-    </nav> 
+    </nav>  
     
     <!--Main Section-->
     <div class="main">
@@ -107,13 +108,13 @@
                 <input class="campo_risultato" type="password" placeholder="Conferma Password" name="username" value="" id="confermaPassword">
             </div>
             <div class="input">
-                <input class="campo_risultato" type="email" placeholder="Email" name="username" value="" id="email" required>
+                <input class="campo_risultato" type="email" placeholder="Email" name="username" value="" id="email" disabled = "disabled">
             </div>
             <div class="input">
-                <input class="campo_risultato" type="text" placeholder="Nome" name="username" value="" id="nome">
+                <input class="campo_risultato" type="text" placeholder="Nome" name="username" value="" id="nome" disabled = "disabled">
             </div>
             <div class="input">
-                <input class="campo_risultato" type="text" placeholder="Cognome" name="username" value="" id="cognome">
+                <input class="campo_risultato" type="text" placeholder="Cognome" name="username" value="" id="cognome" disabled = "disabled">
             </div>
             <div class="button"  id="save">Salva</div>
         </div>
