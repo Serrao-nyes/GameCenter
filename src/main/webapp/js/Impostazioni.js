@@ -20,7 +20,11 @@ async function request()
         var nome=document.getElementById("nome").value
         var cognome=document.getElementById("cognome").value
 		var regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+<<<<<<< HEAD
 		if(!regexEmail.test(email) && !email===""){
+=======
+		if(!regexEmail.test(email)){
+>>>>>>> branch 'master' of https://github.com/GabrielTripodi/Progetto-WEBCOMP-2021-GameCenter.git
 			alert("L'email inserita non e' corretta!")
 			return
 		}
