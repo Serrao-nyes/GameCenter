@@ -21,11 +21,11 @@ public class ImpostazioniController {
 		Utente utenteUsername = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 		Utente utenteEmail = DBManager.getInstance().utenteDAO().findByEmail(email);
 		if(utenteUsername != null && utenteEmail != null)
-			return "La nuova email e il nuovo username sono uguali a quelli precedenti";
+			return "Email e username gia' esistenti";
 		if(utenteUsername != null && utenteEmail == null)
-			return "Il nuovo username e' uguale a quello precedente";
+			return "Username gia' esistente";
 		if(utenteUsername == null && utenteEmail != null)
-			return "La nuova email e' uguale a quella precedente";
+			return "Email gia' esistente";
 		String user = session.getAttribute("usernamelogged").toString();
 		Utente utenteAttuale = DBManager.getInstance().utenteDAO().findByPrimaryKey(user);
 		if(Password.check(password, utenteAttuale.getPassword()))

@@ -29,7 +29,6 @@ function request(){
 		alert("La password deve contenere almeno 5 caratteri")
 		return
 	}
-	console.log("request 17")
     $.ajax({
         url:"doRegistrazione",
         type:"POST",

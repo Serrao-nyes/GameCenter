@@ -43,14 +43,14 @@ async function request()
 	                        alert("Modifiche effettuate con successo")
 							window.location.href="/"
 	                    }
-		                else if(response==="La nuova email e il nuovo username sono uguali a quelli precedenti") {
-			                alert("La nuova email e il nuovo username sono uguali a quelli precedenti")
+		                else if(response==="Email e username gia' esistenti") {
+			                alert("Email e username gia' esistenti")
 			            }
-						else if(response==="Il nuovo username e' uguale a quello precedente") {
-							alert("Il nuovo username e' uguale a quello precedente")
+						else if(response==="Username gia' esistente") {
+							alert("Username gia' esistente")
 						}
-						else if(response==="La nuova email e' uguale a quella precedente"){
-							alert("La nuova email e' uguale a quella precedente")
+						else if(response==="Email gia' esistente"){
+							alert("Email gia' esistente")
 						}
 						else {
 							alert("La nuova password e' uguale a quella precedente")
