@@ -60,7 +60,7 @@
                 var nome=profile.getGivenName()
                 var cognome=profile.getFamilyName()
                 $.ajax({
-                    url:"doGoogle",
+                    url:"doLoginGoogle",
                     type:"POST",
                     data:{username:user,email:mail,nome:nome,cognome:cognome},
                     success:function (response)
