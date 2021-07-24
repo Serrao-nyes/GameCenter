@@ -41,6 +41,7 @@ async function request()
 	            success:function(response){
 	                    if(response==="Modifiche effettuate con successo") {
 	                        alert("Modifiche effettuate con successo")
+							window.location.href="/"
 	                    }
 		                else if(response==="Username ed email gia esistenti") {
 			                alert("Username ed email gia' esistenti")
