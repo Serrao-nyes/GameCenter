@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import it.unical.mat.webcomp21.model.Password;
 import it.unical.mat.webcomp21.model.Utente;
 import it.unical.mat.webcomp21.persistence.DBManager;
 
@@ -20,13 +21,15 @@ public class ImpostazioniController {
 		Utente utenteUsername = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 		Utente utenteEmail = DBManager.getInstance().utenteDAO().findByEmail(email);
 		if(utenteUsername != null && utenteEmail != null)
-			return "Username ed email gia esistenti";
+			return "La nuova email e il nuovo username sono uguali a quelli precedenti";
 		if(utenteUsername != null && utenteEmail == null)
-			return "Username gia esistente";
+			return "Il nuovo username e' uguale a quello precedente";
 		if(utenteUsername == null && utenteEmail != null)
-			return "Email gia esistente";
+			return "La nuova email e' uguale a quella precedente";
 		String user = session.getAttribute("usernamelogged").toString();
 		Utente utenteAttuale = DBManager.getInstance().utenteDAO().findByPrimaryKey(user);
+		if(Password.check(password, utenteAttuale.getPassword()))
+			return "La nuova password e' uguale a quella precedente";
 //		System.out.println(utenteAttuale.getPassword());
 		Utente utenteAggiornato = new Utente();
 		utenteAggiornato.setUser(username);

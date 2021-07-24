@@ -66,11 +66,11 @@ public class RegistrazioneController {
 //		else 
 //			System.out.println("UtenteUsername Uguale a null");
 		if(utenteUsername != null && utenteEmail != null)
-			return "Username ed email gia esistenti";
+			return "Username ed email gia' esistenti";
 		if(utenteUsername != null && utenteEmail == null)
-			return "Username gia esistente";
+			return "Username gia' esistente";
 		if(utenteUsername == null && utenteEmail != null)
-			return "Email gia esistente";
+			return "Email gia' esistente";
 		Utente nuovoUtente = new Utente();
 		nuovoUtente.setUser(username);
 		nuovoUtente.setPassword(password);
