@@ -71,15 +71,9 @@
 
 <!--Main Section-->
 <div class="main">
-    <!--Image Section
-    <div class="img_container">
-        <img src="../images/logo_centergame.png" alt="pic" id="immagine">
-    </div>-->
+
 
     <div class="Background" id="sfondo" >
-        <!--Platforms
-    <div class="game_container" id="Platforms">
-    </div>-->
 
         <div class="container" id="sezione_principale">
             <div class="container" id="foto"></div>
@@ -132,7 +126,7 @@
         const indice = [1,2,3,4,5,6]
         var generi
         document.onload=fetchInformation(),fetchVideos(),fetchScreen(),fetchStores()
-        //checkRequiremments()
+
 
         async function fetchInformation(){
             $.ajax({
@@ -293,15 +287,7 @@
 
 
         }
-        /*function checkRequiremments(){
 
-            console.log("chiamo")
-            if(Requisti.innerText==="Requisiti:\n Requisiti Minimi: undefined\nRequisiti Consigliati: undefined")
-            {
-                console.log("entro")
-                Requisti.setAttribute("style","display:none")
-            }
-        }*/
     </script>
 </body>
 </html>

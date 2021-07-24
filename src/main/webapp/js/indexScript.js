@@ -5,11 +5,6 @@ menu.addEventListener('click', function(){
     menulinks.classList.toggle('active')
 })
 
-/*const filtro = document.querySelector('.tasto_piattaforma')
-filtro.addEventListener('click', function(){
-    filtro.classList.toggle('attivo')
-})*/
-
 const Posizione = document.getElementById("Page_btn")
 var Button_Render = 0;
 const GameContainer= document.getElementById('games')
@@ -56,7 +51,6 @@ async function fetchGames(page,size,store){
 function createStoreBadge()
 {
     var steam=document.createElement("div")
-    console.log("ciao")
     steam.classList.add("tasto_piattaforma")
     steam.setAttribute("id","steam")
     var sfondos=document.createElement("div")
@@ -106,7 +100,6 @@ function createStoreBadge()
         }
     })
     var epic=document.createElement("div")
-    console.log("ciao")
     epic.classList.add("tasto_piattaforma")
     epic.setAttribute("id","epic")
     var sfondoe=document.createElement("div")
@@ -156,7 +149,6 @@ function createStoreBadge()
         }
     })
     var xbox=document.createElement("div")
-    console.log("ciao")
     xbox.classList.add("tasto_piattaforma")
     xbox.setAttribute("id","xbox")
     var sfondox=document.createElement("div")
@@ -207,7 +199,6 @@ function createStoreBadge()
         }
     })
     var gog=document.createElement("div")
-    console.log("ciao")
     gog.classList.add("tasto_piattaforma")
     gog.setAttribute("id","gog")
     var sfondog=document.createElement("div")
@@ -257,7 +248,6 @@ function createStoreBadge()
         }
     })
     var playstation=document.createElement("div")
-    console.log("ciao")
     playstation.classList.add("tasto_piattaforma")
     playstation.setAttribute("id","playstation")
     var sfondop=document.createElement("div")
@@ -308,7 +298,6 @@ function createStoreBadge()
     })
 
     var nintendo=document.createElement("div")
-    console.log("ciao")
     nintendo.classList.add("tasto_piattaforma")
     nintendo.setAttribute("id","nintendo")
     var sfondon=document.createElement("div")
@@ -380,10 +369,8 @@ function creatGame(name,image,id) {
     var buttonWishlist=document.createElement("i")
     buttonWishlist.setAttribute("class", "fas fa-star fa-lg")
     buttonWishlist.setAttribute("id","wishlist")
-    //buttonWishlist.setAttribute("href","doGiochiDesiderati")
     buttonWishlist.addEventListener("click",function ()
     {
-        //    console.log(id)
         if(buttonWishlist.style.backgroundColor==="") {
             $.ajax({
                 url:"doGiochiDesiderati",
@@ -436,7 +423,7 @@ function creatGame(name,image,id) {
     libraryButton.setAttribute("class", "fas fa-plus-circle fa-lg")
     libraryButton.setAttribute("id", "libreria")
     libraryButton.addEventListener("click",function (){
-        //    console.log(id)
+
         if(libraryButton.style.backgroundColor==="") {
             $.ajax({
                 url:"doGiochiPosseduti",
@@ -444,7 +431,7 @@ function creatGame(name,image,id) {
                 data: {idGiocoPosseduto : id, nomeGiocoPosseduto : name},
                 success:function (response)
                 {
-                    console.log(response)
+
                     if (response)
                     {
                         libraryButton.setAttribute("style","background-color:green")
@@ -496,20 +483,20 @@ function creatGame(name,image,id) {
 	        data: {idGioco : id},
 	        success:function (response)
 	        {
-				console.log(id+"\n")
+
 	            if (response==="Gioco salvato nei desiderati e nei posseduti")
 	            {
-					console.log("Gioco salvato nei desiderati e nei posseduti")
+
 	                buttonWishlist.setAttribute("style","background-color:green")
 					libraryButton.setAttribute("style","background-color:green")
 	            }
 	            else if(response==="Gioco salvato nei desiderati")
 	            {
-					console.log("Gioco salvato nei desiderati")
+
 	                buttonWishlist.setAttribute("style","background-color:green")
 	            }
 				else if(response==="Gioco salvato nei posseduti"){
-					console.log("Gioco salvato nei posseduti")
+
 					libraryButton.setAttribute("style","background-color:green")
 				}
 	        },

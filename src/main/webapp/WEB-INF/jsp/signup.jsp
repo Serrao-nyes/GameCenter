@@ -26,11 +26,7 @@
     <a href="/" class="nav_logo" id="logo">GAME CENTER</a>
   </div>
 </nav>
-<!--<c:if test="${errore!=null}">
-	<script>
-		alert("${errore}")
-	</script>
-</c:if>-->
+
 <div class="container" id="Sign-mod">
   <div class="page__additional_sign">
     Benvenuto in GameCenter!

@@ -13,7 +13,6 @@ public class GiochiPossedutiController {
 	
 	@PostMapping("doGiochiPosseduti")
 	public Boolean giochiPosseduti(HttpSession session, @RequestParam long idGiocoPosseduto, @RequestParam String nomeGiocoPosseduto) {
-//		System.out.println("nyes");
 		GiocoPosseduto giocoPosseduto = new GiocoPosseduto();
 		giocoPosseduto.setId(idGiocoPosseduto);
 		giocoPosseduto.setNome(nomeGiocoPosseduto);
@@ -27,19 +26,7 @@ public class GiochiPossedutiController {
 			return true;
 		}
 		return false;
-//		Utente u = new Utente();
-//		u.setUser("prova");
-//		u.setPassword("prova");
-//		u.setEmail("prova@prova");
-//		u.setNome("Mario");
-//		u.setCognome("Rossi");
-//		String username = session.getAttribute("usernameLogged").toString();
-		/*if(session.getAttribute("usernameLogged").toString() != null) {
-			Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
-			DBManager.getInstance().utenteDAO().addGiochiDesiderati(utente, giocoDesiderato);
-			return true;
-		}*/
-	//	return false;
+
 	}
 	
 	@PostMapping("removeGiochiPosseduti")
@@ -53,7 +40,6 @@ public class GiochiPossedutiController {
 			DBManager.getInstance().utenteDAO().removeGiochiPosseduti(utente, giocoPosseduto);
 			if(!DBManager.getInstance().utenteDAO().findGiocoPossedutoById(idGiocoPosseduto))
 				DBManager.getInstance().giocoPossedutoDAO().delete(giocoPosseduto);
-			//DBManager.getInstance().giocoDesideratoDAO().delete(giocoDesiderato);
 			return true;
 		}
 		return false;

@@ -16,7 +16,6 @@ public class GiochiPossedutiEDesideratiController {
 		if(session.getAttribute("usernamelogged") == null)
 			return "Non è stato effettuato il login";
 		String username = session.getAttribute("usernamelogged").toString();
-		//Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 		Boolean giocoDesiderato = DBManager.getInstance().utenteDAO().findGiocoDesideratoByUsernameAndId(username, idGioco);
 		Boolean giocoPosseduto = DBManager.getInstance().utenteDAO().findGiocoPossedutoByUsernameAndId(username, idGioco);
 		if(giocoDesiderato && giocoPosseduto)

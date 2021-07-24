@@ -61,7 +61,6 @@ public class UtenteDAOJDBC implements UtenteDAO {
 				utente.setCognome(rs.getString("cognome"));
 			}
 			conn.close();
-			//return utente;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -86,7 +85,6 @@ public class UtenteDAOJDBC implements UtenteDAO {
 				utente.setCognome(rs.getString("cognome"));
 			}
 			conn.close();
-			//return utente;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -138,16 +136,6 @@ public class UtenteDAOJDBC implements UtenteDAO {
 				st.setString(3, utenteAggiornato.getEmail());
 			else
 				st.setString(3, utenteAttuale.getEmail());
-			
-//			if(!utenteAggiornato.getNome().equals(""))
-//				st.setString(4, utenteAggiornato.getNome());
-//			else
-//				st.setString(4, utenteAttuale.getNome());
-//			
-//			if(!utenteAggiornato.getCognome().equals(""))
-//				st.setString(5, utenteAggiornato.getCognome());
-//			else
-//				st.setString(5, utenteAttuale.getCognome());
 			st.setString(4, utenteAttuale.getUser());
 			st.executeUpdate();
 			conn.close();

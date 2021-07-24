@@ -5,19 +5,10 @@ function doLogin(){
 		request()
     
     })
-    /*document.addEventListener("keyup", function (event){
-        if(event.keyCode===13)
-        {	
-			event.preventDefault()
-	        request()
-        }
-    })*/
 
 }
 
-
-
-function request(){
+async function request(){
     var user=document.getElementById("user").value
     var psw=document.getElementById("psw").value
     $.ajax({

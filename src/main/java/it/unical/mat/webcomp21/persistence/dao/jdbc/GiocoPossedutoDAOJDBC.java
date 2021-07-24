@@ -50,7 +50,6 @@ public class GiocoPossedutoDAOJDBC implements GiocoPossedutoDAO {
 				gp.setNome(rs.getString("nome"));
 			}
 			conn.close();
-			//return gp;
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

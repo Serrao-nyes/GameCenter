@@ -33,10 +33,6 @@ public class GoogleController {
             nuovoUtente.setEmail(email);
             nuovoUtente.setNome(nome);
             nuovoUtente.setCognome(cognome);
-//          System.out.println("USER: " + username);
-//          System.out.println("EM: " + email);
-//          System.out.println("NOME: " + nome);
-//          System.out.println("COGNOME: " + cognome);
             DBManager.getInstance().utenteDAO().save(nuovoUtente);
             session.setAttribute("usernamelogged", username);
             session.setAttribute("nomeUtente", nome);
@@ -45,16 +41,6 @@ public class GoogleController {
 
     }
 
-    /*@PostMapping("doLoginGoogle")
-    public Boolean login(HttpSession session, @RequestParam String username) {
-        Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
-        if ((utente != null) && BCrypt.checkpw("", utente.getPassword())) {
-            session.setAttribute("usernamelogged", username);
-            session.setAttribute("nomeUtente", utente.getNome());
-            return true;
-        }
-        return false;
-    }*/
 
 
 }

@@ -235,7 +235,6 @@
                     type: "POST",
                     data: {idGiocoPosseduto: id, nomeGiocoPosseduto: name},
                     success: function (response) {
-                        console.log(response)
                         if (response) {
                             libraryButton.setAttribute("style", "background-color:green")
 
@@ -276,16 +275,15 @@
                 type: "POST",
                 data: {idGioco: id},
                 success: function (response) {
-                    console.log(id + "\n")
                     if (response === "Gioco salvato nei desiderati e nei posseduti") {
-                        console.log("Gioco salvato nei desiderati e nei posseduti")
+
                         buttonWishlist.setAttribute("style", "background-color:green")
                         libraryButton.setAttribute("style", "background-color:green")
                     } else if (response === "Gioco salvato nei desiderati") {
-                        console.log("Gioco salvato nei desiderati")
+
                         buttonWishlist.setAttribute("style", "background-color:green")
                     } else if (response === "Gioco salvato nei posseduti") {
-                        console.log("Gioco salvato nei posseduti")
+
                         libraryButton.setAttribute("style", "background-color:green")
                     }
                 },
@@ -300,7 +298,6 @@ function cleanGameContainer()
 {
     if(GameContainer.firstChild == null){
         GameContainer.innerText = "";
-        console.log("bello")
     }
         
     while (GameContainer.firstChild) {
