@@ -2,12 +2,10 @@ package it.unical.mat.webcomp21.gamecenter.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import it.unical.mat.webcomp21.model.Utente;
 import it.unical.mat.webcomp21.persistence.DBManager;
 
 @RestController

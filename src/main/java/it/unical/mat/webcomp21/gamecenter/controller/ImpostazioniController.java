@@ -27,7 +27,7 @@ public class ImpostazioniController {
 			return "Email gia esistente";
 		String user = session.getAttribute("usernamelogged").toString();
 		Utente utenteAttuale = DBManager.getInstance().utenteDAO().findByPrimaryKey(user);
-		System.out.println(utenteAttuale.getPassword() + " COLOONTROLLERR");
+//		System.out.println(utenteAttuale.getPassword());
 		Utente utenteAggiornato = new Utente();
 		utenteAggiornato.setUser(username);
 		utenteAggiornato.setPassword(password);

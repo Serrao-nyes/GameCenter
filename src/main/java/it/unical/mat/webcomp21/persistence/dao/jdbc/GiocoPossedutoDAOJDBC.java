@@ -8,10 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.security.crypto.bcrypt.BCrypt;
-
 import it.unical.mat.webcomp21.model.GiocoPosseduto;
-import it.unical.mat.webcomp21.model.Utente;
 import it.unical.mat.webcomp21.persistence.DBSource;
 import it.unical.mat.webcomp21.persistence.dao.GiocoPossedutoDAO;
 

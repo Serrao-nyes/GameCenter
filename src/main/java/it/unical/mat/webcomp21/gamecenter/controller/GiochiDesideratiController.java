@@ -2,21 +2,18 @@ package it.unical.mat.webcomp21.gamecenter.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import it.unical.mat.webcomp21.model.GiocoDesiderato;
 import it.unical.mat.webcomp21.model.Utente;
 import it.unical.mat.webcomp21.persistence.DBManager;
 
-import java.util.ArrayList;
-
 @RestController
 public class GiochiDesideratiController {
 	
 	@PostMapping("doGiochiDesiderati")
 	public Boolean giochiDesiderati(HttpSession session, @RequestParam long idGiocoDesiderato, @RequestParam String nomeGiocoDesiderato) {
-		System.out.println("nyes");
+//		System.out.println("nyes");
 		GiocoDesiderato giocoDesiderato = new GiocoDesiderato();
 		giocoDesiderato.setId(idGiocoDesiderato);
 		giocoDesiderato.setNome(nomeGiocoDesiderato);

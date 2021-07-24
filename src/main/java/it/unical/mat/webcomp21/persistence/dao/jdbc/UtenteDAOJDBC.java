@@ -8,8 +8,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.security.crypto.bcrypt.BCrypt;
-
 import it.unical.mat.webcomp21.model.GiocoDesiderato;
 import it.unical.mat.webcomp21.model.GiocoPosseduto;
 import it.unical.mat.webcomp21.model.Password;

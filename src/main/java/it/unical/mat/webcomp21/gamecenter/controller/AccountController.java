@@ -1,19 +1,14 @@
 package it.unical.mat.webcomp21.gamecenter.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import it.unical.mat.webcomp21.model.GiocoDesiderato;
-import it.unical.mat.webcomp21.model.GiocoPosseduto;
 import it.unical.mat.webcomp21.model.Utente;
 import it.unical.mat.webcomp21.persistence.DBManager;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 @Controller
 public class AccountController {

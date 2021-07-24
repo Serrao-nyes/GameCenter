@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import it.unical.mat.webcomp21.model.GiocoDesiderato;
-import it.unical.mat.webcomp21.model.GiocoPosseduto;
 import it.unical.mat.webcomp21.persistence.DBSource;
 import it.unical.mat.webcomp21.persistence.dao.GiocoDesideratoDAO;
 

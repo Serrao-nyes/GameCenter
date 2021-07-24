@@ -2,7 +2,6 @@ package it.unical.mat.webcomp21.gamecenter.controller;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import it.unical.mat.webcomp21.model.GiocoPosseduto;
@@ -14,7 +13,7 @@ public class GiochiPossedutiController {
 	
 	@PostMapping("doGiochiPosseduti")
 	public Boolean giochiPosseduti(HttpSession session, @RequestParam long idGiocoPosseduto, @RequestParam String nomeGiocoPosseduto) {
-		System.out.println("nyes");
+//		System.out.println("nyes");
 		GiocoPosseduto giocoPosseduto = new GiocoPosseduto();
 		giocoPosseduto.setId(idGiocoPosseduto);
 		giocoPosseduto.setNome(nomeGiocoPosseduto);
