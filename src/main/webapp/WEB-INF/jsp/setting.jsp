@@ -16,7 +16,7 @@
     <link href="../../css/settings.css" rel="stylesheet" type="text/css">
 
     <!-- Optional JavaScript -->
-    <script defer src="../../js/Impostazioni.js"></script>
+    <script defer src="../../js/setting.js"></script>
     <script src="https://kit.fontawesome.com/5f2af914a2.js" crossorigin="anonymous"></script>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -110,10 +110,10 @@
                 <input class="campo_risultato" type="email" placeholder="Email" name="username" value="" id="email" >
             </div>
             <div class="input">
-                <input class="campo_risultato" type="text" placeholder="Nome" name="username" value="" id="nome">
+                <input class="campo_risultato" type="text" placeholder="Nome" name="username" value="" id="nome" disabled="disabled">
             </div>
             <div class="input">
-                <input class="campo_risultato" type="text" placeholder="Cognome" name="username" value="" id="cognome">
+                <input class="campo_risultato" type="text" placeholder="Cognome" name="username" value="" id="cognome" disabled="disabled">
             </div>
             <div class="button"  id="save">Salva</div>
         </div>

@@ -11,7 +11,7 @@ public class PaginaGiocoController {
 	@GetMapping("GamePage")
 	public String paginaGioco(Model model, @RequestParam long idGioco) {
 		model.addAttribute("idGioco", idGioco);
-		return "GamePage";
+		return "gamePage";
 	}
 
 }

@@ -28,7 +28,7 @@ public class AccountController {
 			model.addAttribute("giochiDesiderati", utente.getGiochiDesiderati());
 		if(utente.getGiochiPosseduti().size() > 0)
 			model.addAttribute("giochiPosseduti", utente.getGiochiPosseduti());
-		return "Account";
+		return "account";
 	}
 	
 }

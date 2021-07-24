@@ -14,8 +14,7 @@ public class ImpostazioniController {
 	@PostMapping("doModificheAccount")
 	@ResponseBody
 	public String modificheAccount(HttpSession session, @RequestParam String username,  @RequestParam String password, 
-								   @RequestParam String confermaPassword, @RequestParam String email, @RequestParam String nome, 
-								   @RequestParam String cognome) {
+								   @RequestParam String confermaPassword, @RequestParam String email) {
 //		if(!password.equals(confermaPassword))
 //			return "Le due password inserite non coincidono";
 		Utente utenteUsername = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
@@ -33,13 +32,13 @@ public class ImpostazioniController {
 		utenteAggiornato.setUser(username);
 		utenteAggiornato.setPassword(password);
 		utenteAggiornato.setEmail(email);
-		utenteAggiornato.setNome(nome);
-		utenteAggiornato.setCognome(cognome);
+//		utenteAggiornato.setNome(nome);
+//		utenteAggiornato.setCognome(cognome);
 		DBManager.getInstance().utenteDAO().update(utenteAggiornato, utenteAttuale);
 		if(!username.equals(""))
 			session.setAttribute("usernamelogged", username);
-		if(!nome.equals(""))
-			session.setAttribute("nomeUtente", nome);
+//		if(!nome.equals(""))
+//			session.setAttribute("nomeUtente", nome);
 		return "Modifiche effettuate con successo";
 	}
 	

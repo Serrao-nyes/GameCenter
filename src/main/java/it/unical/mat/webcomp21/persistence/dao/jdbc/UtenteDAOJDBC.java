@@ -12,6 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import it.unical.mat.webcomp21.model.GiocoDesiderato;
 import it.unical.mat.webcomp21.model.GiocoPosseduto;
+import it.unical.mat.webcomp21.model.Password;
 import it.unical.mat.webcomp21.model.Utente;
 import it.unical.mat.webcomp21.persistence.DBManager;
 import it.unical.mat.webcomp21.persistence.DBSource;
@@ -33,7 +34,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			String query = "INSERT INTO utente VALUES(?, ?, ?, ?, ?)";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setString(1, utente.getUser());
-			st.setString(2, BCrypt.hashpw(utente.getPassword(), BCrypt.gensalt(12)));
+			st.setString(2, Password.encrypt(utente.getPassword()));
 			st.setString(3, utente.getEmail());
 			st.setString(4, utente.getNome());
 			st.setString(5, utente.getCognome());
@@ -122,7 +123,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 	public void update(Utente utenteAggiornato, Utente utenteAttuale) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String update = "UPDATE utente SET username = ?, password = ?, email = ?, nome = ?, cognome = ? WHERE username = ?";
+			String update = "UPDATE utente SET username = ?, password = ?, email = ? WHERE username = ?";
 			PreparedStatement st = conn.prepareStatement(update);
 			if(!utenteAggiornato.getUser().equals(""))
 				st.setString(1, utenteAggiornato.getUser());
@@ -130,10 +131,9 @@ public class UtenteDAOJDBC implements UtenteDAO {
 				st.setString(1, utenteAttuale.getUser());
 			
 			if(!utenteAggiornato.getPassword().equals(""))
-				st.setString(2, BCrypt.hashpw(utenteAggiornato.getPassword(), BCrypt.gensalt(12)));
+				st.setString(2, Password.encrypt(utenteAggiornato.getPassword()));
 			else {
-				System.out.println(utenteAttuale.getPassword());
-				st.setString(2, BCrypt.hashpw(utenteAttuale.getPassword(), BCrypt.gensalt(12)));
+				st.setString(2, utenteAttuale.getPassword());
 			}
 			
 			if(!utenteAggiornato.getEmail().equals(""))
@@ -141,16 +141,16 @@ public class UtenteDAOJDBC implements UtenteDAO {
 			else
 				st.setString(3, utenteAttuale.getEmail());
 			
-			if(!utenteAggiornato.getNome().equals(""))
-				st.setString(4, utenteAggiornato.getNome());
-			else
-				st.setString(4, utenteAttuale.getNome());
-			
-			if(!utenteAggiornato.getCognome().equals(""))
-				st.setString(5, utenteAggiornato.getCognome());
-			else
-				st.setString(5, utenteAttuale.getCognome());
-			st.setString(6, utenteAttuale.getUser());
+//			if(!utenteAggiornato.getNome().equals(""))
+//				st.setString(4, utenteAggiornato.getNome());
+//			else
+//				st.setString(4, utenteAttuale.getNome());
+//			
+//			if(!utenteAggiornato.getCognome().equals(""))
+//				st.setString(5, utenteAggiornato.getCognome());
+//			else
+//				st.setString(5, utenteAttuale.getCognome());
+			st.setString(4, utenteAttuale.getUser());
 			st.executeUpdate();
 			conn.close();
 		} catch (SQLException e) {

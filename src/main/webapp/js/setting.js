@@ -17,8 +17,8 @@ async function request()
         var password=document.getElementById("password").value
         var confPassword=document.getElementById("confermaPassword").value
         var email=document.getElementById("email").value
-        var nome=document.getElementById("nome").value
-        var cognome=document.getElementById("cognome").value
+        /*var nome=document.getElementById("nome").value
+        var cognome=document.getElementById("cognome").value*/
 		var regexEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 		if(!regexEmail.test(email) && email!==""){
 			alert("L'email inserita non e' corretta!")
@@ -35,7 +35,7 @@ async function request()
 	    $.ajax({
 	        url:"doModificheAccount",
 	        type:"POST",
-	            data:{username:user, password:password,confermaPassword:confPassword,email:email,nome:nome,cognome:cognome},
+	            data:{username:user, password:password, confermaPassword:confPassword, email:email/*,nome:nome,cognome:cognome*/},
 	            success:function(response){
 	                    if(response==="Modifiche effettuate con successo") {
 	                        alert("Modifiche effettuate con successo")

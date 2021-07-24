@@ -78,11 +78,11 @@ public class RegistrazioneController {
 		nuovoUtente.setEmail(email);
 		nuovoUtente.setNome(nome);
 		nuovoUtente.setCognome(cognome);
-		System.out.println("USER: " + username);
-		System.out.println("PASS: " + password);
-		System.out.println("EM: " + email);
-		System.out.println("NOME: " + nome);
-		System.out.println("COGNOME: " + cognome);
+//		System.out.println("USER: " + username);
+//		System.out.println("PASS: " + password);
+//		System.out.println("EM: " + email);
+//		System.out.println("NOME: " + nome);
+//		System.out.println("COGNOME: " + cognome);
 		DBManager.getInstance().utenteDAO().save(nuovoUtente);
 		return "Registrazione effettuata con successo";
 	} 
