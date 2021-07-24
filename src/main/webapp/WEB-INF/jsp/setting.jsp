@@ -88,12 +88,6 @@
                 <li id = "dato">
                     Email :
                 </li>
-                <li id = "dato">
-					Nome :
-                </li>
-                <li id = "dato">
-                    Cognome :
-                </li>
             </ul>
         </div>
         <div class="container" id="risultati">
@@ -108,12 +102,6 @@
             </div>
             <div class="input">
                 <input class="campo_risultato" type="email" placeholder="Email" name="username" value="" id="email" >
-            </div>
-            <div class="input">
-                <input class="campo_risultato" type="text" placeholder="Nome" name="username" value="" id="nome" disabled="disabled">
-            </div>
-            <div class="input">
-                <input class="campo_risultato" type="text" placeholder="Cognome" name="username" value="" id="cognome" disabled="disabled">
             </div>
             <div class="button"  id="save">Salva</div>
         </div>
