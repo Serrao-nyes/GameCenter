@@ -20,6 +20,11 @@ function request(){
 	var em=document.getElementById("email").value
 	var nom=document.getElementById("nome").value
 	var cogn=document.getElementById("cognome").value
+	var regexEmail= /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+	if(!regexEmail.test(email) && email!==""){
+		alert("L'email inserita non e' corretta!")
+		return
+	}
 	if(ps.length < 5) {
 		alert("La password deve contenere almeno 5 caratteri")
 		return
