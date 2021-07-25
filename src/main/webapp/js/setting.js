@@ -34,7 +34,7 @@ async function request()
 	    $.ajax({
 	        url:"doModificheAccount",
 	        type:"POST",
-	            data:{username:user, password:password, confermaPassword:confPassword, email:email},
+	            data:{username:user, password:password, email:email},
 	            success:function(response){
 	                    if(response==="Modifiche effettuate con successo") {
 	                        alert("Modifiche effettuate con successo")

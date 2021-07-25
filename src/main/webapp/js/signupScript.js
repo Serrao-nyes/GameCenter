@@ -13,7 +13,7 @@ function request(){
 	var nom=document.getElementById("nome").value
 	var cogn=document.getElementById("cognome").value
 	var regexEmail= /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-	if(!regexEmail.test(em) && em!==""){
+	if(!regexEmail.test(em) /*&& em!==""*/){
 		alert("L'email inserita non e' corretta!")
 		return
 	}

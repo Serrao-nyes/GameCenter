@@ -15,7 +15,7 @@ public class ImpostazioniController {
 	@PostMapping("doModificheAccount")
 	@ResponseBody
 	public String modificheAccount(HttpSession session, @RequestParam String username,  @RequestParam String password, 
-								   @RequestParam String confermaPassword, @RequestParam String email) {
+								   @RequestParam String email) {
 
 		Utente utenteUsername = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 		Utente utenteEmail = DBManager.getInstance().utenteDAO().findByEmail(email);

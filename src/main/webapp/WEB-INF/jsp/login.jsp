@@ -36,11 +36,11 @@
     <div class="container" id="Log-mod">
         <form id="login-form">
             <div class="input">
-                <input class="input__field" type="text" placeholder="Username" name="username" value="" id="user">
+                <input class="input__field" type="text" placeholder="Username" name="username" value="" id="user" required>
 
             </div>
             <div class="input">
-                <input class="input__field" type="password" placeholder="Password" name="password" value="" id="psw">
+                <input class="input__field" type="password" placeholder="Password" name="password" value="" id="psw" required>
             </div>
             <button class="button button_fill button_medium" type="submit" id="login">Login</button>
         </form>
