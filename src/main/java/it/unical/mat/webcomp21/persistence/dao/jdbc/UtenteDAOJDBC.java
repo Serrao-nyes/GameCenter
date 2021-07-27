@@ -266,7 +266,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 	public Boolean findGiocoDesideratoById(Long idGioco) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String query = "SELECT * FROM desidera WHERE id = ?";
+			String query = "SELECT * FROM desidera WHERE gioco = ?";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setLong(1, idGioco);
 			ResultSet rs = st.executeQuery();
@@ -285,7 +285,7 @@ public class UtenteDAOJDBC implements UtenteDAO {
 	public Boolean findGiocoPossedutoById(Long idGioco) {
 		try {
 			Connection conn = dbSource.getConnection();
-			String query = "SELECT * FROM possiede WHERE id = ?";
+			String query = "SELECT * FROM possiede WHERE gioco = ?";
 			PreparedStatement st = conn.prepareStatement(query);
 			st.setLong(1, idGioco);
 			ResultSet rs = st.executeQuery();

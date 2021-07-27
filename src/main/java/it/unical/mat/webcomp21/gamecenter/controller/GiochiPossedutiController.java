@@ -16,8 +16,16 @@ public class GiochiPossedutiController {
 		GiocoPosseduto giocoPosseduto = new GiocoPosseduto();
 		giocoPosseduto.setId(idGiocoPosseduto);
 		giocoPosseduto.setNome(nomeGiocoPosseduto);
-		if(session.getAttribute("usernamelogged") != null) {
-			String username = session.getAttribute("usernamelogged").toString();
+		if(session.getAttribute("usernamelogged") != null || session.getAttribute("usernameloggedGoogle")!=null ) {
+			String username=null;
+			if(session.getAttribute("usernamelogged")!=null)
+			{
+				username = session.getAttribute("usernamelogged").toString();
+			}
+			else
+			{
+				username = session.getAttribute("usernameloggedGoogle").toString();
+			}
 			Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 			GiocoPosseduto gp = DBManager.getInstance().giocoPossedutoDAO().findByPrimaryKey(idGiocoPosseduto);
 			if(gp == null)
@@ -34,8 +42,16 @@ public class GiochiPossedutiController {
 		GiocoPosseduto giocoPosseduto = new GiocoPosseduto();
 		giocoPosseduto.setId(idGiocoPosseduto);
 		giocoPosseduto.setNome(nomeGiocoPosseduto);
-		if(session.getAttribute("usernamelogged") != null) {
-			String username = session.getAttribute("usernamelogged").toString();
+		if(session.getAttribute("usernamelogged") != null || session.getAttribute("usernameloggedGoogle")!=null ) {
+			String username=null;
+			if(session.getAttribute("usernamelogged")!=null)
+			{
+				username = session.getAttribute("usernamelogged").toString();
+			}
+			else
+			{
+				username = session.getAttribute("usernameloggedGoogle").toString();
+			}
 			Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 			DBManager.getInstance().utenteDAO().removeGiochiPosseduti(utente, giocoPosseduto);
 			if(!DBManager.getInstance().utenteDAO().findGiocoPossedutoById(idGiocoPosseduto))

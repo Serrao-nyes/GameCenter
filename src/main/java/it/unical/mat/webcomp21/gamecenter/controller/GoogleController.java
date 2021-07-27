@@ -20,7 +20,7 @@ public class GoogleController {
         if(utenteEmail != null) {
         	Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
             if((utente != null) && BCrypt.checkpw("", utente.getPassword())) {
-               session.setAttribute("usernamelogged", username);
+               session.setAttribute("usernameloggedGoogle", username);
                session.setAttribute("nomeUtente", utente.getNome());
                return true;
         	}
@@ -34,7 +34,7 @@ public class GoogleController {
             nuovoUtente.setNome(nome);
             nuovoUtente.setCognome(cognome);
             DBManager.getInstance().utenteDAO().save(nuovoUtente);
-            session.setAttribute("usernamelogged", username);
+            session.setAttribute("usernameloggedGoogle", username);
             session.setAttribute("nomeUtente", nome);
             return true;
         }

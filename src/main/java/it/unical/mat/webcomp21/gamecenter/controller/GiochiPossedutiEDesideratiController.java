@@ -13,9 +13,17 @@ public class GiochiPossedutiEDesideratiController {
 	
 	@PostMapping("doGiochiDesideratiEPosseduti")
 	public String libreria(HttpSession session, @RequestParam Long idGioco) {
-		if(session.getAttribute("usernamelogged") == null)
+		if(session.getAttribute("usernamelogged") == null && session.getAttribute("usernameloggedGoogle") == null )
 			return "Non è stato effettuato il login";
-		String username = session.getAttribute("usernamelogged").toString();
+		String username=null;
+		if(session.getAttribute("usernamelogged")!=null)
+		{
+			username = session.getAttribute("usernamelogged").toString();
+		}
+		else
+		{
+			username = session.getAttribute("usernameloggedGoogle").toString();
+		}
 		Boolean giocoDesiderato = DBManager.getInstance().utenteDAO().findGiocoDesideratoByUsernameAndId(username, idGioco);
 		Boolean giocoPosseduto = DBManager.getInstance().utenteDAO().findGiocoPossedutoByUsernameAndId(username, idGioco);
 		if(giocoDesiderato && giocoPosseduto)

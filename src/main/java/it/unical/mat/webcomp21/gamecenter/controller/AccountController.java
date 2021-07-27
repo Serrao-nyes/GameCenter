@@ -15,7 +15,15 @@ public class AccountController {
 
 	@GetMapping("doAccount")
 	public String account(HttpSession session, Model model) {
-		String username = session.getAttribute("usernamelogged").toString();
+		String username=null;
+		if(session.getAttribute("usernamelogged")!=null)
+		{
+			 username = session.getAttribute("usernamelogged").toString();
+		}
+		else
+		{
+			 username = session.getAttribute("usernameloggedGoogle").toString();
+		}
 		Utente utente = DBManager.getInstance().utenteDAO().findByPrimaryKey(username);
 		DBManager.getInstance().utenteDAO().giochiDesiderati(utente);
 		DBManager.getInstance().utenteDAO().giochiPosseduti(utente);

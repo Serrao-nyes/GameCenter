@@ -25,7 +25,15 @@ public class ImpostazioniController {
 			return "Username gia' esistente";
 		if(utenteUsername == null && utenteEmail != null)
 			return "Email gia' esistente";
-		String user = session.getAttribute("usernamelogged").toString();
+		String user=null;
+		if(session.getAttribute("usernamelogged")!=null)
+		{
+			user = session.getAttribute("usernamelogged").toString();
+		}
+		else
+		{
+			user = session.getAttribute("usernameloggedGoogle").toString();
+		}
 		Utente utenteAttuale = DBManager.getInstance().utenteDAO().findByPrimaryKey(user);
 		if(Password.check(password, utenteAttuale.getPassword()))
 			return "La nuova password e' uguale a quella precedente";

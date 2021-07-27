@@ -38,8 +38,9 @@
             </div>
         </div>
 
-            <ul class="nav_menu">
-                <c:if test="${usernamelogged==null}">
+        <ul class="nav_menu">
+            <c:if test="${usernamelogged==null}">
+                <c:if test="${usernameloggedGoogle==null}">
                     <li class="nav_btn" >
                         <a href="goToLogin" class="button">Login</a>
                     </li>
@@ -47,7 +48,7 @@
                         <a href="goToRegistrazione" class="button">Registrati</a>
                     </li>
                 </c:if>
-                <c:if test="${usernamelogged!=null}">
+                <c:if test="${usernameloggedGoogle!=null}">
                     <li class="nav_item" >
                         <div class="nome-nav"> Benvenuto, ${nomeUtente}</div>
                     </li>
@@ -55,13 +56,45 @@
                         <a href="doAccount" class="button">Account</a>
                     </li>
                     <li class="nav_btn">
-                        <a href="doLogout"  class="button">Logout</a>
+                        <a class="button" onclick="signOut();">Logout</a>
+                        <script>
+                            document.onload=init()
+                            function init(){
+                                gapi.load('auth2', function () {
+                                    console.log("Eccomi1")
+                                    gapi.auth2.init({
+                                        client_id: "98707488730-ammo9gtj9eet510bvilg7uh4sue1jocv.apps.googleusercontent.com"
+                                    });
+                                });
+                            }
+                            function signOut() {
+
+                                var auth3 = gapi.auth2.getAuthInstance();
+                                auth3.signOut().then(function () {
+                                    window.location.href="doLogout"
+                                })
+
+                            }
+
+                        </script>
                     </li>
-
                 </c:if>
+            </c:if>
+            <c:if test="${usernamelogged!=null}">
+                <li class="nav_item" >
+                    <div class="nome-nav"> Benvenuto, ${nomeUtente}</div>
+                </li>
+                <li class="nav_btn">
+                    <a href="doAccount" class="button">Account</a>
+                </li>
+                <li class="nav_btn">
+                    <a href="doLogout"  class="button">Logout</a>
+                </li>
+
+            </c:if>
 
 
-            </ul>
+        </ul>
 
         </div>
     </nav>
