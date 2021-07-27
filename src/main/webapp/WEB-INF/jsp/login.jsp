@@ -16,6 +16,7 @@
     <meta name="google-signin-scope" content="profile email">
     <meta name="google-signin-client_id" content="98707488730-ammo9gtj9eet510bvilg7uh4sue1jocv.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+
     <!-- Optional JavaScript -->
     <script defer src="/js/loginScript.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -60,7 +61,7 @@
                     data:{username:user,email:mail,nome:nome,cognome:cognome},
                     success:function (response)
                     {
-
+                        console.log("si")
                         if (response)
                         {
 

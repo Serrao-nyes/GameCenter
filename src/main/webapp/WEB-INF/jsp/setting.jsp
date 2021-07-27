@@ -18,7 +18,8 @@
     <!-- Optional JavaScript -->
     <script defer src="../../js/setting.js"></script>
     <script src="https://kit.fontawesome.com/5f2af914a2.js" crossorigin="anonymous"></script>
-
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -109,37 +110,43 @@
     </div>
     <div class="container2" id= "segno"> Impostazioni <i class="fas fa-tools fa-lg" id = "icona_impo"></i> </div>
     <div class="container2" id = "main">
-        <div class="container" id="dati">
-            <ul id = "dati">
-                <li id = "dato">
-                    Username : 
-                </li>
-                <li id = "dato">
-                    Password :
-                </li>
-                <li id = "dato">
-                    Conferma Password :
-                </li>
-                <li id = "dato">
-                    Email :
-                </li>
-            </ul>
+        <c:if test="${usernamelogged!=null}">
+            <div class="container" id="dati">
+                <ul id = "dati">
+                    <li id = "dato">
+                        Username :
+                    </li>
+
+                    <li id = "dato">
+                        Password :
+                    </li>
+                    <li id = "dato">
+                        Conferma Password :
+                    </li>
+                    <li id = "dato">
+                        Email :
+                    </li>
+                </ul>
+            </div>
+            <div class="container" id="risultati">
+                <div class="input">
+                    <input class="campo_risultato" type="text" placeholder="Username" name="username" value="" id="username">
+                </div>
+                <div class="input">
+                    <input class="campo_risultato" type="password" placeholder="Password" name="username" value="" id="password">
+                </div>
+                <div class="input">
+                    <input class="campo_risultato" type="password" placeholder="Conferma Password" name="username" value="" id="confermaPassword">
+                </div>
+                <div class="input">
+                    <input class="campo_risultato" type="email" placeholder="Email" name="username" value="" id="email" >
+                </div>
+                <div class="button"  id="save">Salva</div>
+            </div>
+        </c:if>
+        <c:if test="${usernamelogged==null}">
+        NON PUOI CAMBIARE LE INFORMAZIONI PERCHE' HAI EFFETTUATO L'ACCESSO CON GOOGLE
+        </c:if>
         </div>
-        <div class="container" id="risultati">
-            <div class="input">
-                <input class="campo_risultato" type="text" placeholder="Username" name="username" value="" id="username">
-            </div>
-            <div class="input">
-                <input class="campo_risultato" type="password" placeholder="Password" name="username" value="" id="password">
-            </div>
-            <div class="input">
-                <input class="campo_risultato" type="password" placeholder="Conferma Password" name="username" value="" id="confermaPassword">
-            </div>
-            <div class="input">
-                <input class="campo_risultato" type="email" placeholder="Email" name="username" value="" id="email" >
-            </div>
-            <div class="button"  id="save">Salva</div>
-        </div>
-    </div>
 </body>
 </html>
