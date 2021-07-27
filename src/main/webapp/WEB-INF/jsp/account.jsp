@@ -107,7 +107,7 @@
         async function fetchListaDesideri(id){
             $.ajax({
                 type:'GET',
-                url:"https://api.rawg.io/api/games/"+id+"?key=2d150e2f5c964e6992d048af8ef065f7&",
+                url:"https://api.rawg.io/api/games/"+id+"?key=c80d8f813e0d48948dfe854d39e4d887&",
                 success:function (result){
                     creatGame(result.name,result.background_image,result.id)
                 }
@@ -137,7 +137,7 @@
         async function fetchListaDesideri(id){
             $.ajax({
                 type:'GET',
-                url:"https://api.rawg.io/api/games/"+id+"?key=2d150e2f5c964e6992d048af8ef065f7&",
+                url:"https://api.rawg.io/api/games/"+id+"?key=c80d8f813e0d48948dfe854d39e4d887&",
                 success:function (result){
                     creatGame(result.name,result.background_image,result.id)
                 }

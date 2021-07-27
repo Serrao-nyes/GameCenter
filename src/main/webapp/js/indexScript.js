@@ -20,7 +20,7 @@ async function fetchGames(page,size,store){
     if(!Filtred)
     { $.ajax({
             type:'GET',
-            url:"https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&page="+page+"&page_size="+size,
+            url:"https://api.rawg.io/api/games?key=c80d8f813e0d48948dfe854d39e4d887&page="+page+"&page_size="+size,
             success:function (result){
             Search=false
             for(var i=0;i<result.results.length;i++)
@@ -35,7 +35,7 @@ async function fetchGames(page,size,store){
     {
         $.ajax({
             type:'GET',
-            url:"https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&page="+page+"&page_size="+size+"&stores="+store,
+            url:"https://api.rawg.io/api/games?key=c80d8f813e0d48948dfe854d39e4d887&page="+page+"&page_size="+size+"&stores="+store,
             success:function (result){
                 for(var i=0;i<result.results.length;i++)
                 {
@@ -88,7 +88,7 @@ function createStoreBadge()
             else
             { $.ajax({
                 type: 'GET',
-                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
+                url: "https://api.rawg.io/api/games?key=c80d8f813e0d48948dfe854d39e4d887&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
                 success: function (result) {
                     cleanGameContainer()
                     for (var i = 0; i < result.results.length; i++) {
@@ -137,7 +137,7 @@ function createStoreBadge()
             else
             { $.ajax({
                 type: 'GET',
-                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
+                url: "https://api.rawg.io/api/games?key=c80d8f813e0d48948dfe854d39e4d887&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
                 success: function (result) {
                     cleanGameContainer()
                     for (var i = 0; i < result.results.length; i++) {
@@ -186,7 +186,7 @@ function createStoreBadge()
             else
             { $.ajax({
                 type: 'GET',
-                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
+                url: "https://api.rawg.io/api/games?key=c80d8f813e0d48948dfe854d39e4d887&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
                 success: function (result) {
                     cleanGameContainer()
                     for (var i = 0; i < result.results.length; i++) {
@@ -236,7 +236,7 @@ function createStoreBadge()
             else
             { $.ajax({
                 type: 'GET',
-                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
+                url: "https://api.rawg.io/api/games?key=c80d8f813e0d48948dfe854d39e4d887&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
                 success: function (result) {
                     cleanGameContainer()
                     for (var i = 0; i < result.results.length; i++) {
@@ -285,7 +285,7 @@ function createStoreBadge()
             else
             { $.ajax({
                 type: 'GET',
-                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
+                url: "https://api.rawg.io/api/games?key=c80d8f813e0d48948dfe854d39e4d887&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
                 success: function (result) {
                     cleanGameContainer()
                     for (var i = 0; i < result.results.length; i++) {
@@ -335,7 +335,7 @@ function createStoreBadge()
             else
             { $.ajax({
                 type: 'GET',
-                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
+                url: "https://api.rawg.io/api/games?key=c80d8f813e0d48948dfe854d39e4d887&search=" + document.getElementById("cerca").value +"&stores="+Store+"&page_size=100",
                 success: function (result) {
                     cleanGameContainer()
                     for (var i = 0; i < result.results.length; i++) {
@@ -567,7 +567,7 @@ function search() {
         Store=null
         $.ajax({
             type: 'GET',
-            url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&page_size=100",
+            url: "https://api.rawg.io/api/games?key=c80d8f813e0d48948dfe854d39e4d887&search=" + document.getElementById("cerca").value +"&page_size=100",
             success: function (result) {
                 cleanGameContainer()
                 for (var i = 0; i < result.results.length; i++) {
@@ -587,7 +587,7 @@ function search() {
             Store=null
             $.ajax({
                 type: 'GET',
-                url: "https://api.rawg.io/api/games?key=2d150e2f5c964e6992d048af8ef065f7&search=" + document.getElementById("cerca").value +"&page_size=100",
+                url: "https://api.rawg.io/api/games?key=c80d8f813e0d48948dfe854d39e4d887&search=" + document.getElementById("cerca").value +"&page_size=100",
                 success: function (result) {
                     cleanGameContainer()
                     for (var i = 0; i < result.results.length; i++) {

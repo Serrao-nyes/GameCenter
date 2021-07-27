@@ -131,7 +131,7 @@
         async function fetchInformation(){
             $.ajax({
                 type:'GET',
-                url:"https://api.rawg.io/api/games/"+"${idGioco}"+"?key=2d150e2f5c964e6992d048af8ef065f7&",
+                url:"https://api.rawg.io/api/games/"+"${idGioco}"+"?key=c80d8f813e0d48948dfe854d39e4d887&",
                 success:function (result){
                     createGameInformation(result.background_image,result.name,result.description_raw,result.genres,result.platforms)
 
@@ -141,7 +141,7 @@
         async function fetchVideos(){
             $.ajax({
                 type:'GET',
-                url:"https://api.rawg.io/api/games/"+"${idGioco}"+"/movies?key=2d150e2f5c964e6992d048af8ef065f7&",
+                url:"https://api.rawg.io/api/games/"+"${idGioco}"+"/movies?key=c80d8f813e0d48948dfe854d39e4d887&",
                 success:function (result){
 
                     if( result.count==0){
@@ -159,7 +159,7 @@
         async function fetchScreen(){
             $.ajax({
                 type:'GET',
-                url:"https://api.rawg.io/api/games/"+"${idGioco}"+"/screenshots?key=2d150e2f5c964e6992d048af8ef065f7&",
+                url:"https://api.rawg.io/api/games/"+"${idGioco}"+"/screenshots?key=c80d8f813e0d48948dfe854d39e4d887&",
                 success:function (result){
 
                     appendScreen(result.results)
@@ -169,7 +169,7 @@
         async  function fetchStores(){
             $.ajax({
                 type:'GET',
-                url:"https://api.rawg.io/api/games/"+"${idGioco}"+"/stores?key=2d150e2f5c964e6992d048af8ef065f7&",
+                url:"https://api.rawg.io/api/games/"+"${idGioco}"+"/stores?key=c80d8f813e0d48948dfe854d39e4d887&",
                 success:function (result){
 
                     appendStore(result.results)
